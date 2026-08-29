@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    category: "Getting started",
+    items: [
+      {
+        q: "What do I need to run QualiLens?",
+        a: "Python 3.10 or later, Node/npm (needed once for the first build), and an API key from at least one provider (Anthropic, OpenAI, Google, or Mistral). ffmpeg is optional — you only need it for video uploads or audio files over about 24 MB."
+      },
+      {
+        q: "How do I install it?",
+        a: "Clone the GitHub repository (or download the ZIP from Releases), open a terminal in the folder, and run <code>./run.sh</code>. The first launch builds everything automatically. No separate installer."
+      },
+      {
+        q: "Does it run on Windows?",
+        a: "QualiLens is developed and tested on macOS. The launcher is a shell script (<code>run.sh</code>), so it runs natively on macOS and Linux. On Windows, use WSL (Windows Subsystem for Linux) to run it."
+      },
+      {
+        q: "How do I update QualiLens?",
+        a: "Open Settings, find the Application card, and press <strong>Check for updates</strong>. When a newer release exists, <strong>Download and install</strong> applies it through a validated updater. Your projects, keys, and uploads are never touched by an update."
+      },
+    ]
+  },
+  {
+    category: "Data and privacy",
+    items: [
+      {
+        q: "Does QualiLens send my data to a server?",
+        a: "There is no QualiLens server. Your data goes only to the AI provider you chose, over a direct API connection. No telemetry, no analytics, no background connections."
+      },
+      {
+        q: "Where are my files stored?",
+        a: "The database (<code>backend/data/qualilens.db</code>) holds everything: projects, source text, codes, excerpts, checkpoints, and reports. Uploaded files sit in <code>backend/data/uploads/</code>. Back up <code>backend/data/</code> — everything else is regenerated from code."
+      },
+      {
+        q: "Are my API keys encrypted?",
+        a: "No. Keys are stored as plain text in the database. They are not encrypted and not held in a system keychain. Use <strong>Remove</strong> in Settings before sharing the folder, and prefer a key with its own spending limit."
+      },
+      {
+        q: "Can I use this with my ethics board?",
+        a: "Yes. The <a href='/privacy' class='text-brand-500 hover:underline'>Privacy page</a> has a section written in the terms ethics committees use — covering processing location, third-party transfer, de-identification, automated decision-making, and reproducibility."
+      },
+    ]
+  },
+  {
+    category: "Analysis",
+    items: [
+      {
+        q: "Which methods does QualiLens support?",
+        a: "Five: grounded theory, reflexive thematic analysis, qualitative content analysis, framework/deductive coding, and corpus-grounded literature synthesis. Each has its own pipeline, checkpoints, and report figure."
+      },
+      {
+        q: "Which AI providers and models can I use?",
+        a: "Anthropic (Claude), OpenAI (GPT), Google (Gemini), and Mistral. The model catalog is editable, and you can type any current model ID as a custom choice. <strong>Check models</strong> in Settings verifies which catalog models are still served."
+      },
+      {
+        q: "How much does a run cost?",
+        a: "It depends on the provider, model, method, and corpus size. The wizard shows a cost estimate before you start. A single short transcript typically costs a few cents. Grounded theory with its multiple passes is the most expensive method; content analysis is the cheapest."
+      },
+      {
+        q: "Can I change codes during the analysis?",
+        a: "Yes — that is the point of checkpoints. At every review stage you can rename, redefine, merge, delete, or add codes. Your edits are final and are never overwritten by later automated stages."
+      },
+      {
+        q: "What if a run fails partway through?",
+        a: "Resume it. Resuming skips work already completed, so you are never re-billed for finished stages. Common causes include rate limiting (HTTP 429), expired keys (HTTP 401), and network drops."
+      },
+      {
+        q: "Can I go back and change a decision I made at a checkpoint?",
+        a: "Yes — branch from that checkpoint. A branch copies everything up to that review into a new run and reopens it. The original run and its report stay untouched."
+      },
+    ]
+  },
+  {
+    category: "Uploads and transcription",
+    items: [
+      {
+        q: "What file types can I upload?",
+        a: "<code>.txt</code>, <code>.md</code>, <code>.docx</code>, <code>.pdf</code>, <code>.rtf</code>, <code>.mp3</code>, <code>.mp4</code>, <code>.m4a</code>, <code>.wav</code>, <code>.webm</code>. Audio and video are transcribed automatically."
+      },
+      {
+        q: "Do I need an OpenAI key for transcription?",
+        a: "Yes. Transcription always runs through OpenAI's Whisper service, regardless of which provider you chose for analysis. Save an OpenAI key in Settings if you plan to upload recordings."
+      },
+      {
+        q: "Why does my PDF show no text?",
+        a: "It is probably a scanned PDF that holds page images with no text layer. Run it through OCR first, or supply the transcript as a text file."
+      },
+    ]
+  },
+  {
+    category: "Reports",
+    items: [
+      {
+        q: "What does the report contain?",
+        a: "Narrative sections (overview, findings by theme, integration, limitations), a method-appropriate figure, source buttons that open the coded-source reader, a collapsible evidence section with every code and its excerpts, and an audit appendix. Literature synthesis adds an extraction table appendix."
+      },
+      {
+        q: "Can I export to Word?",
+        a: "Yes. <strong>Download .docx</strong> builds a formatted document from the same data — Georgia at 11pt, title block, narrative, captioned figure, evidence listing, and audit appendix. The file is named after your project."
+      },
+      {
+        q: "Is the report narrative publishable as-is?",
+        a: "Treat it as a draft. The narrative is grounded in the structure you approved, and it is not a findings section you can publish unedited. Read it, revise it, and verify the excerpts against the sources before you use it."
+      },
+    ]
+  },
+  {
+    category: "Troubleshooting",
+    items: [
+      {
+        q: "\"Port 8765 is already in use\"",
+        a: "Another process holds the port — usually a QualiLens instance you forgot to stop. Either open the address it prints, or start on a different port: <code>QUALILENS_PORT=8790 ./run.sh</code>"
+      },
+      {
+        q: "The model returns truncated or malformed JSON",
+        a: "Resume the run — the failure is often transient. If it recurs at the same stage, the source may be producing more output than the token budget allows. Try a different model or split the corpus."
+      },
+      {
+        q: "\"Gemini returned no candidates (block reason: ...)\"",
+        a: "A safety filter blocked the response. Qualitative data about health, violence, or abuse can trigger this. Resume once. A different provider is the practical remedy if the same segment blocks repeatedly."
+      },
+      {
+        q: "I see near-duplicate codes",
+        a: "The AI coder is shown existing codes to encourage reuse, but that listing caps at 120. On a large corpus, later segments may stop seeing early codes. Merge the duplicates at your first checkpoint."
+      },
+    ]
+  },
+];
+---
+
+<BaseLayout title="FAQ — QualiLens" description="Frequently asked questions about installing, running, and troubleshooting QualiLens.">
+
+  <!-- Header -->
+  <section class="bg-gradient-to-b from-brand-50 to-white pt-20 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">FAQ</h1>
+      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">Answers drawn from the fifteen-chapter manual that ships with QualiLens.</p>
+    </div>
+  </section>
+
+  <!-- FAQ sections -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-6 space-y-16">
+      {faqs.map(({ category, items }) => (
+        <div>
+          <h2 class="text-xl font-bold mb-6 pb-3 border-b border-border">{category}</h2>
+          <div class="space-y-6">
+            {items.map(({ q, a }) => (
+              <details class="group bg-surface rounded-xl border border-border">
+                <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-medium text-text-primary hover:text-brand-600 transition-colors">
+                  <span>{q}</span>
+                  <svg class="w-5 h-5 text-text-muted shrink-0 ml-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed" set:html={a} />
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Still stuck -->
+  <section class="py-12 bg-surface border-t border-border">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-xl font-bold mb-3">Still stuck?</h2>
+      <p class="text-text-secondary mb-4">The full manual ships inside the app — open it from the top bar. For bugs, open an issue on GitHub.</p>
+      <a href="https://github.com/iconerr/qualilens/issues" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        Report an issue
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

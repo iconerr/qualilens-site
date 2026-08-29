@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="QualiLens — LLM-Assisted Qualitative Data Analysis">
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-accent-light/30"></div>
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-100/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+    <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-28">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-100/60 text-brand-600 text-xs font-semibold mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+          Free &amp; open source &middot; Apache 2.0
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+          Qualitative analysis<br />
+          <span class="text-brand-500">with AI you can audit.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-text-secondary leading-relaxed mb-8 max-w-2xl">
+          QualiLens runs five established qualitative methods — from grounded theory to literature synthesis — with LLM coding that pauses for your review, keeps verbatim provenance on every excerpt, and never touches a server we control.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="https://github.com/iconerr/qualilens" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors shadow-lg shadow-brand-500/20">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            Get QualiLens
+          </a>
+          <a href="/features" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-border text-text-primary font-semibold hover:border-brand-400 hover:text-brand-600 transition-colors">
+            See how it works
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works: 5-step wizard -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Five steps to a complete analysis</h2>
+        <p class="text-text-secondary text-lg max-w-2xl mx-auto">The wizard walks you through method selection, configuration, model choice, data upload, and cost estimation — then the pipeline runs, pausing at each checkpoint for your review.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <div class="relative p-6 rounded-2xl bg-surface border border-border hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-100/50 transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <div class="text-xs font-bold text-brand-500 mb-1">Step 1</div>
+          <h3 class="font-semibold text-text-primary mb-2">Choose a method</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">Grounded theory, thematic analysis, content analysis, framework coding, or literature synthesis.</p>
+        </div>
+
+        <div class="relative p-6 rounded-2xl bg-surface border border-border hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-100/50 transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div class="text-xs font-bold text-brand-500 mb-1">Step 2</div>
+          <h3 class="font-semibold text-text-primary mb-2">Configure</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">Set your research question, method-specific options, and any codebook or framework.</p>
+        </div>
+
+        <div class="relative p-6 rounded-2xl bg-surface border border-border hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-100/50 transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="text-xs font-bold text-brand-500 mb-1">Step 3</div>
+          <h3 class="font-semibold text-text-primary mb-2">Pick a model</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">Anthropic, OpenAI, Google, or Mistral — your key, your account, direct connection.</p>
+        </div>
+
+        <div class="relative p-6 rounded-2xl bg-surface border border-border hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-100/50 transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+          </div>
+          <div class="text-xs font-bold text-brand-500 mb-1">Step 4</div>
+          <h3 class="font-semibold text-text-primary mb-2">Upload data</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">Drag in documents, PDFs, or recordings. Transcription runs automatically.</p>
+        </div>
+
+        <div class="relative p-6 rounded-2xl bg-surface border border-border hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-100/50 transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="text-xs font-bold text-brand-500 mb-1">Step 5</div>
+          <h3 class="font-semibold text-text-primary mb-2">Review &amp; run</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">See a cost estimate, start the pipeline, and approve each checkpoint.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Five methods -->
+  <section class="py-20 md:py-28 bg-surface">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Five established methods</h2>
+        <p class="text-text-secondary text-lg max-w-2xl mx-auto">Each method follows its own epistemology. QualiLens implements distinct pipelines with method-appropriate stages, checkpoints, and figures.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-brand-100/40 border border-border">
+          <h3 class="text-lg font-bold mb-3">Grounded Theory</h3>
+          <dl class="space-y-3 text-sm">
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Stages</dt><dd class="text-text-secondary leading-relaxed">Familiarization, open coding, axial coding, selective coding</dd></div>
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Checkpoints</dt><dd class="text-text-secondary leading-relaxed">Code review, core category, theoretical model</dd></div>
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Report figure</dt><dd class="text-text-secondary leading-relaxed">Paradigm flow model</dd></div>
+          </dl>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-blue-500/10 to-accent-light/40 border border-border">
+          <h3 class="text-lg font-bold mb-3">Thematic Analysis</h3>
+          <dl class="space-y-3 text-sm">
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Stages</dt><dd class="text-text-secondary leading-relaxed">Familiarization, initial coding, theme construction, theme review</dd></div>
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Checkpoints</dt><dd class="text-text-secondary leading-relaxed">Code review, theme refinement</dd></div>
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Report figure</dt><dd class="text-text-secondary leading-relaxed">Thematic map</dd></div>
+          </dl>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-emerald-50 border border-border">
+          <h3 class="text-lg font-bold mb-3">Content Analysis</h3>
+          <dl class="space-y-3 text-sm">
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Stages</dt><dd class="text-text-secondary leading-relaxed">Codebook derivation or import, systematic coding</dd></div>
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Checkpoints</dt><dd class="text-text-secondary leading-relaxed">Codebook approval, frequency review</dd></div>
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Report figure</dt><dd class="text-text-secondary leading-relaxed">Frequency bar chart</dd></div>
+          </dl>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-amber-500/10 to-amber-50 border border-border">
+          <h3 class="text-lg font-bold mb-3">Framework Coding</h3>
+          <dl class="space-y-3 text-sm">
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Stages</dt><dd class="text-text-secondary leading-relaxed">Apply framework, chart by source, build matrix</dd></div>
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Checkpoints</dt><dd class="text-text-secondary leading-relaxed">Low-confidence review, emergent codes, matrix</dd></div>
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Report figure</dt><dd class="text-text-secondary leading-relaxed">Framework heatmap</dd></div>
+          </dl>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-rose-500/10 to-rose-50 border border-border">
+          <h3 class="text-lg font-bold mb-3">Literature Synthesis</h3>
+          <dl class="space-y-3 text-sm">
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Stages</dt><dd class="text-text-secondary leading-relaxed">Structured extraction, cross-paper synthesis, concept matrix</dd></div>
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Checkpoints</dt><dd class="text-text-secondary leading-relaxed">Extraction table, concept review</dd></div>
+            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Report figure</dt><dd class="text-text-secondary leading-relaxed">Concept-by-paper heatmap</dd></div>
+          </dl>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-brand-600 text-white flex flex-col justify-center">
+          <h3 class="text-lg font-bold mb-3">Built for researchers</h3>
+          <p class="text-white/80 text-sm leading-relaxed mb-5">Every method follows published methodological commitments. The wizard records your choices verbatim so your methods section writes itself.</p>
+          <a href="/features" class="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-brand-100 transition-colors">
+            Explore all features
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key differentiators -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">What makes QualiLens different</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex gap-4">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1.5">Researcher-led checkpoints</h3>
+            <p class="text-sm text-text-secondary leading-relaxed">The pipeline pauses at every analytic decision point. Your edits are final and are never overwritten by later automated stages.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1.5">Provenance on every excerpt</h3>
+            <p class="text-sm text-text-secondary leading-relaxed">Every coded passage stores the verbatim quote and its character position. The coded-source reader draws coding over each document in place.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1.5">Full audit trail</h3>
+            <p class="text-sm text-text-secondary leading-relaxed">Every stage boundary, model call, and researcher decision is logged. The report appendix reproduces this trail for reviewers.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1.5">Runs locally</h3>
+            <p class="text-sm text-text-secondary leading-relaxed">No QualiLens server. Your data goes only to the AI provider you chose, over a direct API connection. Nothing is collected.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1.5">Four providers, your key</h3>
+            <p class="text-sm text-text-secondary leading-relaxed">Anthropic, OpenAI, Google, and Mistral. Cost estimation before every run, and resumable runs that never re-bill finished work.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1.5">Reports and Word export</h3>
+            <p class="text-sm text-text-secondary leading-relaxed">Interactive report with narrative sections, method-appropriate figures, full evidence chains, and one-click Word export.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy banner -->
+  <section class="py-16 bg-gradient-to-r from-brand-600 to-brand-500 text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Your data stays on your computer.</h2>
+      <p class="text-white/80 text-lg leading-relaxed mb-6">No QualiLens server, no telemetry, no analytics, no background connections. Analysis calls go directly to the provider whose key you supplied — and nowhere else.</p>
+      <a href="/privacy" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-brand-600 font-semibold hover:bg-brand-50 transition-colors">
+        Read the full privacy statement
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Getting started CTA -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to start?</h2>
+      <p class="text-text-secondary text-lg mb-8 max-w-xl mx-auto">QualiLens needs Python, Node, and an API key. A first analysis on one short document costs cents, not dollars.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/getting-started" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors shadow-lg shadow-brand-500/20">
+          Getting started guide
+        </a>
+        <a href="https://github.com/iconerr/qualilens" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-border text-text-primary font-semibold hover:border-brand-400 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citation -->
+  <section class="py-12 bg-surface border-t border-border">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-sm text-text-muted mb-2">If QualiLens contributes to your research, please cite it:</p>
+      <p class="text-sm text-text-secondary font-mono bg-white px-4 py-3 rounded-lg border border-border inline-block">Aggarwal, A., &amp; Commuri, S. (2026). <em>QualiLens</em> [Computer software].</p>
+    </div>
+  </section>
+
+</BaseLayout>
