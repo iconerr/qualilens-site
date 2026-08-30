@@ -34,15 +34,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </thead>
           <tbody class="text-text-secondary">
             <tr class="border-t border-border">
-              <td class="py-3 px-4 font-medium text-text-primary">Python 3.10+</td>
+              <td class="py-3 px-4 font-medium text-text-primary">Python 3.11+</td>
               <td class="py-3 px-4">Runs the backend and analysis pipelines</td>
               <td class="py-3 px-4"><code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">python3 --version</code></td>
               <td class="py-3 px-4"><code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">brew install python@3.12</code> or <a href="https://python.org" target="_blank" rel="noopener" class="text-brand-500 hover:underline">python.org</a></td>
             </tr>
             <tr class="border-t border-border">
-              <td class="py-3 px-4 font-medium text-text-primary">Node &amp; npm</td>
-              <td class="py-3 px-4">Builds the interface once, on first launch</td>
-              <td class="py-3 px-4"><code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">npm --version</code></td>
+              <td class="py-3 px-4 font-medium text-text-primary">Node 18+ &amp; npm <span class="text-text-muted font-normal">(clone only)</span></td>
+              <td class="py-3 px-4">Builds the interface once, on first launch. Not needed if you downloaded the release ZIP</td>
+              <td class="py-3 px-4"><code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">node -v</code></td>
               <td class="py-3 px-4"><a href="https://nodejs.org" target="_blank" rel="noopener" class="text-brand-500 hover:underline">nodejs.org</a></td>
             </tr>
             <tr class="border-t border-border">
@@ -66,16 +66,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-center gap-3 mb-6">
         <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">2</span>
-        <h2 class="text-2xl font-bold">Download from GitHub</h2>
+        <h2 class="text-2xl font-bold">Download QualiLens</h2>
       </div>
 
-      <p class="text-text-secondary mb-6">Clone or download the repository. The full application is in the repository — there is no separate installer.</p>
+      <p class="text-text-secondary mb-6">Download the latest release, unzip it, and place the folder wherever you like. The release includes the pre-built interface — you need only Python, no Node or npm.</p>
+
+      <a href="https://github.com/iconerr/qualilens/releases/latest/download/QualiLens.zip" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors mb-4">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" /></svg>
+        Download QualiLens.zip
+      </a>
+
+      <p class="text-sm text-text-muted mb-4">Developers who want to modify the code can clone the repository instead — this path requires Node 18+ to build the interface on first launch.</p>
 
       <div class="bg-text-primary rounded-xl p-5 mb-4 overflow-x-auto">
         <code class="text-sm text-green-400 font-mono">git clone https://github.com/iconerr/qualilens.git</code>
       </div>
-
-      <p class="text-sm text-text-muted mb-4">Or download the ZIP from the <a href="https://github.com/iconerr/qualilens/releases" target="_blank" rel="noopener" class="text-brand-500 hover:underline">Releases page</a> and unzip it wherever you like.</p>
 
       <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 flex gap-3">
         <svg class="w-5 h-5 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
