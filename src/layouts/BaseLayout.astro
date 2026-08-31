@@ -10,7 +10,23 @@ const { title, description = "A local application for LLM-assisted qualitative d
 const currentPath = Astro.url.pathname;
 const canonicalUrl = new URL(currentPath, Astro.site).href;
 const ogImage = new URL('/og-image.png', Astro.site).href;
-const appVersion = '1.0.0';
+// Fetch latest release version from GitHub at build time.
+// Falls back to a hardcoded value if the API is unreachable (rate limit,
+// network outage, etc.).  Update the fallback when convenient — it only
+// matters when the fetch fails.
+let appVersion = '1.4.0';
+try {
+  const res = await fetch(
+    'https://api.github.com/repos/iconerr/qualilens/releases/latest',
+    { headers: { 'Accept': 'application/vnd.github.v3+json',
+                 'User-Agent': 'qualilens-site' } }
+  );
+  if (res.ok) {
+    const data = await res.json();
+    const tag = (data.tag_name || '').replace(/^v/, '');
+    if (tag) appVersion = tag;
+  }
+} catch { /* network / rate-limit — use fallback */ }
 ---
 
 <!doctype html>
