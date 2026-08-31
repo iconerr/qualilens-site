@@ -2,7 +2,7 @@
 layout: ../../layouts/DocsLayout.astro
 title: "The Wizard"
 order: 2
-description: "The five wizard steps, every control, and what each Continue button does."
+description: "The five wizard steps, all controls, and what each Continue button does."
 ---
 
 # 2. The Wizard, Step by Step

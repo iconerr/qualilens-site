@@ -2,7 +2,7 @@
 layout: ../../layouts/DocsLayout.astro
 title: "Troubleshooting"
 order: 13
-description: "Every failure the app can show you and what to do about it."
+description: "All failures the app can show you and what to do about it."
 ---
 
 # 13. Troubleshooting

@@ -26,9 +26,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <div class="prose prose-gray max-w-none">
-        <p class="text-text-secondary leading-relaxed mb-4">Every analysis pipeline pauses at the analytic decision points — code review, category or theme construction, core category selection, framework charting — and waits for your approval. At each checkpoint you can rename, redefine, merge, delete, or add codes. Your edits are final: no later automated stage overwrites a name or definition you set by hand.</p>
-        <p class="text-text-secondary leading-relaxed mb-4">The checkpoint panel shows every code with its evidence. Clicking a code reveals every excerpt assigned to it, with its verbatim quote, the source filename, and a link to view it in context. Multi-select lets you merge duplicates or near-synonyms in one action. Search and sort help you navigate a large code set.</p>
-        <p class="text-text-secondary leading-relaxed">Every decision you make at a checkpoint is recorded: the audit trail logs what changed, and the report's appendix names every checkpoint and its resolution status.</p>
+        <p class="text-text-secondary leading-relaxed mb-4">The analysis pipeline pauses at the analytic decision points — code review, category or theme construction, core category selection, framework charting — and waits for your approval. At each checkpoint you can rename, redefine, merge, delete, or add codes. Your edits are final: no later automated stage overwrites a name or definition you set by hand.</p>
+        <p class="text-text-secondary leading-relaxed mb-4">The checkpoint panel shows all codes with their evidence. Clicking a code reveals all excerpts assigned to it, with its verbatim quote, the source filename, and a link to view it in context. Multi-select lets you merge duplicates or near-synonyms in one action. Search and sort help you navigate a large code set.</p>
+        <p class="text-text-secondary leading-relaxed">Each decision you make at a checkpoint is recorded: the audit trail logs what changed, and the report's appendix names all checkpoints and their resolution statuses.</p>
       </div>
 
       <div class="mt-8 border border-border/60 shadow-xl overflow-hidden">
@@ -38,11 +38,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Audit trail callout -->
       <div class="mt-10 bg-surface border border-border/60 shadow-md p-6">
         <h3 class="font-semibold mb-3">Full audit trail</h3>
-        <p class="text-text-secondary leading-relaxed mb-4">The pipeline writes a timestamped log entry for every substantive action: each model call, each checkpoint opened and resolved, each code you renamed or merged, and the exact prompt sent at every stage. The log is stored per-run, viewable alongside the pipeline progress, and reproduced in the Word export's audit appendix. An ethics committee or methods reviewer can trace the entire analytic process from source upload to final report without asking the researcher to reconstruct it from memory.</p>
+        <p class="text-text-secondary leading-relaxed mb-4">The pipeline writes a timestamped log entry for all substantive actions: each model call, each checkpoint opened and resolved, each code you renamed or merged, and the exact prompt sent at each stage. The log is stored per-run, viewable alongside the pipeline progress, and reproduced in the Word export's audit appendix. An ethics committee or methods reviewer can trace the entire analytic process from source upload to final report without asking the researcher to reconstruct it from memory.</p>
       </div>
 
       <div class="mt-8 border border-border/60 shadow-xl overflow-hidden">
-        <img src="/screenshots/app-run-complete.png" alt="QualiLens completed run: pipeline stages with timestamps and audit log showing every model call and checkpoint resolution" class="w-full" loading="lazy" />
+        <img src="/screenshots/app-run-complete.png" alt="QualiLens completed run: pipeline stages with timestamps and audit log showing all model calls and checkpoint resolution" class="w-full" loading="lazy" />
       </div>
     </div>
   </section>
@@ -56,12 +56,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <div>
           <h2 class="text-2xl md:text-3xl font-bold">Provenance-first evidence</h2>
-          <p class="text-text-secondary mt-2">Every quote linked to its exact position in the source.</p>
+          <p class="text-text-secondary mt-2">Each quote linked to its exact position in the source.</p>
         </div>
       </div>
 
       <div class="prose prose-gray max-w-none">
-        <p class="text-text-secondary leading-relaxed mb-4">Every excerpt stores the verbatim quote and its character offsets. When you click "view in coded document," the coded-source reader opens that document with the excerpt highlighted at its exact location, with every other coded passage in the document shaded around it.</p>
+        <p class="text-text-secondary leading-relaxed mb-4">Each excerpt stores the verbatim quote and its character offsets. When you click "view in coded document," the coded-source reader opens that document with the excerpt highlighted at its exact location, with all other coded passages in the document shaded around it.</p>
         <p class="text-text-secondary leading-relaxed mb-4">Quotes that the AI model paraphrased rather than copying verbatim are flagged as "not located" and collected in a separate panel — they still count as evidence, but they draw your attention to places where the coder departed from the text.</p>
         <p class="text-text-secondary leading-relaxed">PDF sources carry page anchors, so quotes in the report name both the source file and the page number.</p>
       </div>
@@ -107,7 +107,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <div class="prose prose-gray max-w-none mb-8">
-        <p class="text-text-secondary leading-relaxed mb-4">A completed run produces an interactive report with narrative sections (overview, findings by theme, integration, limitations), a method-appropriate figure, source buttons that open the coded-source reader, and a collapsible evidence section where every code shows its definition and every excerpt beneath it.</p>
+        <p class="text-text-secondary leading-relaxed mb-4">A completed run produces an interactive report with narrative sections (overview, findings by theme, integration, limitations), a method-appropriate figure, source buttons that open the coded-source reader, and a collapsible evidence section where all codes show their definitions and all excerpts beneath them.</p>
         <p class="text-text-secondary leading-relaxed">The Word export builds a formatted .docx from the same data: Georgia at eleven points, title block, narrative, figure with caption, evidence listing (twelve excerpts per code), and audit appendix. The file is named after your project.</p>
       </div>
 
@@ -176,7 +176,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="prose prose-gray max-w-none">
         <p class="text-text-secondary leading-relaxed mb-4">Literature synthesis extracts aims, method, sample, findings, and limitations from each paper, then builds a concept-by-paper matrix grounded strictly in the extraction quotes. Synthesis support must reference located extraction quotes by ID; ungrounded support is dropped and logged.</p>
-        <p class="text-text-secondary leading-relaxed mb-4">The extraction table presents every paper's five-field summary — aims, method, sample, findings, limitations — in a structured row with verbatim quote counts per field. Expanding a row shows the full extraction with the exact passages the model used. This table is both an intermediate checkpoint (you review and edit it before synthesis proceeds) and a standalone deliverable: the kind of structured evidence table a systematic review demands, built in minutes instead of weeks.</p>
+        <p class="text-text-secondary leading-relaxed mb-4">The extraction table presents each paper's five-field summary — aims, method, sample, findings, limitations — in a structured row with verbatim quote counts per field. Expanding a row shows the full extraction with the exact passages the model used. This table is both an intermediate checkpoint (you review and edit it before synthesis proceeds) and a standalone deliverable: the kind of structured evidence table a systematic review demands, built in minutes instead of weeks.</p>
         <p class="text-text-secondary leading-relaxed">A citation guard scans the generated narrative for citation-shaped strings that match no uploaded paper. Any it finds are listed in the report's limitations section. This is a tripwire against fabricated references, not a validation of real ones.</p>
       </div>
 
@@ -225,7 +225,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="prose prose-gray max-w-none">
         <p class="text-text-secondary leading-relaxed mb-4">The model catalog is editable. A live model check compares the catalog against each provider's own listing endpoint — no tokens spent, nothing sent beyond your key. A model marked as retired is a prompt to pick a different one. You can also type any current model ID under "Custom model id" in the wizard.</p>
         <p class="text-text-secondary leading-relaxed mb-4">Transcription of audio and video always runs through OpenAI's Whisper service, regardless of which provider performs the analysis. If you upload recordings and use Anthropic, Google, or Mistral for coding, you still need an OpenAI key saved in Settings.</p>
-        <p class="text-text-secondary leading-relaxed">Before every run, the wizard estimates the cost based on your corpus size, chosen method, and model. The estimate covers the full pipeline — all stages, all documents — so you know what you are committing before the first model call.</p>
+        <p class="text-text-secondary leading-relaxed">Before each run, the wizard estimates the cost based on your corpus size, chosen method, and model. The estimate covers the full pipeline — all stages, all documents — so you know what you are committing before the first model call.</p>
       </div>
     </div>
   </section>
@@ -236,7 +236,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 class="text-2xl md:text-3xl font-bold mb-3">Try it on one document</h2>
-          <p class="text-text-secondary text-lg">A single-transcript run typically costs a few cents and exposes every checkpoint before you commit a full corpus.</p>
+          <p class="text-text-secondary text-lg">A single-transcript run typically costs a few cents and exposes all checkpoints before you commit a full corpus.</p>
         </div>
         <div class="md:text-right">
           <a href="/getting-started" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors shadow-lg shadow-brand-500/20">
