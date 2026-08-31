@@ -1,0 +1,120 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Documentation" description="The complete QualiLens user manual: installation, methods, checkpoints, reports, and reference.">
+
+  <h1>Documentation</h1>
+
+  <p>This is the complete user manual that ships inside QualiLens. It documents every screen, every control, and the principles behind each choice the application asks you to make.</p>
+
+  <div class="mb-8 bg-surface border border-border/60 shadow-md p-5">
+    <p class="text-sm text-text-secondary leading-relaxed mb-3"><strong class="text-text-primary">New to QualiLens?</strong> Read <a href="/docs/getting-started" class="text-brand-500 hover:underline">Getting Started</a>, then follow <a href="/docs/walkthrough" class="text-brand-500 hover:underline">the Walkthrough</a>, which takes one dataset end to end through thematic analysis.</p>
+    <p class="text-sm text-text-secondary leading-relaxed mb-3"><strong class="text-text-primary">Starting an analysis?</strong> Read <a href="/docs/choosing-a-method" class="text-brand-500 hover:underline">Choosing a Method</a>, then the chapter for the method you chose, then <a href="/docs/the-wizard" class="text-brand-500 hover:underline">The Wizard</a> as you work through the five steps.</p>
+    <p class="text-sm text-text-secondary leading-relaxed mb-3"><strong class="text-text-primary">Checking a finished run?</strong> Read <a href="/docs/coded-source-reader" class="text-brand-500 hover:underline">The Coded-Source Reader</a>, which is where the coding is checked against the documents it came from.</p>
+    <p class="text-sm text-text-secondary leading-relaxed"><strong class="text-text-primary">Something went wrong?</strong> Go to <a href="/docs/runs-and-recovery" class="text-brand-500 hover:underline">Runs and Recovery</a> or <a href="/docs/troubleshooting" class="text-brand-500 hover:underline">Troubleshooting</a>.</p>
+  </div>
+
+  <h2>Chapters</h2>
+
+  <div class="space-y-6 mt-4">
+
+    <div>
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted mb-3">Getting started</h3>
+      <table class="w-full text-sm">
+        <tbody>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/getting-started" class="text-brand-500 hover:underline font-medium">Getting Started</a></td>
+            <td class="py-2 text-text-secondary">Prerequisites, first launch, API keys, ffmpeg, where files live on disk</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/the-wizard" class="text-brand-500 hover:underline font-medium">The Wizard</a></td>
+            <td class="py-2 text-text-secondary">The five wizard steps, every control, what each Continue button does</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/choosing-a-method" class="text-brand-500 hover:underline font-medium">Choosing a Method</a></td>
+            <td class="py-2 text-text-secondary">The five methods compared, what each one produces, how to choose</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted mb-3">Methods</h3>
+      <table class="w-full text-sm">
+        <tbody>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/grounded-theory" class="text-brand-500 hover:underline font-medium">Grounded Theory</a></td>
+            <td class="py-2 text-text-secondary">Setup options, stages, checkpoints, output</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/thematic-analysis" class="text-brand-500 hover:underline font-medium">Thematic Analysis</a></td>
+            <td class="py-2 text-text-secondary">Setup options, stages, checkpoints, output</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/content-analysis" class="text-brand-500 hover:underline font-medium">Content Analysis</a></td>
+            <td class="py-2 text-text-secondary">Codebook handling, group comparison</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/framework-analysis" class="text-brand-500 hover:underline font-medium">Framework Analysis</a></td>
+            <td class="py-2 text-text-secondary">Deductive coding, emergent candidates, the matrix</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/literature-synthesis" class="text-brand-500 hover:underline font-medium">Literature Synthesis</a></td>
+            <td class="py-2 text-text-secondary">Extraction table, corpus-only citation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted mb-3">Using the app</h3>
+      <table class="w-full text-sm">
+        <tbody>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/checkpoints" class="text-brand-500 hover:underline font-medium">Checkpoints</a></td>
+            <td class="py-2 text-text-secondary">The review panels, searching and sorting, bulk merges</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/coded-source-reader" class="text-brand-500 hover:underline font-medium">Coded-Source Reader</a></td>
+            <td class="py-2 text-text-secondary">Reading a transcript with its coding, auditing what was missed</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/runs-and-recovery" class="text-brand-500 hover:underline font-medium">Runs and Recovery</a></td>
+            <td class="py-2 text-text-secondary">Run states, progress, resume, cancel, branching</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/reports" class="text-brand-500 hover:underline font-medium">Reports</a></td>
+            <td class="py-2 text-text-secondary">Interactive report, figures, matrices, Word export, reporting</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted mb-3">Reference</h3>
+      <table class="w-full text-sm">
+        <tbody>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/troubleshooting" class="text-brand-500 hover:underline font-medium">Troubleshooting</a></td>
+            <td class="py-2 text-text-secondary">Every failure the app can show you and what to do about it</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/data-and-privacy" class="text-brand-500 hover:underline font-medium">Data and Privacy</a></td>
+            <td class="py-2 text-text-secondary">What leaves the machine, what Delete deletes, what to tell an IRB</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/walkthrough" class="text-brand-500 hover:underline font-medium">Walkthrough</a></td>
+            <td class="py-2 text-text-secondary">One dataset taken end to end, with decisions at each checkpoint</td>
+          </tr>
+          <tr class="border-b border-border/60">
+            <td class="py-2 pr-4"><a href="/docs/glossary" class="text-brand-500 hover:underline font-medium">Glossary</a></td>
+            <td class="py-2 text-text-secondary">The app's vocabulary and the status badges you will see</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</DocsLayout>

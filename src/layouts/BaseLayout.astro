@@ -78,6 +78,7 @@ const appVersion = '1.0.0';
         <a href="/features" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath === '/features' || currentPath === '/features/' ? 'text-brand-500' : 'text-text-secondary']}>Features</a>
         <a href="/getting-started" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath === '/getting-started' || currentPath === '/getting-started/' ? 'text-brand-500' : 'text-text-secondary']}>Getting Started</a>
         <a href="/privacy" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath === '/privacy' || currentPath === '/privacy/' ? 'text-brand-500' : 'text-text-secondary']}>Privacy</a>
+        <a href="/docs" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath.startsWith('/docs') ? 'text-brand-500' : 'text-text-secondary']}>Docs</a>
         <a href="/faq" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath === '/faq' || currentPath === '/faq/' ? 'text-brand-500' : 'text-text-secondary']}>FAQ</a>
         <a href="/download" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-600 text-white text-sm font-semibold hover:bg-brand-500 transition-colors">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" /></svg>
@@ -96,6 +97,7 @@ const appVersion = '1.0.0';
       <a href="/features" class="block py-3 text-sm font-medium text-text-secondary hover:text-brand-500">Features</a>
       <a href="/getting-started" class="block py-3 text-sm font-medium text-text-secondary hover:text-brand-500">Getting Started</a>
       <a href="/privacy" class="block py-3 text-sm font-medium text-text-secondary hover:text-brand-500">Privacy</a>
+      <a href="/docs" class="block py-3 text-sm font-medium text-text-secondary hover:text-brand-500">Docs</a>
       <a href="/faq" class="block py-3 text-sm font-medium text-text-secondary hover:text-brand-500">FAQ</a>
       <a href="/download" class="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-brand-600 text-white text-sm font-semibold">
         Get QualiLens
@@ -129,6 +131,7 @@ const appVersion = '1.0.0';
             <li><a href="/features" class="hover:text-white transition-colors">Features</a></li>
             <li><a href="/privacy" class="hover:text-white transition-colors">Privacy</a></li>
             <li><a href="/getting-started" class="hover:text-white transition-colors">Getting Started</a></li>
+            <li><a href="/docs" class="hover:text-white transition-colors">Documentation</a></li>
             <li><a href="/faq" class="hover:text-white transition-colors">FAQ</a></li>
           </ul>
         </div>
