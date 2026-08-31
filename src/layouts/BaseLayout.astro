@@ -8,6 +8,9 @@ interface Props {
 
 const { title, description = "A local application for LLM-assisted qualitative data analysis. Your data stays on your computer." } = Astro.props;
 const currentPath = Astro.url.pathname;
+const canonicalUrl = new URL(currentPath, Astro.site).href;
+const ogImage = new URL('/og-image.png', Astro.site).href;
+const appVersion = '1.0.0';
 ---
 
 <!doctype html>
@@ -16,13 +19,51 @@ const currentPath = Astro.url.pathname;
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "QualiLens",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "macOS, Linux",
+    "softwareVersion": appVersion,
+    "description": "A local application for LLM-assisted qualitative data analysis. Runs five established qualitative methods with researcher-controlled checkpoints.",
+    "url": "https://qualilens.org",
+    "downloadUrl": "https://github.com/iconerr/qualilens/releases/latest/download/QualiLens.zip",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": [
+      { "@type": "Person", "name": "Ashita Aggarwal" },
+      { "@type": "Person", "name": "Suraj Commuri" }
+    ]
+  })} />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <title>{title}</title>
 </head>
 <body class="flex flex-col min-h-screen">
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-brand-600 focus:text-white focus:text-sm focus:font-semibold">Skip to content</a>
 
   <!-- Nav -->
   <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
@@ -38,14 +79,14 @@ const currentPath = Astro.url.pathname;
         <a href="/getting-started" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath === '/getting-started' || currentPath === '/getting-started/' ? 'text-brand-500' : 'text-text-secondary']}>Getting Started</a>
         <a href="/privacy" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath === '/privacy' || currentPath === '/privacy/' ? 'text-brand-500' : 'text-text-secondary']}>Privacy</a>
         <a href="/faq" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath === '/faq' || currentPath === '/faq/' ? 'text-brand-500' : 'text-text-secondary']}>FAQ</a>
-        <a href="https://github.com/iconerr/qualilens/releases/latest/download/QualiLens.zip" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-600 text-white text-sm font-semibold hover:bg-brand-500 transition-colors">
+        <a href="/download" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-600 text-white text-sm font-semibold hover:bg-brand-500 transition-colors">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" /></svg>
           Get QualiLens
         </a>
       </div>
 
       <!-- Mobile menu button -->
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-brand-500" aria-label="Menu">
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-brand-500" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
       </button>
     </div>
@@ -56,28 +97,29 @@ const currentPath = Astro.url.pathname;
       <a href="/getting-started" class="block py-3 text-sm font-medium text-text-secondary hover:text-brand-500">Getting Started</a>
       <a href="/privacy" class="block py-3 text-sm font-medium text-text-secondary hover:text-brand-500">Privacy</a>
       <a href="/faq" class="block py-3 text-sm font-medium text-text-secondary hover:text-brand-500">FAQ</a>
-      <a href="https://github.com/iconerr/qualilens/releases/latest/download/QualiLens.zip" class="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg bg-brand-600 text-white text-sm font-semibold">
+      <a href="/download" class="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-brand-600 text-white text-sm font-semibold">
         Get QualiLens
       </a>
     </div>
   </nav>
 
   <!-- Main content -->
-  <main class="flex-1">
+  <main id="main-content" class="flex-1">
     <slot />
   </main>
 
   <!-- Footer -->
   <footer class="bg-text-primary text-white/70">
-    <div class="max-w-6xl mx-auto px-6 py-16">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- Brand -->
         <div class="md:col-span-1">
           <div class="flex items-center gap-2.5 mb-4">
             <img src="/favicon.svg" alt="" class="w-7 h-7" />
             <span class="text-lg font-bold text-white">QualiLens</span>
           </div>
-          <p class="text-sm leading-relaxed">LLM-assisted qualitative data analysis that runs entirely on your computer.</p>
+          <p class="text-sm leading-relaxed mb-4">LLM-assisted qualitative data analysis that runs entirely on your computer.</p>
+          <p class="text-xs text-white/40">&copy; 2026 Ashita Aggarwal and Suraj Commuri &middot; v{appVersion}</p>
         </div>
 
         <!-- Product -->
@@ -109,16 +151,17 @@ const currentPath = Astro.url.pathname;
         </div>
       </div>
 
-      <div class="mt-14 pt-6 border-t border-white/10">
-        <p class="text-xs text-white/40 text-center">&copy; 2026 Ashita Aggarwal and Suraj Commuri</p>
-      </div>
     </div>
   </footer>
 
   <script>
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
-    btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+    btn?.addEventListener('click', () => {
+      menu?.classList.toggle('hidden');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    });
   </script>
 </body>
 </html>

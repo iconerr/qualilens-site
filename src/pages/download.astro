@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const downloadUrl = "https://github.com/iconerr/qualilens/releases/latest/download/QualiLens.zip";
+---
+
+<BaseLayout title="Download — QualiLens" description="Download QualiLens and start your first analysis.">
+
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <div class="w-14 h-14 bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-6">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" /></svg>
+      </div>
+
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Your download should begin automatically.</h1>
+      <p class="text-text-secondary text-lg mb-8">If it does not, <a href={downloadUrl} class="text-brand-500 hover:underline">download QualiLens.zip directly</a>.</p>
+
+      <div class="bg-surface border border-border p-8 text-left mb-8">
+        <h2 class="font-semibold mb-4">Next steps</h2>
+        <ol class="space-y-3 text-sm text-text-secondary">
+          <li class="flex gap-3">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-brand-600 text-white text-xs font-bold flex items-center justify-center">1</span>
+            <span>Unzip the downloaded file and place the folder wherever you like.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-brand-600 text-white text-xs font-bold flex items-center justify-center">2</span>
+            <span>Open a terminal in the QualiLens folder and run <code class="text-xs bg-white px-1.5 py-0.5 rounded font-mono border border-border">./run.sh</code></span>
+          </li>
+          <li class="flex gap-3">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-brand-600 text-white text-xs font-bold flex items-center justify-center">3</span>
+            <span>Add an API key in Settings (Anthropic, OpenAI, Google, or Mistral).</span>
+          </li>
+        </ol>
+      </div>
+
+      <a href="/getting-started" class="inline-flex items-center gap-2 text-brand-500 font-semibold hover:text-brand-600 transition-colors">
+        Full getting started guide
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <script define:vars={{ downloadUrl }}>
+    // Start the download automatically after a short delay
+    setTimeout(() => {
+      window.location.href = downloadUrl;
+    }, 500);
+  </script>
+
+</BaseLayout>

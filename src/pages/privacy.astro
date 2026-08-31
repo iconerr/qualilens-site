@@ -19,7 +19,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="text-text-secondary mb-6">Analysis calls carry your data to the provider whose key you supplied, over a direct connection to that provider's API. There is no QualiLens server, no intermediary, no queue, and no relay.</p>
 
       <div class="overflow-x-auto">
-        <table class="w-full text-sm border border-border rounded-xl overflow-hidden">
+        <table class="w-full text-sm border border-border  overflow-hidden">
           <thead class="bg-surface">
             <tr>
               <th class="text-left py-3 px-4 font-medium text-text-muted">Stage</th>
@@ -50,28 +50,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2 class="text-2xl font-bold mb-6">What never leaves your computer</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-xl border border-border p-5">
+        <div class="bg-white  border border-border p-5">
           <div class="flex items-center gap-2 mb-3">
             <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             <h3 class="font-semibold">No telemetry</h3>
           </div>
           <p class="text-sm text-text-secondary">No usage data, no analytics are collected. Nothing runs in the background.</p>
         </div>
-        <div class="bg-white rounded-xl border border-border p-5">
+        <div class="bg-white  border border-border p-5">
           <div class="flex items-center gap-2 mb-3">
             <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             <h3 class="font-semibold">No background connections</h3>
           </div>
           <p class="text-sm text-text-secondary">Every row in the transmission table is a call you initiated. Updates are pull-only.</p>
         </div>
-        <div class="bg-white rounded-xl border border-border p-5">
+        <div class="bg-white  border border-border p-5">
           <div class="flex items-center gap-2 mb-3">
             <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             <h3 class="font-semibold">Local only</h3>
           </div>
           <p class="text-sm text-text-secondary">The server binds to 127.0.0.1. QualiLens is reachable only from the computer it runs on.</p>
         </div>
-        <div class="bg-white rounded-xl border border-border p-5">
+        <div class="bg-white  border border-border p-5">
           <div class="flex items-center gap-2 mb-3">
             <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             <h3 class="font-semibold">Database on disk</h3>
@@ -98,23 +98,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="text-text-secondary mb-6">These are the facts a committee will ask for, stated in the terms committees use.</p>
 
       <div class="space-y-4">
-        <div class="bg-white rounded-xl border border-border p-5">
+        <div class="bg-white  border border-border p-5">
           <h3 class="font-semibold mb-2">Processing location</h3>
           <p class="text-sm text-text-secondary">Analysis runs locally on the researcher's own computer. No study data are stored on any QualiLens server, because there is none.</p>
         </div>
-        <div class="bg-white rounded-xl border border-border p-5">
+        <div class="bg-white  border border-border p-5">
           <h3 class="font-semibold mb-2">Third-party transfer</h3>
           <p class="text-sm text-text-secondary">Source text is transmitted to a named commercial AI model provider for analysis, over an encrypted connection, using the researcher's own account. Name the provider. Recordings are transmitted to OpenAI for transcription — disclose this as a separate transfer.</p>
         </div>
-        <div class="bg-white rounded-xl border border-border p-5">
+        <div class="bg-white  border border-border p-5">
           <h3 class="font-semibold mb-2">De-identification</h3>
           <p class="text-sm text-text-secondary">The software performs none. Whatever is in the transcript is transmitted. De-identify before upload — upload is the only point at which de-identification can happen.</p>
         </div>
-        <div class="bg-white rounded-xl border border-border p-5">
+        <div class="bg-white  border border-border p-5">
           <h3 class="font-semibold mb-2">Automated decision-making</h3>
           <p class="text-sm text-text-secondary">An AI model produces coding proposals. The researcher reviews and approves every analytic structure at explicit checkpoints, and each checkpoint is logged.</p>
         </div>
-        <div class="bg-white rounded-xl border border-border p-5">
+        <div class="bg-white  border border-border p-5">
           <h3 class="font-semibold mb-2">Reproducibility</h3>
           <p class="text-sm text-text-secondary">AI model coding is not deterministic — a second run will differ. The audit trail records the model, provider, settings, and every researcher decision. This supports auditability rather than exact reproducibility.</p>
         </div>
@@ -126,7 +126,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-2xl font-bold mb-6">Before you upload human subjects data</h2>
-      <div class="bg-brand-50 border border-brand-100 rounded-xl p-6 space-y-3">
+      <div class="bg-brand-50 border border-brand-100  p-6 space-y-3">
         <div class="flex items-start gap-3">
           <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
           <p class="text-sm text-text-secondary">Confirm that the provider's data handling terms cover what your protocol promised your participants.</p>

@@ -5,15 +5,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="Features — QualiLens" description="Researcher-led checkpoints, verbatim provenance, full audit trail, coded-source reader, interactive reports, and Word export.">
 
   <!-- Header -->
-  <section class="bg-gradient-to-b from-brand-50 to-white pt-20 pb-16">
+  <section class="bg-gradient-to-b from-brand-50 to-white pt-14 pb-10">
     <div class="max-w-4xl mx-auto px-6">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Features</h1>
+      <h1 class="text-3xl md:text-4xl font-bold mb-3">Features</h1>
       <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">QualiLens gives an AI model the coding work — and gives you the decisions, the evidence, and the audit trail a reviewer needs to trust the result.</p>
     </div>
   </section>
 
   <!-- Checkpoints -->
-  <section class="py-20 bg-white" id="checkpoints">
+  <section class="py-12 bg-white" id="checkpoints">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-start gap-4 mb-8">
         <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center">
@@ -30,13 +30,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="text-text-secondary leading-relaxed mb-4">The checkpoint panel shows every code with its evidence. Clicking a code reveals every excerpt assigned to it, with its verbatim quote, the source filename, and a link to view it in context. Multi-select lets you merge duplicates or near-synonyms in one action. Search and sort help you navigate a large code set.</p>
         <p class="text-text-secondary leading-relaxed">Every decision you make at a checkpoint is recorded: the audit trail logs what changed, and the report's appendix names every checkpoint and its resolution status.</p>
       </div>
+
+      <div class="mt-8 border border-border/60 shadow-xl overflow-hidden">
+        <img src="/screenshots/app-checkpoint-evidence.png" alt="QualiLens checkpoint: reviewing concepts with evidence panel showing verbatim quotes and source links" class="w-full" loading="lazy" />
+      </div>
+
+      <!-- Audit trail callout -->
+      <div class="mt-10 bg-surface border border-border/60 shadow-md p-6">
+        <h3 class="font-semibold mb-3">Full audit trail</h3>
+        <p class="text-text-secondary leading-relaxed mb-4">The pipeline writes a timestamped log entry for every substantive action: each model call, each checkpoint opened and resolved, each code you renamed or merged, and the exact prompt sent at every stage. The log is stored per-run, viewable alongside the pipeline progress, and reproduced in the Word export's audit appendix. An ethics committee or methods reviewer can trace the entire analytic process from source upload to final report without asking the researcher to reconstruct it from memory.</p>
+      </div>
+
+      <div class="mt-8 border border-border/60 shadow-xl overflow-hidden">
+        <img src="/screenshots/app-run-complete.png" alt="QualiLens completed run: pipeline stages with timestamps and audit log showing every model call and checkpoint resolution" class="w-full" loading="lazy" />
+      </div>
     </div>
   </section>
 
-  <hr class="border-border max-w-4xl mx-auto" />
-
   <!-- Provenance -->
-  <section class="py-20 bg-white" id="provenance">
+  <section class="py-12 bg-surface" id="provenance">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-start gap-4 mb-8">
         <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center">
@@ -56,10 +68,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <hr class="border-border max-w-4xl mx-auto" />
-
   <!-- Coded-source reader -->
-  <section class="py-20 bg-white" id="coded-source-reader">
+  <section class="py-12 bg-white" id="coded-source-reader">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-start gap-4 mb-8">
         <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center">
@@ -76,13 +86,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="text-text-secondary leading-relaxed mb-4">A minimap along the left edge represents the whole document, with marks at each coded span's position — you can see at a glance where coding clusters and where it thins out. Coverage is reported as the share of the document's characters lying inside at least one coded span.</p>
         <p class="text-text-secondary leading-relaxed">Click any code in the panel to isolate its passages. With a code isolated, step buttons move you from one of its occurrences to the next through the document.</p>
       </div>
+
+      <div class="mt-8 border border-border/60 shadow-xl overflow-hidden">
+        <img src="/screenshots/app-coded-source-reader.png" alt="QualiLens coded-source reader: interview transcript with coded passages shaded in gold, minimap along the left edge, and a code panel listing all codes in the document" class="w-full" loading="lazy" />
+      </div>
     </div>
   </section>
 
-  <hr class="border-border max-w-4xl mx-auto" />
-
   <!-- Reports -->
-  <section class="py-20 bg-white" id="reports">
+  <section class="py-12 bg-surface" id="reports">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-start gap-4 mb-8">
         <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center">
@@ -100,7 +112,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <!-- Figures table -->
-      <div class="bg-surface rounded-2xl border border-border p-6">
+      <div class="bg-white border border-border/60 shadow-md p-6">
         <h3 class="font-semibold mb-4">Method-specific figures</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
@@ -122,13 +134,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <p class="text-xs text-text-muted mt-4">Figures disclose truncation on their face. The evidence section and tables beneath are always complete.</p>
       </div>
+
+      <div class="mt-8 border border-border/60 shadow-xl overflow-hidden">
+        <img src="/screenshots/app-report-top.png" alt="QualiLens report: interactive report with table of contents, narrative sections, and source buttons" class="w-full" loading="lazy" />
+      </div>
     </div>
   </section>
 
-  <hr class="border-border max-w-4xl mx-auto" />
-
   <!-- Branching -->
-  <section class="py-20 bg-white" id="branching">
+  <section class="py-12 bg-white" id="branching">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-start gap-4 mb-8">
         <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center">
@@ -147,10 +161,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <hr class="border-border max-w-4xl mx-auto" />
-
   <!-- Literature synthesis -->
-  <section class="py-20 bg-white" id="literature-synthesis">
+  <section class="py-12 bg-surface" id="literature-synthesis">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-start gap-4 mb-8">
         <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center">
@@ -164,13 +176,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="prose prose-gray max-w-none">
         <p class="text-text-secondary leading-relaxed mb-4">Literature synthesis extracts aims, method, sample, findings, and limitations from each paper, then builds a concept-by-paper matrix grounded strictly in the extraction quotes. Synthesis support must reference located extraction quotes by ID; ungrounded support is dropped and logged.</p>
+        <p class="text-text-secondary leading-relaxed mb-4">The extraction table presents every paper's five-field summary — aims, method, sample, findings, limitations — in a structured row with verbatim quote counts per field. Expanding a row shows the full extraction with the exact passages the model used. This table is both an intermediate checkpoint (you review and edit it before synthesis proceeds) and a standalone deliverable: the kind of structured evidence table a systematic review demands, built in minutes instead of weeks.</p>
         <p class="text-text-secondary leading-relaxed">A citation guard scans the generated narrative for citation-shaped strings that match no uploaded paper. Any it finds are listed in the report's limitations section. This is a tripwire against fabricated references, not a validation of real ones.</p>
+      </div>
+
+      <div class="mt-8 border border-border/60 shadow-xl overflow-hidden">
+        <img src="/screenshots/app-extraction-detail.png" alt="QualiLens extraction table: a paper expanded to show its five-field structured extraction with verbatim quotes per field" class="w-full" loading="lazy" />
+      </div>
+
+      <div class="mt-8 border border-border/60 shadow-xl overflow-hidden">
+        <img src="/screenshots/app-concept-matrix.png" alt="QualiLens concept-by-paper heatmap: papers listed down the left, concepts across the top, cells shaded by the number of supporting passages" class="w-full" loading="lazy" />
       </div>
     </div>
   </section>
 
   <!-- Providers -->
-  <section class="py-20 bg-surface" id="providers">
+  <section class="py-12 bg-white" id="providers">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-start gap-4 mb-8">
         <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center">
@@ -183,19 +204,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <div class="bg-white rounded-xl border border-border p-5 text-center">
+        <div class="bg-white border border-border/60 shadow-md p-5 text-center">
           <p class="font-semibold text-lg mb-1">Anthropic</p>
           <p class="text-sm text-text-muted">Claude</p>
         </div>
-        <div class="bg-white rounded-xl border border-border p-5 text-center">
+        <div class="bg-white border border-border/60 shadow-md p-5 text-center">
           <p class="font-semibold text-lg mb-1">OpenAI</p>
           <p class="text-sm text-text-muted">GPT</p>
         </div>
-        <div class="bg-white rounded-xl border border-border p-5 text-center">
+        <div class="bg-white border border-border/60 shadow-md p-5 text-center">
           <p class="font-semibold text-lg mb-1">Google</p>
           <p class="text-sm text-text-muted">Gemini</p>
         </div>
-        <div class="bg-white rounded-xl border border-border p-5 text-center">
+        <div class="bg-white border border-border/60 shadow-md p-5 text-center">
           <p class="font-semibold text-lg mb-1">Mistral</p>
           <p class="text-sm text-text-muted">Mistral</p>
         </div>
@@ -203,20 +224,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="prose prose-gray max-w-none">
         <p class="text-text-secondary leading-relaxed mb-4">The model catalog is editable. A live model check compares the catalog against each provider's own listing endpoint — no tokens spent, nothing sent beyond your key. A model marked as retired is a prompt to pick a different one. You can also type any current model ID under "Custom model id" in the wizard.</p>
-        <p class="text-text-secondary leading-relaxed">Transcription of audio and video always runs through OpenAI's Whisper service, regardless of which provider performs the analysis. If you upload recordings and use Anthropic, Google, or Mistral for coding, you still need an OpenAI key saved in Settings.</p>
+        <p class="text-text-secondary leading-relaxed mb-4">Transcription of audio and video always runs through OpenAI's Whisper service, regardless of which provider performs the analysis. If you upload recordings and use Anthropic, Google, or Mistral for coding, you still need an OpenAI key saved in Settings.</p>
+        <p class="text-text-secondary leading-relaxed">Before every run, the wizard estimates the cost based on your corpus size, chosen method, and model. The estimate covers the full pipeline — all stages, all documents — so you know what you are committing before the first model call.</p>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Try it on one document</h2>
-      <p class="text-text-secondary text-lg mb-6">A first analysis on one short transcript costs cents, not dollars, and shows you every checkpoint before you commit a real dataset.</p>
-      <a href="/getting-started" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors shadow-lg shadow-brand-500/20">
-        Getting started guide
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-      </a>
+  <section class="py-14 md:py-20 bg-brand-50 border-t border-brand-100">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-3">Try it on one document</h2>
+          <p class="text-text-secondary text-lg">A single-transcript run typically costs a few cents and exposes every checkpoint before you commit a full corpus.</p>
+        </div>
+        <div class="md:text-right">
+          <a href="/getting-started" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors shadow-lg shadow-brand-500/20">
+            Getting started guide
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 

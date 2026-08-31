@@ -5,25 +5,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="Getting Started — QualiLens" description="Download QualiLens from GitHub, install the requirements, and run your first analysis in minutes.">
 
   <!-- Header -->
-  <section class="bg-gradient-to-b from-brand-50 to-white pt-20 pb-16">
+  <section class="bg-gradient-to-b from-brand-50 to-white pt-14 pb-10">
     <div class="max-w-4xl mx-auto px-6">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Getting Started</h1>
-      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">QualiLens runs entirely on your computer. Download it from GitHub, install three things, and your first analysis is minutes away.</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-3">Getting Started</h1>
+      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">QualiLens runs entirely on your computer. Download the release, confirm the prerequisites below, and launch.</p>
+    </div>
+  </section>
+
+  <!-- Platform note -->
+  <section class="py-4 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="bg-white border border-border/60 shadow-md p-5 flex gap-3">
+        <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25h-13.5A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25h-13.5A2.25 2.25 0 013 12V5.25"/></svg>
+        <p class="text-sm text-text-secondary"><strong>Platform support.</strong> macOS and Linux natively. On Windows, use WSL (Windows Subsystem for Linux). The launcher is a shell script (<code class="text-xs bg-white px-1.5 py-0.5 rounded font-mono border border-border">run.sh</code>).</p>
+      </div>
     </div>
   </section>
 
   <!-- Step 1: Requirements -->
-  <section class="py-16 bg-white">
+  <section class="py-10 bg-white">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-center gap-3 mb-6">
         <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">1</span>
         <h2 class="text-2xl font-bold">Check the requirements</h2>
       </div>
 
-      <p class="text-text-secondary mb-6">QualiLens builds its own environment on first launch. Three things must already be on your computer.</p>
+      <p class="text-text-secondary mb-6">QualiLens builds its own Python environment on first launch. The following must already be present.</p>
 
       <div class="overflow-x-auto mb-6">
-        <table class="w-full text-sm border border-border rounded-xl overflow-hidden">
+        <table class="w-full text-sm border border-border/60 shadow-md overflow-hidden">
           <thead class="bg-surface">
             <tr>
               <th class="text-left py-3 px-4 font-medium text-text-muted">Requirement</th>
@@ -62,7 +72,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <hr class="border-border max-w-4xl mx-auto" />
 
   <!-- Step 2: Download -->
-  <section class="py-16 bg-white">
+  <section class="py-10 bg-white">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-center gap-3 mb-6">
         <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">2</span>
@@ -71,18 +81,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <p class="text-text-secondary mb-6">Download the latest release, unzip it, and place the folder wherever you like. The release includes the pre-built interface — you need only Python, no Node or npm.</p>
 
-      <a href="https://github.com/iconerr/qualilens/releases/latest/download/QualiLens.zip" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors mb-4">
+      <a href="/download" class="inline-flex items-center gap-2.5 px-5 py-3 bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors mb-4">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" /></svg>
         Download QualiLens.zip
       </a>
 
       <p class="text-sm text-text-muted mb-4">Developers who want to modify the code can clone the repository instead — this path requires Node 18+ to build the interface on first launch.</p>
 
-      <div class="bg-text-primary rounded-xl p-5 mb-4 overflow-x-auto">
-        <code class="text-sm text-green-400 font-mono">git clone https://github.com/iconerr/qualilens.git</code>
+      <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-5 mb-4 overflow-x-auto relative group/code">
+        <code class="text-base text-brand-700 font-mono tracking-tight">git clone https://github.com/iconerr/qualilens.git</code>
+        <button class="copy-btn absolute top-3 right-3 p-1.5 text-text-muted hover:text-brand-600 hover:bg-brand-50 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard">
+          <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        </button>
       </div>
 
-      <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 flex gap-3">
+      <div class="bg-amber-50 border border-amber-200 shadow-md p-4 flex gap-3">
         <svg class="w-5 h-5 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
         <p class="text-sm text-amber-800"><strong>Cloud sync warning.</strong> If the folder sits inside a Dropbox, iCloud, or OneDrive directory, never run QualiLens on two computers against the same synced database simultaneously. Let the sync finish completely before opening the app on a second machine.</p>
       </div>
@@ -92,7 +106,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <hr class="border-border max-w-4xl mx-auto" />
 
   <!-- Step 3: Launch -->
-  <section class="py-16 bg-white">
+  <section class="py-10 bg-white">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-center gap-3 mb-6">
         <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">3</span>
@@ -101,14 +115,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <p class="text-text-secondary mb-4">Open a terminal in the QualiLens folder and run the launcher.</p>
 
-      <div class="bg-text-primary rounded-xl p-5 mb-4 overflow-x-auto">
-        <code class="text-sm text-green-400 font-mono">./run.sh</code>
+      <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-5 mb-4 overflow-x-auto relative group/code">
+        <code class="text-base text-brand-700 font-mono tracking-tight">./run.sh</code>
+        <button class="copy-btn absolute top-3 right-3 p-1.5 text-text-muted hover:text-brand-600 hover:bg-brand-50 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard">
+          <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        </button>
       </div>
 
       <p class="text-text-secondary mb-4">The first run creates a Python environment, installs dependencies, and builds the interface — expect a minute or two. Every launch after the first is much faster. Once the server is up, it prints the address and opens your browser.</p>
 
-      <div class="bg-text-primary rounded-xl p-5 mb-6 overflow-x-auto">
-        <code class="text-sm text-gray-400 font-mono">QualiLens running at http://127.0.0.1:8765  (Ctrl-C to stop)</code>
+      <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-5 mb-6 overflow-x-auto">
+        <code class="text-base text-text-muted font-mono tracking-tight">QualiLens running at http://127.0.0.1:8765  (Ctrl-C to stop)</code>
       </div>
 
       <p class="text-sm text-text-muted">Stop the app with <kbd class="px-1.5 py-0.5 bg-surface text-text-primary rounded text-xs font-mono border border-border">Ctrl-C</kbd> in the terminal. Closing the browser tab does not stop it — runs continue in the background.</p>
@@ -118,7 +136,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <hr class="border-border max-w-4xl mx-auto" />
 
   <!-- Step 4: API keys -->
-  <section class="py-16 bg-white">
+  <section class="py-10 bg-white">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-center gap-3 mb-6">
         <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">4</span>
@@ -129,7 +147,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <p class="text-text-secondary mb-4">You need a key from at least one of the four providers: Anthropic, OpenAI, Google, or Mistral. If you plan to upload audio or video, you also need an OpenAI key — transcription always runs through OpenAI's Whisper service regardless of which provider performs the analysis.</p>
 
-      <div class="bg-surface rounded-xl border border-border p-5">
+      <div class="bg-white border border-border/60 shadow-md p-5">
         <p class="text-sm text-text-secondary"><strong>Where keys are stored.</strong> Keys live in the local SQLite database as plain text — not encrypted, not in a system keychain. Use <strong>Remove</strong> before sharing the folder or handing the computer to someone. Prefer a key scoped to this work, with its own spending limit.</p>
       </div>
     </div>
@@ -138,30 +156,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <hr class="border-border max-w-4xl mx-auto" />
 
   <!-- Step 5: First analysis -->
-  <section class="py-16 bg-white">
+  <section class="py-10 bg-white">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-center gap-3 mb-6">
         <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">5</span>
         <h2 class="text-2xl font-bold">Run your first analysis</h2>
       </div>
 
-      <p class="text-text-secondary mb-4">Click <strong>New analysis</strong> and the five-step wizard walks you through everything: choose a method, configure it, select a model, upload your data, and review the cost estimate before starting.</p>
+      <p class="text-text-secondary mb-4">Click <strong>New analysis</strong>. The wizard covers method selection, configuration, model choice, data upload, and cost estimation.</p>
 
-      <p class="text-text-secondary mb-4">Start with one short document. A first run costs cents, not dollars, and it lets you see every checkpoint before you commit a real dataset.</p>
+      <p class="text-text-secondary mb-4">Start with a single short document — a typical first run costs a few cents and exposes every checkpoint before you commit a full corpus.</p>
 
-      <div class="bg-surface rounded-xl border border-border p-5">
+      <div class="bg-white border border-border/60 shadow-md p-5">
         <h3 class="font-semibold mb-3">Accepted file types</h3>
         <div class="flex flex-wrap gap-2 text-xs font-mono">
-          <span class="px-2.5 py-1 bg-white rounded-lg border border-border">.txt</span>
-          <span class="px-2.5 py-1 bg-white rounded-lg border border-border">.md</span>
-          <span class="px-2.5 py-1 bg-white rounded-lg border border-border">.docx</span>
-          <span class="px-2.5 py-1 bg-white rounded-lg border border-border">.pdf</span>
-          <span class="px-2.5 py-1 bg-white rounded-lg border border-border">.rtf</span>
-          <span class="px-2.5 py-1 bg-white rounded-lg border border-border">.mp3</span>
-          <span class="px-2.5 py-1 bg-white rounded-lg border border-border">.mp4</span>
-          <span class="px-2.5 py-1 bg-white rounded-lg border border-border">.m4a</span>
-          <span class="px-2.5 py-1 bg-white rounded-lg border border-border">.wav</span>
-          <span class="px-2.5 py-1 bg-white rounded-lg border border-border">.webm</span>
+          <span class="px-2.5 py-1 bg-white border border-border">.txt</span>
+          <span class="px-2.5 py-1 bg-white border border-border">.md</span>
+          <span class="px-2.5 py-1 bg-white border border-border">.docx</span>
+          <span class="px-2.5 py-1 bg-white border border-border">.pdf</span>
+          <span class="px-2.5 py-1 bg-white border border-border">.rtf</span>
+          <span class="px-2.5 py-1 bg-white border border-border">.mp3</span>
+          <span class="px-2.5 py-1 bg-white border border-border">.mp4</span>
+          <span class="px-2.5 py-1 bg-white border border-border">.m4a</span>
+          <span class="px-2.5 py-1 bg-white border border-border">.wav</span>
+          <span class="px-2.5 py-1 bg-white border border-border">.webm</span>
         </div>
         <p class="text-xs text-text-muted mt-3">Audio and video require an OpenAI key for transcription. Video also requires ffmpeg.</p>
       </div>
@@ -169,23 +187,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- Updating -->
-  <section class="py-16 bg-surface">
+  <section class="py-10 bg-surface">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-2xl font-bold mb-4">Updating QualiLens</h2>
-      <p class="text-text-secondary mb-4">Open <strong>Settings</strong> and find the Application card. <strong>Check for updates</strong> asks GitHub for the latest release — one request, nothing of yours sent with it. When a newer release exists, <strong>Download and install</strong> fetches and applies it through a validated updater that replaces only application files and never touches your projects, keys, or uploads.</p>
+      <p class="text-text-secondary mb-4">Open <strong>Settings</strong> and find the Application card. <strong>Check for updates</strong> queries GitHub for the latest release (one request; nothing of yours is transmitted). When a newer release exists, <strong>Download and install</strong> applies it through a validated updater that replaces only application files — projects, keys, and uploads are structurally excluded.</p>
       <p class="text-text-secondary">After the update the app stops itself. Start it again with <code class="text-xs bg-white px-1.5 py-0.5 rounded font-mono border border-border">./run.sh</code>.</p>
     </div>
   </section>
 
-  <!-- Citation -->
-  <section class="py-12 bg-white border-t border-border">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-xl font-bold mb-3">Citing QualiLens</h2>
-      <p class="text-text-secondary text-sm mb-4">Please cite QualiLens if it contributes to published research. Name the version, the provider, and the model in your methods section — those determine your analysis far more than the application does.</p>
-      <div class="bg-surface rounded-xl border border-border p-4 font-mono text-sm text-text-secondary">
-        Aggarwal, A., &amp; Commuri, S. (2026). <em>QualiLens: A local application for LLM-assisted qualitative data analysis</em> [Computer software].
-      </div>
-    </div>
-  </section>
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const code = btn.parentElement?.querySelector('code');
+        if (!code) return;
+        await navigator.clipboard.writeText(code.textContent?.trim() || '');
+        const copyIcon = btn.querySelector('.copy-icon');
+        const checkIcon = btn.querySelector('.check-icon');
+        copyIcon?.classList.add('hidden');
+        checkIcon?.classList.remove('hidden');
+        setTimeout(() => {
+          copyIcon?.classList.remove('hidden');
+          checkIcon?.classList.add('hidden');
+        }, 2000);
+      });
+    });
+  </script>
 
 </BaseLayout>
