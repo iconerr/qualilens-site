@@ -98,7 +98,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="bg-amber-50 border border-amber-200 shadow-md p-4 flex gap-3">
         <svg class="w-5 h-5 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
-        <p class="text-sm text-amber-800"><strong>Cloud sync warning.</strong> If the folder sits inside a Dropbox, iCloud, or OneDrive directory, never run QualiLens on two computers against the same synced database simultaneously. Let the sync finish completely before opening the app on a second machine.</p>
+        <p class="text-sm text-amber-800"><strong>Cloud sync warning.</strong> If the folder sits inside a Dropbox, iCloud, or OneDrive directory, do not run QualiLens on two computers against the same synced database simultaneously. Let the sync finish completely before opening the app on a second machine.</p>
       </div>
     </div>
   </section>
@@ -145,7 +145,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <p class="text-text-secondary mb-4">Open <strong>Settings</strong> from the top bar. Each provider gets its own card with Save, Test, and Remove controls. Paste your key, press Save, then Test to confirm it works.</p>
 
-      <p class="text-text-secondary mb-4">You need a key from at least one of the four providers: Anthropic, OpenAI, Google, or Mistral. If you plan to upload audio or video, you also need an OpenAI key — transcription always runs through OpenAI's Whisper service regardless of which provider performs the analysis.</p>
+      <p class="text-text-secondary mb-4">You need a key from at least one of the four providers: Anthropic, OpenAI, Google, or Mistral. If you plan to upload audio or video, you also need an OpenAI key — transcription runs through OpenAI's Whisper service regardless of which provider performs the analysis.</p>
 
       <div class="bg-white border border-border/60 shadow-md p-5">
         <p class="text-sm text-text-secondary"><strong>Where keys are stored.</strong> Keys live in the local SQLite database as plain text — not encrypted, not in a system keychain. Use <strong>Remove</strong> before sharing the folder or handing the computer to someone. Prefer a key scoped to this work, with its own spending limit.</p>
