@@ -86,7 +86,7 @@ The report carries two appendices of its own. **Appendix: Extraction Table** pre
 
 The Word export renders the matrix paper by paper rather than as a grid, and includes the extraction table appendix. Page numbers accompany quotes there too.
 
-## Limits to state plainly in a methods section
+## Disclosure for methods section
 
 The corpus was selected by the researcher, not by the tool. This synthesis makes no claim of systematic coverage; it is a synthesis of the papers supplied, and the search and inclusion decisions that produced them must be reported separately.
 

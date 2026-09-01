@@ -42,7 +42,7 @@ Every located excerpt is drawn as a highlight over the exact characters it quote
 
 Hovering over a highlight names the codes on it. Clicking a highlight opens the passage inspector described below.
 
-Pay attention to the deeper amber. Two or more codes on one passage means one of two things. It may mean genuine analytic overlap, which is legitimate and often interesting. Or, it may instead reveal to you that two codes name the same thing and should be merged. The reader cannot tell you which of these you are looking at, but it can show you every instance.
+The deeper amber matters. Two or more codes on one passage means one of two things. It may mean genuine analytic overlap, which is legitimate and often interesting. Or, it may instead mean that two codes name the same thing and should be merged. The reader cannot tell you which of these you are looking at, but it can show you every instance.
 
 ## The code panel
 

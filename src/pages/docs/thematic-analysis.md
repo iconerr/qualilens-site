@@ -113,7 +113,7 @@ The narrative is generated from the final structure and assembled into your repo
 
 Themes in the evidence tree are the themes, and their children are the initial codes. Each excerpt carries its memo and a link that opens the source with the quoted span highlighted. Excerpts carry no confidence score in this method, because the coder was not asked to rate its own fit. The familiarization summaries appear as an appendix, and the audit trail records every checkpoint and every edit.
 
-## Limits to state plainly in a methods section
+## Disclosure for methods section
 
 Reflexivity is yours to supply. The pipeline performs the procedural moves of the six phases. Reflexive thematic analysis also asks for an account of the analyst's position and its bearing on the reading, and no automated stage produces that.
 

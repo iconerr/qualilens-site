@@ -101,7 +101,7 @@ The evidence tree is flat. It lists each framework code with its excerpts direct
 
 There is no source summaries appendix and no frequency table, because this method has no familiarization stage and does not count.
 
-## Limits to state plainly in a methods section
+## Disclosure for methods section
 
 Each passage received one code, so this analysis produces no evidence about co-occurrence between framework codes.
 

@@ -34,9 +34,9 @@ Your research question and every setup answer travel with most calls. Anything i
 
 Your API key is sent to its own provider as an authorization header, and to nobody else.
 
-## What never leaves your computer
+## What stays on your computer
 
-The database, the uploaded files, and the analysis itself stay on disk. No usage data, no telemetry, and no analytics are collected, and nothing runs in the background: every row in the table above is a call you initiated. Updates are pull-only — QualiLens never contacts anyone unprompted, and the update check happens only when you press its button. The server binds to 127.0.0.1, so QualiLens is reachable only from the computer it runs on, and not from your network.
+The database, the uploaded files, and the analysis itself stay on disk. No usage data, no telemetry, and no analytics are collected, and nothing runs in the background: every row in the table above is a call you initiated. Updates are pull-only — QualiLens does not contact anyone unprompted, and the update check happens only when you press its button. The server binds to 127.0.0.1, so QualiLens is reachable only from the computer it runs on, and not from your network.
 
 ## What the provider does with it
 

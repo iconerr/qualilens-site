@@ -121,7 +121,7 @@ description: "The app's vocabulary and the status badges you will see."
 
 ---
 
-## Numbers worth knowing
+## Reference numbers
 
 | Quantity | Value | Where it matters |
 |---|---|---|

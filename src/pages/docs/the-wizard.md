@@ -48,7 +48,7 @@ Four kinds of field appear.
 | Select | Drop-down with named options | The option text itself is stored and passed into the analysis, so the wording matters |
 | Toggle | Drop-down offering Yes and No | Stored as `true` or `false` |
 
-One consequence of how the drop-downs work is worth knowing. The full option text, for instance `Straussian (axial coding with paradigm model)`, is what gets recorded in your project configuration and what the pipeline reads. The Configuration table on the project page therefore shows you the exact choice you made rather than a code.
+The full option text, for instance `Straussian (axial coding with paradigm model)`, is what gets recorded in your project configuration and what the pipeline reads. The Configuration table on the project page therefore shows you the exact choice you made rather than a code.
 
 Some fields are ignored depending on your other answers. The Theoretical lens field does nothing in inductive thematic analysis, and the Codebook field does nothing in inductive content analysis. The manual flags each of these in the method chapters. The field stays visible in both cases, so switching the other option back restores your text.
 
@@ -90,7 +90,7 @@ Upload your sources here. Drop files onto the upload area, or press it to browse
 | Audio | `.mp3`, `.m4a`, `.wav`, `.flac`, `.ogg`, `.webm`, `.aac`, `.mpga` | Sent for transcription |
 | Video | `.mp4`, `.mov`, `.avi`, `.mkv`, `.mpeg`, `.wmv` | Audio track extracted with ffmpeg, then transcribed |
 
-Three limits on this table are worth knowing before you upload.
+Three limits on this table apply.
 
 PDF extraction reads the text layer and performs no optical character recognition. A scanned PDF that holds page images rather than text therefore yields nothing, and the upload is rejected with a message saying the file contains no extractable text. Run such files through an OCR tool first, or supply the transcript as text.
 
@@ -136,7 +136,7 @@ The summary line names the project, the method, the provider and model, the numb
 
 ### How the estimate is calculated
 
-The estimate is a heuristic over data volume and default prices. Understand it rather than trusting it.
+The estimate is a heuristic over data volume and default prices. It is approximate.
 
 The character count of all ready sources is converted to tokens at four characters per token. That figure is multiplied by a per-method factor reflecting how many times the method passes over your data. A fixed twenty thousand tokens are added for prompts and grouping calls. Output is assumed to be fifteen percent of input. The result is priced against a built-in table of default rates per million tokens.
 
@@ -155,9 +155,9 @@ The character count of all ready sources is converted to tokens at four characte
 | Google | $1.25 | $10.00 |
 | Mistral | $2.00 | $6.00 |
 
-Four things the estimate does not know are worth holding in mind. It uses the built-in price table rather than the price your account actually pays, so a discounted or a premium rate will move the real figure. It assumes one pass through the pipeline, so a run you resume after a failure, or a second run over the same project, costs again for the stages that repeat. It does not model reasoning tokens, which several current AI models spend internally and bill as output. And it cannot know how verbose your chosen model will be.
+Four things the estimate does not account for. It uses the built-in price table rather than the price your account actually pays, so a discounted or a premium rate will move the real figure. It assumes one pass through the pipeline, so a run you resume after a failure, or a second run over the same project, costs again for the stages that repeat. It does not model reasoning tokens, which several current AI models spend internally and bill as output. And it cannot know how verbose your chosen model will be.
 
-Treat the estimate as an order of magnitude. The Run screen shows you actual token usage as the analysis proceeds, and the report's audit appendix records the final totals, so you can always recover the true cost afterward.
+Treat the estimate as an order of magnitude. The Run screen shows you actual token usage as the analysis proceeds, and the report's audit appendix records the final totals, so you can recover the true cost afterward.
 
 ### Run analysis
 
@@ -169,7 +169,7 @@ Pressing **Run analysis** creates the run and takes you to the Run screen, where
 
 **Back** returns you one step and clears any error message. Your answers survive, including uploaded files, which stay attached to the project.
 
-One asymmetry deserves your attention. Uploaded sources belong to the project, so the files remain if you go back and change the method after uploading. That is usually what you want. It is not what you want if you switch away from content analysis with group comparison, because the group labels stay stored on the sources while the new method ignores them entirely.
+Uploaded sources belong to the project, so the files remain if you go back and change the method after uploading. That is usually what you want. It is not what you want if you switch away from content analysis with group comparison, because the group labels stay stored on the sources while the new method ignores them entirely.
 
 ## Editing a project after the wizard
 

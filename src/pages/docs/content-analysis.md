@@ -125,7 +125,7 @@ Your report opens with a **Code Frequencies** section carrying the totals in pro
 
 There is no source summaries appendix, because this method has no familiarization stage.
 
-## Limits to state plainly in a methods section
+## Disclosure for methods section
 
 A derived codebook was derived from a sample of each source rather than from the whole corpus. The sampling rule is the one tabulated above.
 

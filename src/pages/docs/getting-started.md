@@ -75,7 +75,7 @@ The four providers, and the models QualiLens offers for each, are listed in [Cho
 
 ### The OpenAI key is special
 
-Transcription of audio and video always runs through OpenAI's speech-to-text service, whichever provider performs your analysis. You will still need an OpenAI key saved in Settings if you plan to upload recordings and you have chosen Anthropic, Google, or Mistral as your analysis provider. Transcription fails without one.
+Transcription of audio and video runs through OpenAI's speech-to-text service, whichever provider performs your analysis. You will still need an OpenAI key saved in Settings if you plan to upload recordings and you have chosen Anthropic, Google, or Mistral as your analysis provider. Transcription fails without one.
 
 ### Checking that the models are still current
 
@@ -114,7 +114,7 @@ When you receive a newer `QualiLens.zip` directly, do not replace the folder
 by hand. On the same card, press **Update from a downloaded zip**. Either
 path checks that the bundle really is QualiLens, replaces only the app's own
 application files, and keeps the outgoing version in `.update-backup`. Your
-projects, API keys, and uploaded data are never part of an update; the
+projects, API keys, and uploaded data are not part of an update; the
 updater works from a fixed list of application paths and refuses everything
 else, so your data survives by construction rather than by care.
 
@@ -141,7 +141,7 @@ Back up `backend/data/`. Everything else in the folder can be regenerated from t
 
 Your QualiLens folder may sit inside a directory that Dropbox, iCloud Drive, OneDrive, or a similar service keeps in sync. That arrangement is convenient as a backup. It also introduces one failure mode you must avoid.
 
-Never run QualiLens on two computers against the same synced database. SQLite assumes it is the only writer. Sync services resolve conflicts by keeping one copy and renaming the other, so two simultaneous sessions can silently lose an analysis. Let the sync finish completely on the first computer before you start the app on a second.
+Do not run QualiLens on two computers against the same synced database. SQLite assumes it is the only writer. Sync services resolve conflicts by keeping one copy and renaming the other, so two simultaneous sessions can silently lose an analysis. Let the sync finish completely on the first computer before you start the app on a second.
 
 There is a protection built in, and you should know what it depends on. SQLite writes through a write-ahead log, which leaves a sidecar file alongside the database, and a sync service that copies the main file without the sidecar copies an incoherent state. QualiLens folds the write-ahead log back into the main database file at startup and at shutdown, so the at-rest state on disk is a single coherent file whenever the app is not running. This works only if you stop the app with Ctrl-C rather than killing the terminal, and only if you let the sync complete before you open the folder elsewhere.
 

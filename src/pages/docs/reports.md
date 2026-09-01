@@ -118,7 +118,7 @@ The reader says so when a quote cannot be located at all, and lists that excerpt
 
 **Download .docx** builds a formatted document from the same payload. The document is set in Georgia at eleven points. It carries a title block, the data sources with their group labels, the narrative sections, the method's figure with its caption, the frequency table or the matrix where applicable, the full evidence listing, the familiarization appendix, and the audit appendix.
 
-Three differences from the on-screen report are worth knowing before you send the file to a coauthor.
+The Word export differs from the on-screen report in three ways.
 
 Excerpts are capped at twelve per code, with a note recording how many further excerpts remain in the project database. The on-screen report shows all of them.
 

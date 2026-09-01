@@ -66,7 +66,7 @@ Resumption is fine-grained in the long stages and coarse in the short ones. That
 
 The pattern is that anything built from many calls resumes call by call, and anything built from one call is rebuilt. The second group repeats one call rather than a whole corpus. The cost of a resume is therefore bounded by the cost of the stage that failed, rather than by the cost of the run.
 
-One consequence is worth naming. Rebuilding a single-call stage produces a genuinely new grouping rather than the previous one. Resume after axial coding fails, and the categories you get are not the categories the failed attempt would have produced. That is why the rebuild is clean rather than incremental, and it is why the pipeline pauses for your review immediately afterward.
+Rebuilding a single-call stage produces a genuinely new grouping rather than the previous one. Resume after axial coding fails, and the categories you get are not the categories the failed attempt would have produced. That is why the rebuild is clean rather than incremental, and it is why the pipeline pauses for your review immediately afterward.
 
 ## When the app restarts mid-run
 

@@ -36,7 +36,7 @@ Choose Straussian in three situations. Choose it when you intend to report a par
 
 Choose Glaserian in three other situations. Choose it when your commitment is to emergence and you would rather risk a looser structure than impose one, when the paradigm model's vocabulary of conditions and consequences would distort a phenomenon that is not causal in shape, or when you expect a reviewer to press you on forcing. The practical effect is that the categories are freer to organize around whatever the codes actually share. The rationale field then carries the AI model's own account of that logic rather than a paradigm slot.
 
-State the difference plainly in your methods section. The two options differ in the instruction given at the axial stage, and in nothing else. Run both as separate projects over the same sources and compare the categories if you need the distinction to run deeper than that. Axial coding is a single call, so the comparison is affordable.
+State the difference in your methods section. The two options differ in the instruction given at the axial stage, and in nothing else. Run both as separate projects over the same sources and compare the categories if you need the distinction to run deeper than that. Axial coding is a single call, so the comparison is affordable.
 
 ### Sensitizing concepts
 
@@ -100,9 +100,9 @@ The narrative is generated from the final structure and assembled into your repo
 
 Themes in the evidence tree are the categories, and their children are the open codes. Each excerpt carries its memo and a link that opens the source document with the quoted span highlighted. The familiarization summaries appear as an appendix. The audit trail records every checkpoint and every edit you made.
 
-## Limits to state plainly in a methods section
+## Disclosure for methods section
 
-Theoretical sampling is not performed. QualiLens analyzes the corpus you supply, and the theoretical gaps it names are the nearest it comes to telling you what to collect next. A single pass over a fixed corpus cannot support a claim of theoretical saturation, so do not make that claim on this evidence.
+Theoretical sampling is not performed. QualiLens analyzes the corpus you supply, and the theoretical gaps it names are the nearest it comes to telling you what to collect next. A single pass over a fixed corpus cannot support a claim of theoretical saturation, so that claim does not hold on this evidence alone.
 
 Constant comparison is approximated rather than performed. Codes are compared across sources through name reuse during coding, and through the single grouping call at the axial stage. There is no iterative movement between collection and analysis.
 
