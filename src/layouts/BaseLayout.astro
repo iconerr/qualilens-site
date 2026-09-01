@@ -259,11 +259,17 @@ try {
       var matches = searchIndex.filter(function(page) {
         return page.title.toLowerCase().indexOf(q) !== -1 || page.content.toLowerCase().indexOf(q) !== -1;
       });
-      // Sort: title matches first
+      // Rank: title matches first (shorter = more specific), then by frequency
+      var qEsc = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      var qRe = new RegExp(qEsc, 'gi');
       matches.sort(function(a, b) {
-        var aTitle = a.title.toLowerCase().indexOf(q) !== -1 ? 0 : 1;
-        var bTitle = b.title.toLowerCase().indexOf(q) !== -1 ? 0 : 1;
-        return aTitle - bTitle;
+        var aInTitle = a.title.toLowerCase().indexOf(q) !== -1;
+        var bInTitle = b.title.toLowerCase().indexOf(q) !== -1;
+        if (aInTitle !== bInTitle) return aInTitle ? -1 : 1;
+        if (aInTitle && bInTitle) return a.title.length - b.title.length;
+        var aCount = (a.content.match(qRe) || []).length;
+        var bCount = (b.content.match(qRe) || []).length;
+        return bCount - aCount;
       });
       if (matches.length === 0) {
         searchResults.innerHTML = '<p class="px-4 py-8 text-center text-sm text-text-muted">No results for "' + query.replace(/</g, '&lt;') + '"</p>';
