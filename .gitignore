@@ -28,3 +28,5 @@ pnpm-debug.log*
 # Claude/agent config (not part of the site)
 CLAUDE.md
 AGENTS.md
+for_delete/
+for_delete/

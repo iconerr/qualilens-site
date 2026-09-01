@@ -255,6 +255,24 @@ function isActive(href: string): boolean {
       border-top: 1px solid var(--color-border);
       margin: 2rem 0;
     }
+    .docs-prose :global(pre .docs-copy-btn) {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      padding: 0.375rem;
+      color: var(--color-text-muted);
+      opacity: 0;
+      transition: opacity 0.15s, color 0.15s;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .docs-prose :global(pre:hover .docs-copy-btn) {
+      opacity: 1;
+    }
+    .docs-prose :global(pre .docs-copy-btn:hover) {
+      color: var(--color-brand-600);
+    }
     .docs-prose :global(table) {
       display: block;
       overflow-x: auto;
@@ -279,6 +297,25 @@ function isActive(href: string): boolean {
     btn?.addEventListener('click', openDrawer);
     backdrop?.addEventListener('click', closeDrawer);
     closeBtn?.addEventListener('click', closeDrawer);
+
+    // Add copy buttons to all <pre> code blocks
+    document.querySelectorAll('.docs-prose pre').forEach(pre => {
+      pre.style.position = 'relative';
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'docs-copy-btn';
+      copyBtn.setAttribute('aria-label', 'Copy to clipboard');
+      copyBtn.innerHTML = '<svg class="copy-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="check-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
+      copyBtn.addEventListener('click', async () => {
+        const code = pre.querySelector('code') || pre;
+        await navigator.clipboard.writeText(code.textContent?.trim() || '');
+        const ci = copyBtn.querySelector('.copy-icon');
+        const ch = copyBtn.querySelector('.check-icon');
+        ci.style.display = 'none';
+        ch.style.display = 'block';
+        setTimeout(() => { ci.style.display = 'block'; ch.style.display = 'none'; }, 1500);
+      });
+      pre.appendChild(copyBtn);
+    });
   </script>
 
 </BaseLayout>
