@@ -9,7 +9,9 @@ description: "Prerequisites, first launch, API keys, and where files live on dis
 
 ## What you need before the first launch
 
-QualiLens builds its own environment the first time you run it. What you need on your computer depends on how you received it.
+QualiLens is developed and tested on macOS. The launcher is a shell script (`run.sh`), so it runs natively on macOS and Linux. Windows users need **WSL** (Windows Subsystem for Linux) — open PowerShell as Administrator, run `wsl --install`, restart, and create a Linux user when prompted. See [Getting Started](/getting-started#windows-wsl) for the full walkthrough.
+
+What you need on your computer depends on how you received QualiLens.
 
 **If you received QualiLens as a zip bundle** (the file a colleague sends, or a release download), the interface is already built inside the bundle. You need only Python.
 
@@ -28,13 +30,15 @@ QualiLens builds its own environment the first time you run it. What you need on
 
 The launcher detects which situation you are in and tells you what is missing. If Node is absent and the interface has not been built, the error message names what to install and where.
 
+**WSL users:** install Python from the Ubuntu terminal with `sudo apt update && sudo apt install python3 python3-pip python3-venv -y`. If your distribution ships a version older than 3.11, add the deadsnakes PPA (`sudo add-apt-repository ppa:deadsnakes/ppa`) and install `python3.12`.
+
 You can skip ffmpeg if you will only ever upload documents and audio files under roughly 24 MB. You will need ffmpeg once you upload a video, or an audio file too large for the transcription service to accept in one piece. The Settings screen tells you at any time whether QualiLens can see ffmpeg on your computer.
 
 You also need an API key from at least one AI model provider. Keys are covered below.
 
 ## Starting the app
 
-Open a terminal in the QualiLens folder and run the launcher.
+Open a terminal in the QualiLens folder and run the launcher. **WSL users:** your Windows drives are mounted under `/mnt/`, so if the folder is in your Downloads, navigate with `cd /mnt/c/Users/YourName/Downloads/QualiLens` (replace *YourName* with your Windows username).
 
 ```bash
 ./run.sh
