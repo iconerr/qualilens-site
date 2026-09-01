@@ -49,7 +49,7 @@ async function collectBuiltPages(dir, base = '') {
       const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
       const title = titleMatch ? titleMatch[1].replace(/\s*[—|]\s*QualiLens.*$/, '').trim() : '';
       const body = mainMatch ? stripHtml(mainMatch[1]) : '';
-      const content = body.slice(0, 5000);
+      const content = body.slice(0, 10000);
       const url = '/' + base.replace(/\/$/, '') || '/';
       entries.push({ title, url, content });
     }
@@ -80,7 +80,7 @@ async function collectSourcePages(pagesDir) {
           const titleMatch = fmMatch[1].match(/title:\s*["']?(.+?)["']?\s*$/m);
           if (titleMatch) title = titleMatch[1].replace(/["']/g, '');
         }
-        const content = stripMarkdown(raw).slice(0, 5000);
+        const content = stripMarkdown(raw).slice(0, 10000);
         const slug = item.name.replace(/\.md$/, '');
         const url = '/' + base + (slug === 'index' ? '' : slug);
         entries.push({ title, url: url.replace(/\/$/, '') || '/', content });
@@ -111,7 +111,7 @@ async function collectSourcePages(pagesDir) {
         // Also get text from the template portion
         const template = raw.replace(/^---[\s\S]*?---\s*/, '');
         strings.push(stripHtml(template));
-        const content = strings.join(' ').replace(/\s+/g, ' ').trim().slice(0, 5000);
+        const content = strings.join(' ').replace(/\s+/g, ' ').trim().slice(0, 10000);
         const slug = item.name.replace(/\.astro$/, '');
         const url = '/' + base + (slug === 'index' ? '' : slug);
         entries.push({ title, url: url.replace(/\/$/, '') || '/', content });
