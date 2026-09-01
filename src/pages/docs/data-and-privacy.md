@@ -7,7 +7,7 @@ description: "What leaves the machine, what Delete deletes, and what to tell an 
 
 # 14. Data, Privacy, and Governance
 
-QualiLens runs entirely on your computer. It sends your data to exactly one place, which is the AI model provider you selected. This chapter states precisely what leaves your computer, what stays, what deletion removes, and what an ethics committee will want to know.
+QualiLens runs entirely on your computer. It sends your data to exactly one place, which is the AI model provider you selected. Below is what leaves your computer, what stays, what deletion removes, and what an ethics committee will want to know.
 
 ## What leaves your computer
 
