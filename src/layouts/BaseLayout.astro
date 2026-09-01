@@ -96,16 +96,24 @@ try {
         <a href="/privacy" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath === '/privacy' || currentPath === '/privacy/' ? 'text-brand-500' : 'text-text-secondary']}>Privacy</a>
         <a href="/docs" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath.startsWith('/docs') ? 'text-brand-500' : 'text-text-secondary']}>Docs</a>
         <a href="/faq" class:list={["text-sm font-medium transition-colors hover:text-brand-500", currentPath === '/faq' || currentPath === '/faq/' ? 'text-brand-500' : 'text-text-secondary']}>FAQ</a>
+        <button id="search-btn-desktop" class="p-2 text-text-secondary hover:text-brand-500 transition-colors" aria-label="Search" title="Search (⌘K)">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="m21 21-4.35-4.35"/></svg>
+        </button>
         <a href="/download" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-600 text-white text-sm font-semibold hover:bg-brand-500 transition-colors">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" /></svg>
           Get QualiLens
         </a>
       </div>
 
-      <!-- Mobile menu button -->
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-brand-500" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
-      </button>
+      <!-- Mobile buttons -->
+      <div class="flex md:hidden items-center gap-1">
+        <button id="search-btn-mobile" class="p-2 text-text-secondary hover:text-brand-500 transition-colors" aria-label="Search">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button id="mobile-menu-btn" class="p-2 text-text-secondary hover:text-brand-500" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile menu -->
@@ -173,7 +181,23 @@ try {
     </div>
   </footer>
 
-  <script>
+  <!-- Search modal -->
+  <div id="search-modal" class="hidden fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label="Search">
+    <div id="search-backdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <div class="relative max-w-2xl mx-auto mt-[12vh] px-4">
+      <div class="bg-white border border-border shadow-xl overflow-hidden">
+        <div class="flex items-center border-b border-border px-4">
+          <svg class="w-5 h-5 text-text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="m21 21-4.35-4.35"/></svg>
+          <input id="search-input" type="text" placeholder="Search documentation..." class="w-full px-3 py-3 text-base outline-none bg-transparent text-text-primary placeholder:text-text-muted" autocomplete="off" />
+          <kbd class="hidden sm:inline-block text-xs text-text-muted border border-border px-1.5 py-0.5 font-mono">Esc</kbd>
+        </div>
+        <div id="search-results" class="max-h-[60vh] overflow-y-auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    // Mobile menu
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     btn?.addEventListener('click', () => {
@@ -181,6 +205,100 @@ try {
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!expanded));
     });
+
+    // Search
+    var searchIndex = null;
+    var modal = document.getElementById('search-modal');
+    var searchInput = document.getElementById('search-input');
+    var searchResults = document.getElementById('search-results');
+
+    function openSearch() {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      searchInput.focus();
+      if (!searchIndex) {
+        fetch('/search-index.json')
+          .then(function(r) { return r.json(); })
+          .then(function(data) { searchIndex = data; })
+          .catch(function() { searchIndex = []; });
+      }
+    }
+
+    function closeSearch() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function getSnippet(content, query, len) {
+      var lower = content.toLowerCase();
+      var idx = lower.indexOf(query.toLowerCase());
+      if (idx === -1) return content.slice(0, len) + '...';
+      var start = Math.max(0, idx - 40);
+      var end = Math.min(content.length, idx + query.length + len - 40);
+      var snippet = (start > 0 ? '...' : '') + content.slice(start, end) + (end < content.length ? '...' : '');
+      return snippet;
+    }
+
+    function highlightMatch(text, query) {
+      if (!query) return text;
+      var re = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      return text.replace(re, '<mark class="bg-brand-100 text-brand-600 px-0.5">$1</mark>');
+    }
+
+    function doSearch(query) {
+      if (!searchResults) return;
+      if (!query || query.length < 2) {
+        searchResults.innerHTML = '<p class="px-4 py-8 text-center text-sm text-text-muted">Type at least 2 characters to search</p>';
+        return;
+      }
+      if (!searchIndex) {
+        searchResults.innerHTML = '<p class="px-4 py-8 text-center text-sm text-text-muted">Loading...</p>';
+        return;
+      }
+      var q = query.toLowerCase();
+      var matches = searchIndex.filter(function(page) {
+        return page.title.toLowerCase().indexOf(q) !== -1 || page.content.toLowerCase().indexOf(q) !== -1;
+      });
+      // Sort: title matches first
+      matches.sort(function(a, b) {
+        var aTitle = a.title.toLowerCase().indexOf(q) !== -1 ? 0 : 1;
+        var bTitle = b.title.toLowerCase().indexOf(q) !== -1 ? 0 : 1;
+        return aTitle - bTitle;
+      });
+      if (matches.length === 0) {
+        searchResults.innerHTML = '<p class="px-4 py-8 text-center text-sm text-text-muted">No results for "' + query.replace(/</g, '&lt;') + '"</p>';
+        return;
+      }
+      var html = '';
+      matches.forEach(function(page) {
+        var snippet = getSnippet(page.content, query, 120);
+        html += '<a href="' + page.url + '" class="block px-4 py-3 border-b border-border hover:bg-surface transition-colors">';
+        html += '<div class="text-sm font-medium text-brand-600">' + highlightMatch(page.title.replace(/</g, '&lt;'), query) + '</div>';
+        html += '<div class="text-xs text-text-muted mt-1 leading-relaxed">' + highlightMatch(snippet.replace(/</g, '&lt;'), query) + '</div>';
+        html += '</a>';
+      });
+      searchResults.innerHTML = html;
+    }
+
+    document.getElementById('search-btn-desktop')?.addEventListener('click', openSearch);
+    document.getElementById('search-btn-mobile')?.addEventListener('click', openSearch);
+    document.getElementById('search-backdrop')?.addEventListener('click', closeSearch);
+    searchInput?.addEventListener('input', function() { doSearch(this.value); });
+
+    document.addEventListener('keydown', function(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        modal.classList.contains('hidden') ? openSearch() : closeSearch();
+      }
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeSearch();
+      }
+    });
+
+    // Show initial state when modal opens
+    if (searchResults) {
+      searchResults.innerHTML = '<p class="px-4 py-8 text-center text-sm text-text-muted">Type at least 2 characters to search</p>';
+    }
   </script>
 </body>
 </html>
