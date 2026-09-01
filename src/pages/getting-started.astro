@@ -16,7 +16,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section id="macos-linux" class="py-8 bg-white">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-2xl font-bold mb-4">macOS and Linux</h2>
-      <p class="text-text-secondary mb-4">QualiLens is developed and tested on macOS. The launcher is a shell script (<code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">run.sh</code>), so it runs natively on macOS and Linux with no extra setup. Confirm the requirements in <a href="#step-1" class="text-brand-500 hover:underline">Step 1</a> below, then proceed to download and launch.</p>
+      <p class="text-text-secondary mb-4">QualiLens is developed and tested on macOS. The launcher is a shell script (<code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">run.sh</code>), so it runs natively on macOS and Linux with no extra setup. Start with <a href="#step-1" class="text-brand-500 hover:underline">Step 1</a> below.</p>
       <p class="text-sm text-text-muted">Running Windows? See <a href="#windows-wsl" class="text-brand-500 hover:underline">Setting up WSL</a> below.</p>
     </div>
   </section>
@@ -78,8 +78,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="flex gap-3">
           <span class="shrink-0 w-6 h-6 bg-brand-100 text-brand-600 text-xs font-bold flex items-center justify-center mt-0.5">5</span>
           <div>
-            <p class="font-medium text-text-primary mb-1">Navigate to QualiLens</p>
-            <p class="text-sm mb-2">Your Windows drives are mounted under <code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">/mnt/</code>. If you downloaded and unzipped QualiLens to your Downloads folder:</p>
+            <p class="font-medium text-text-primary mb-1">Open QualiLens from WSL</p>
+            <p class="text-sm mb-2">When you reach <a href="#step-2" class="text-brand-500 hover:underline">Step 2</a> and download QualiLens, you will access it from the Ubuntu terminal. Your Windows drives are mounted under <code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">/mnt/</code>. For example, if the folder is in your Downloads:</p>
             <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-4 my-2 overflow-x-auto relative group/code">
               <code class="text-sm text-brand-700 font-mono tracking-tight">cd /mnt/c/Users/<em class="text-brand-400 not-italic">YourName</em>/Downloads/QualiLens</code>
               <button class="copy-btn absolute top-2.5 right-2.5 p-1.5 text-text-muted hover:text-brand-600 hover:bg-brand-50 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard">
@@ -154,7 +154,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <hr class="border-border max-w-4xl mx-auto" />
 
   <!-- Step 2: Download -->
-  <section class="py-10 bg-white">
+  <section id="step-2" class="py-10 bg-white">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-center gap-3 mb-6">
         <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">2</span>
