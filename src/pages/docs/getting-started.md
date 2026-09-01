@@ -147,7 +147,7 @@ There is a protection built in, and you should know what it depends on. SQLite w
 
 ## License, and how to cite QualiLens
 
-QualiLens is copyright 2026 Ashita Aggarwal and Suraj Commuri. It is released under the Apache License 2.0. You may use it, modify it, and share it, including commercially, provided the copyright notice and the `NOTICE` file travel with any redistribution. Every source file carries an SPDX header, so attribution survives even when a single file is copied out of the project.
+QualiLens is copyright 2026 [Ashita Aggarwal](https://in.linkedin.com/in/drashita) and Suraj Commuri. It is released under the Apache License 2.0. You may use it, modify it, and share it, including commercially, provided the copyright notice and the `NOTICE` file travel with any redistribution. Every source file carries an SPDX header, so attribution survives even when a single file is copied out of the project.
 
 The analyses, codebooks, and reports you produce with QualiLens are yours alone. The authors claim no rights over any output of the tool. The `NOTICE` file says so explicitly. Point a sponsor or a publisher at that file if you are ever asked who owns your findings.
 
