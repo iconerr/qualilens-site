@@ -273,7 +273,9 @@ try {
       matches.forEach(function(page) {
         var snippet = getSnippet(page.content, query, 120);
         html += '<a href="' + page.url + '" class="block px-4 py-3 border-b border-border hover:bg-surface transition-colors">';
-        html += '<div class="text-sm font-medium text-brand-600">' + highlightMatch(page.title.replace(/</g, '&lt;'), query) + '</div>';
+        html += '<div class="text-sm font-medium text-brand-600">' + highlightMatch(page.title.replace(/</g, '&lt;'), query);
+        if (page.page) html += ' <span class="font-normal text-text-muted">— ' + page.page.replace(/</g, '&lt;') + '</span>';
+        html += '</div>';
         html += '<div class="text-xs text-text-muted mt-1 leading-relaxed">' + highlightMatch(snippet.replace(/</g, '&lt;'), query) + '</div>';
         html += '</a>';
       });
