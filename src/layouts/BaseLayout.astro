@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "A local application for LLM-assisted qualitative data analysis. Your data stays on your computer." } = Astro.props;
+const { title, description = "A local application for LLM-assisted qualitative data analysis. Your data stay on your computer." } = Astro.props;
 const currentPath = Astro.url.pathname;
 const canonicalUrl = new URL(currentPath, Astro.site).href;
 const ogImage = new URL('/og-image.png', Astro.site).href;
