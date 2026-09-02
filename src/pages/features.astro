@@ -28,7 +28,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="prose prose-gray max-w-none">
         <p class="text-text-secondary leading-relaxed mb-4">The analysis pipeline pauses at the analytic decision points — code review, category or theme construction, core category selection, framework charting — and waits for your approval. At each checkpoint you can rename, redefine, merge, delete, or add codes. Your edits are final: no later automated stage overwrites a name or definition you set by hand.</p>
         <p class="text-text-secondary leading-relaxed mb-4">The checkpoint panel shows all codes with their evidence. Clicking a code reveals all excerpts assigned to it, with its verbatim quote, the source filename, and a link to view it in context. Multi-select lets you merge duplicates or near-synonyms in one action. Search and sort help you navigate a large code set.</p>
-        <p class="text-text-secondary leading-relaxed">Each decision you make at a checkpoint is recorded: the audit trail logs what changed, and the report's appendix names all checkpoints and their resolution statuses.</p>
+        <p class="text-text-secondary leading-relaxed">Each decision you make at a checkpoint is recorded: the audit trail logs what changed, the report's appendix summarizes what was decided at each checkpoint, and the complete log exports as one JSON file from the run screen.</p>
       </div>
 
       <div class="mt-8 border border-border/60 shadow-xl overflow-hidden">
@@ -62,7 +62,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="prose prose-gray max-w-none">
         <p class="text-text-secondary leading-relaxed mb-4">Each excerpt stores the verbatim quote and its character offsets. When you click "view in coded document," the coded-source reader opens that document with the excerpt highlighted at its exact location, with all other coded passages in the document shaded around it.</p>
-        <p class="text-text-secondary leading-relaxed mb-4">Quotes that the AI model paraphrased rather than copying verbatim are flagged as "not located" and collected in a separate panel — they still count as evidence, but they draw your attention to places where the coder departed from the text.</p>
+        <p class="text-text-secondary leading-relaxed mb-4">Quotes that the AI model paraphrased rather than copying verbatim are flagged as "not located" and collected in a separate panel. The report marks them <em>not located verbatim</em> instead of quoting them, the Word export lists them outside quotation marks, and the synthesis stage never builds on them — they draw your attention to places where the coder departed from the text without ever passing as quotations.</p>
         <p class="text-text-secondary leading-relaxed">PDF sources carry page anchors, so quotes in the report name both the source file and the page number.</p>
       </div>
     </div>
@@ -170,7 +170,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <div>
           <h2 class="text-2xl md:text-3xl font-bold">Corpus-grounded literature synthesis</h2>
-          <p class="text-text-secondary mt-2">Cites only from your uploaded papers — not from memory.</p>
+          <p class="text-text-secondary mt-2">Every concept is grounded in quotes located in your uploaded papers; the narrative is guarded against citations and quotations that match none of them.</p>
         </div>
       </div>
 

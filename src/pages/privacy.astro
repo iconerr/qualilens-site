@@ -30,7 +30,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Familiarization</td><td class="py-3 px-4">First 60,000 characters of each source, verbatim</td></tr>
             <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Coding</td><td class="py-3 px-4">Every source in full, in 24,000-character segments</td></tr>
             <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Grouping</td><td class="py-3 px-4">Code names, definitions, excerpt counts, and up to two sample quotes per code</td></tr>
-            <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Extraction (lit. synthesis)</td><td class="py-3 px-4">Every paper in full, then per-part notes for consolidation</td></tr>
+            <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Extraction (lit. synthesis)</td><td class="py-3 px-4">Every paper up to its reference list, then per-part notes for consolidation</td></tr>
             <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Cross-paper synthesis</td><td class="py-3 px-4">Extraction summaries and up to 14 quotes per paper (240 chars each)</td></tr>
             <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Transcription</td><td class="py-3 px-4">The recording itself, uploaded to OpenAI's speech-to-text service</td></tr>
             <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Report narrative</td><td class="py-3 px-4">Final structure with names, definitions, counts, and sample quotes</td></tr>
@@ -69,7 +69,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             <h3 class="font-semibold">Local only</h3>
           </div>
-          <p class="text-sm text-text-secondary">The server binds to 127.0.0.1. QualiLens is reachable only from the computer it runs on.</p>
+          <p class="text-sm text-text-secondary">The server binds to 127.0.0.1, answers only to requests that name this machine, refuses cross-site requests, and requires a per-launch session token on every API call — so neither your network nor another web page in your browser can reach it.</p>
         </div>
         <div class="bg-white  border border-border p-5">
           <div class="flex items-center gap-2 mb-3">
@@ -116,7 +116,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <div class="bg-white  border border-border p-5">
           <h3 class="font-semibold mb-2">Reproducibility</h3>
-          <p class="text-sm text-text-secondary">AI model coding is not deterministic — a second run will differ. The audit trail records the model, provider, settings, and all researcher decisions. This supports auditability rather than exact reproducibility.</p>
+          <p class="text-sm text-text-secondary">AI model coding is not deterministic — a second run will differ. The audit trail records the model, provider, the settings frozen at the run's start, the sampling settings of every call, and all researcher decisions, and exports as one JSON file. This supports auditability rather than exact reproducibility.</p>
         </div>
       </div>
     </div>
