@@ -29,4 +29,9 @@ pnpm-debug.log*
 CLAUDE.md
 AGENTS.md
 for_delete/
-for_delete/
+
+# raw screen captures of the running app: source material for the curated
+# images in public/screenshots/, never for the repository (2026-09-02: nineteen
+# full-page captures, including the complete text of a copyrighted paper in
+# the coded-source reader, had been committed by a git add -A)
+screenshots/
