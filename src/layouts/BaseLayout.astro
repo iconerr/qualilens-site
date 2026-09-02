@@ -10,23 +10,34 @@ const { title, description = "A local application for LLM-assisted qualitative d
 const currentPath = Astro.url.pathname;
 const canonicalUrl = new URL(currentPath, Astro.site).href;
 const ogImage = new URL('/og-image.png', Astro.site).href;
-// Fetch latest release version from GitHub at build time.
-// Falls back to a hardcoded value if the API is unreachable (rate limit,
-// network outage, etc.).  Update the fallback when convenient — it only
-// matters when the fetch fails.
-let appVersion = '1.4.0';
+// Resolve the latest release version from GitHub at build time.
+// First from the release page's redirect (/releases/latest -> /releases/tag/vX),
+// which is ordinary web traffic and not subject to the API's unauthenticated
+// rate limit — shared build runners exhaust that limit routinely, and a build
+// that hit it would silently publish the stale fallback below. The API is the
+// second attempt. The hardcoded value is the last resort; keep it at the
+// current release when cutting one (devnotes/RELEASING.md).
+let appVersion = '1.5.0';
+const tagFrom = (s: string | null | undefined) => (s || '').replace(/^v/, '');
 try {
-  const res = await fetch(
-    'https://api.github.com/repos/iconerr/qualilens/releases/latest',
-    { headers: { 'Accept': 'application/vnd.github.v3+json',
-                 'User-Agent': 'qualilens-site' } }
-  );
-  if (res.ok) {
-    const data = await res.json();
-    const tag = (data.tag_name || '').replace(/^v/, '');
-    if (tag) appVersion = tag;
+  const page = await fetch('https://github.com/iconerr/qualilens/releases/latest',
+                           { redirect: 'manual', headers: { 'User-Agent': 'qualilens-site' } });
+  const m = (page.headers.get('location') || '').match(/\/releases\/tag\/([^/?#]+)/);
+  const fromRedirect = m ? tagFrom(decodeURIComponent(m[1])) : '';
+  if (fromRedirect) {
+    appVersion = fromRedirect;
+  } else {
+    const res = await fetch(
+      'https://api.github.com/repos/iconerr/qualilens/releases/latest',
+      { headers: { 'Accept': 'application/vnd.github.v3+json',
+                   'User-Agent': 'qualilens-site' } }
+    );
+    if (res.ok) {
+      const tag = tagFrom((await res.json()).tag_name);
+      if (tag) appVersion = tag;
+    }
   }
-} catch { /* network / rate-limit — use fallback */ }
+} catch { /* network failure — use the fallback */ }
 ---
 
 <!doctype html>
