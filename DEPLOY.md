@@ -61,6 +61,15 @@ npm run build    # production build into dist/
 npm run preview  # preview the production build
 ```
 
+## Deploy configuration (`wrangler.jsonc`)
+
+The site is served by the Worker `qualilens-site` as static assets. The
+`wrangler.jsonc` at the project root names that Worker and points at `dist/`;
+Workers Builds runs `npm run build` and then `npx wrangler deploy`, which with
+this file present is a plain upload. Do not delete the file: without it,
+Wrangler's automatic configuration installs an unpinned Cloudflare adapter and
+rebuilds, which failed on 2026-09-03 against the pinned Astro version.
+
 ## Notes
 
 - The site is static HTML with no server-side rendering. Cloudflare Pages serves it from its global CDN.

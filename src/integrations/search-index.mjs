@@ -238,7 +238,7 @@ export default function searchIndex() {
         });
       },
       'astro:build:done': async ({ dir }) => {
-        const outDir = dir.pathname;
+        const outDir = fileURLToPath(dir);   // not .pathname: it percent-encodes spaces
         const pages = await collectBuiltPages(outDir);
         await writeFile(join(outDir, 'search-index.json'), JSON.stringify(pages));
         console.log(`Search index: ${pages.length} entries indexed`);

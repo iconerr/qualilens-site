@@ -1,0 +1,14 @@
+{
+  // qualilens.org is a fully pre-rendered Astro site served as static assets
+  // by the Worker named below (Workers Builds deploys it on every push to main).
+  //
+  // This file exists so that `wrangler deploy` does NOT run its automatic
+  // configuration: without it, Wrangler detects Astro, installs the newest
+  // @astrojs/cloudflare adapter unpinned, and rebuilds — which broke on
+  // 2026-09-03 when that adapter stopped matching the pinned Astro. With the
+  // file present, deploy is a plain upload of dist/ — no adapter, no rebuild.
+  // Reference: developers.cloudflare.com/workers/framework-guides/web-apps/astro/
+  "name": "qualilens-site",
+  "compatibility_date": "2026-09-03",
+  "assets": { "directory": "./dist" }
+}
