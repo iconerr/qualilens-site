@@ -76,7 +76,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             <h3 class="font-semibold">Database on disk</h3>
           </div>
-          <p class="text-sm text-text-secondary">The database, uploaded files, and your analysis stay on disk. Back up <code class="text-xs font-mono">backend/data/</code>.</p>
+          <p class="text-sm text-text-secondary">The database, uploaded files, and your analysis stay on disk, readable by your account only. API keys in the database are encrypted with a secret held outside that folder; the participant data are not encrypted. Back up <code class="text-xs font-mono">backend/data/</code>.</p>
         </div>
       </div>
     </div>
@@ -109,6 +109,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="bg-white  border border-border p-5">
           <h3 class="font-semibold mb-2">De-identification</h3>
           <p class="text-sm text-text-secondary">The software performs none. Whatever is in the transcript is transmitted. De-identify before upload — upload is the only point at which de-identification can happen.</p>
+        </div>
+        <div class="bg-white  border border-border p-5">
+          <h3 class="font-semibold mb-2">Storage and access</h3>
+          <p class="text-sm text-text-secondary">Study data are held in a single database file and an uploads folder on the researcher's computer, unencrypted, protected by the operating system's file permissions: the folder and the database are readable by the researcher's account only. The researcher's API keys in that database are encrypted with a secret held outside the folder. State whether the folder is synced to a cloud service; the study data are held by that service as well if it is.</p>
         </div>
         <div class="bg-white  border border-border p-5">
           <h3 class="font-semibold mb-2">Automated decision-making</h3>

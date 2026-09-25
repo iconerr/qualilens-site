@@ -220,7 +220,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="text-text-secondary mb-4">You need a key from at least one of the four providers: Anthropic, OpenAI, Google, or Mistral. If you plan to upload audio or video, you also need an OpenAI key — transcription runs through OpenAI's Whisper service regardless of which provider performs the analysis.</p>
 
       <div class="bg-white border border-border/60 shadow-md p-5">
-        <p class="text-sm text-text-secondary"><strong>Where keys are stored.</strong> Keys live in the local SQLite database as plain text — not encrypted, not in a system keychain. Use <strong>Remove</strong> before sharing the folder or handing the computer to someone. Prefer a key scoped to this work, with its own spending limit.</p>
+        <p class="text-sm text-text-secondary"><strong>Where keys are stored.</strong> Keys live in the local SQLite database, encrypted. The secret that unlocks them is a small file outside the data folder (<code>~/Library/Application Support/QualiLens/secret.key</code> on macOS, <code>~/.config/qualilens/secret.key</code> on Linux and WSL), readable by your account only, so a synced or copied database carries no usable key. Someone using your own account on your own computer can still read both files: use <strong>Remove</strong> before handing the computer to someone, and prefer a key scoped to this work, with its own spending limit.</p>
       </div>
     </div>
   </section>

@@ -36,7 +36,7 @@ const faqs = [
       },
       {
         q: "Are my API keys encrypted?",
-        a: "No. Keys are stored as plain text in the database. They are not encrypted and not held in a system keychain. Use <strong>Remove</strong> in Settings before sharing the folder, and prefer a key with its own spending limit."
+        a: "Yes, from 1.8 on. Keys are stored encrypted in the database, and the secret that unlocks them is a small file outside the data folder — in Application Support on macOS, in <code>~/.config/qualilens/</code> on Linux and WSL — readable by your account only. A synced or copied database therefore carries no usable key. What the encryption does not cover: someone using your own account on your own computer can read both files, and the participant data in the database remain plain text. Use <strong>Remove</strong> in Settings before handing the computer to anyone, and prefer a key with its own spending limit."
       },
       {
         q: "Can I use this with my ethics board?",
