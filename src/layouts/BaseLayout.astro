@@ -17,7 +17,7 @@ const ogImage = new URL('/og-image.png', Astro.site).href;
 // that hit it would silently publish the stale fallback below. The API is the
 // second attempt. The hardcoded value is the last resort; keep it at the
 // current release when cutting one (devnotes/RELEASING.md).
-let appVersion = '1.8.0';
+let appVersion = '1.8.1';
 const tagFrom = (s: string | null | undefined) => (s || '').replace(/^v/, '');
 try {
   const page = await fetch('https://github.com/iconerr/qualilens/releases/latest',
@@ -176,7 +176,7 @@ try {
           <h4 class="text-xs font-semibold uppercase tracking-wider text-white/50 mb-4">Resources</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="https://github.com/iconerr/qualilens" target="_blank" rel="noopener" class="hover:text-white transition-colors">GitHub</a></li>
-            <li><a href="https://github.com/iconerr/qualilens/blob/main/CHANGELOG.md" target="_blank" rel="noopener" class="hover:text-white transition-colors">Changelog</a></li>
+            <li><a href="/docs/whats-new" class="hover:text-white transition-colors">What's New</a></li>
             <li><a href="https://github.com/iconerr/qualilens/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="hover:text-white transition-colors">Contributing</a></li>
           </ul>
         </div>
