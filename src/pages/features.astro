@@ -223,7 +223,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <div class="prose prose-gray max-w-none">
-        <p class="text-text-secondary leading-relaxed mb-4">The model catalog is editable. A live model check compares the catalog against each provider's own listing endpoint — no tokens spent, nothing sent beyond your key. A model marked as retired is a prompt to pick a different one. You can also type any current model ID under "Custom model id" in the wizard.</p>
+        <p class="text-text-secondary leading-relaxed mb-4">The model catalog is editable. A live model check compares the catalog against each provider's own listing endpoint — no tokens spent, nothing sent beyond your key — and, for Google, which keeps listing models it refuses to new projects, asks about each catalog model through a free endpoint too. A model marked ✗ is retired, or refused to your key; either way it is a prompt to pick a different one. You can also type any current model ID under "Custom model id" in the wizard.</p>
         <p class="text-text-secondary leading-relaxed mb-4">Transcription of audio and video runs through OpenAI's Whisper service, regardless of which provider performs the analysis. If you upload recordings and use Anthropic, Google, or Mistral for coding, you still need an OpenAI key saved in Settings.</p>
         <p class="text-text-secondary leading-relaxed">Before each run, the wizard estimates the cost based on your corpus size, chosen method, and model. The estimate covers the full pipeline — all stages, all documents — so you know what you are committing before the first model call.</p>
       </div>

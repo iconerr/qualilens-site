@@ -34,7 +34,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Cross-paper synthesis</td><td class="py-3 px-4">Extraction summaries and up to 14 quotes per paper (240 chars each)</td></tr>
             <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Transcription</td><td class="py-3 px-4">The recording itself, uploaded to OpenAI's speech-to-text service</td></tr>
             <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Report narrative</td><td class="py-3 px-4">Final structure with names, definitions, counts, and sample quotes</td></tr>
-            <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Test key / Check models</td><td class="py-3 px-4">A trivial message (no data) / your key to its own provider's listing endpoint</td></tr>
+            <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Test key / Check models</td><td class="py-3 px-4">A trivial message (no data) / your key to its own provider's listing endpoint; for Google, also the word "ok" to its free token-counting endpoint, once per catalog model</td></tr>
             <tr class="border-t border-border"><td class="py-3 px-4 font-medium text-text-primary">Check for updates</td><td class="py-3 px-4">Nothing of yours — one request to GitHub for the latest release, only when you press the button</td></tr>
           </tbody>
         </table>
@@ -87,7 +87,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-2xl font-bold mb-6">What the provider does with your data</h2>
       <p class="text-text-secondary mb-4">Your agreement with the provider governs that — not this software. Three questions matter: How long does the provider retain your inputs? May it use them to train models? Is a zero-retention arrangement available?</p>
-      <p class="text-text-secondary">Settle all three with the provider before you upload human subjects data. QualiLens sends your data to that provider and to no one else.</p>
+      <p class="text-text-secondary mb-4">Settle all three with the provider before you upload human subjects data. QualiLens sends your data to that provider and to no one else.</p>
+      <p class="text-text-secondary">One tier difference is stark. On Google's free tier — any key whose project AI Studio does not show on the paid tier, which means linking a billing account and prepaying at least $5 — Google's Gemini API terms let Google use what you send to improve its products and let human reviewers read it, outside the European Economic Area, Switzerland, and the United Kingdom. There, a free Gemini key is unsuitable for interview transcripts or other identifiable data. The <a href="/docs/data-and-privacy" class="text-brand-500 hover:underline">manual's privacy chapter</a> has the details.</p>
     </div>
   </section>
 
