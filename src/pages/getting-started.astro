@@ -15,8 +15,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- macOS and Linux -->
   <section id="macos-linux" class="py-8 bg-white">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-4">macOS and Linux</h2>
-      <p class="text-text-secondary mb-4">QualiLens is developed and tested on macOS. The launcher is a shell script (<code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">run.sh</code>), so it runs natively on macOS and Linux with no extra setup. Start with <a href="#step-1" class="text-brand-500 hover:underline">Step 1</a> below.</p>
+      <h2 class="text-2xl font-bold mb-4">Mac (Apple silicon) and Linux</h2>
+      <p class="text-text-secondary mb-4">QualiLens is developed and tested on macOS, and it runs natively on Macs with Apple silicon (M1 or later) and on Linux with no extra setup, because the launcher is a shell script (<code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">run.sh</code>). Intel Macs are not supported, because a library the app needs for encryption and for checking update signatures is no longer published for them. Start with <a href="#step-1" class="text-brand-500 hover:underline">Step 1</a> below.</p>
       <p class="text-sm text-text-muted">Running Windows? See <a href="#windows-wsl" class="text-brand-500 hover:underline">Setting up WSL</a> below.</p>
     </div>
   </section>
@@ -180,11 +180,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </button>
       </div>
 
-      <p class="text-text-secondary mb-4">The first run creates a Python environment, installs dependencies, and builds the interface — expect a minute or two. Every launch after the first is much faster. Once the server is up, it prints the address and opens your browser.</p>
+      <p class="text-text-secondary mb-4">The first run creates a Python environment, installs dependencies, and builds the interface — expect a minute or two. Every launch after the first is much faster. Once the server is up, it prints the address and opens QualiLens in your browser, signed in.</p>
 
       <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-5 mb-6 overflow-x-auto">
-        <code class="text-base text-text-muted font-mono tracking-tight">QualiLens running at http://127.0.0.1:8765  (Ctrl-C to stop)</code>
+        <code class="text-base text-text-muted font-mono tracking-tight">QualiLens running at http://127.0.0.1:8765  (Ctrl-C to stop)<br />The launch page that signs a browser in is /var/folders/…/qualilens.Ab12Cd/open.html</code>
       </div>
+
+      <p class="text-sm text-text-muted mb-4">The launcher signs in the browser it opens. To use QualiLens in another browser, open the launch page the terminal names. The address on its own shows how to open QualiLens instead of your projects, so another account on the same computer cannot reach your data through it.</p>
 
       <p class="text-sm text-text-muted mb-6">Stop the app with <kbd class="px-1.5 py-0.5 bg-surface text-text-primary rounded text-xs font-mono border border-border">Ctrl-C</kbd> in the terminal. Closing the browser tab does not stop it — runs continue in the background.</p>
 
@@ -246,7 +248,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="px-2.5 py-1 bg-white border border-border">.md</span>
           <span class="px-2.5 py-1 bg-white border border-border">.docx</span>
           <span class="px-2.5 py-1 bg-white border border-border">.pdf</span>
-          <span class="px-2.5 py-1 bg-white border border-border">.rtf</span>
           <span class="px-2.5 py-1 bg-white border border-border">.mp3</span>
           <span class="px-2.5 py-1 bg-white border border-border">.mp4</span>
           <span class="px-2.5 py-1 bg-white border border-border">.m4a</span>

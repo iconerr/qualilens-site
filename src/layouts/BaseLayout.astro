@@ -17,7 +17,7 @@ const ogImage = new URL('/og-image.png', Astro.site).href;
 // that hit it would silently publish the stale fallback below. The API is the
 // second attempt. The hardcoded value is the last resort; keep it at the
 // current release when cutting one (devnotes/RELEASING.md).
-let appVersion = '1.8.2';
+let appVersion = '1.9.0';
 const tagFrom = (s: string | null | undefined) => (s || '').replace(/^v/, '');
 try {
   const page = await fetch('https://github.com/iconerr/qualilens/releases/latest',
@@ -70,7 +70,7 @@ try {
     "@type": "SoftwareApplication",
     "name": "QualiLens",
     "applicationCategory": "EducationalApplication",
-    "operatingSystem": "macOS, Linux",
+    "operatingSystem": "macOS (Apple silicon), Linux",
     "softwareVersion": appVersion,
     "description": "A local application for LLM-assisted qualitative data analysis. Runs five established qualitative methods with researcher-controlled checkpoints.",
     "url": "https://qualilens.org",

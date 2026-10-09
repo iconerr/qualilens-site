@@ -7,7 +7,7 @@ const faqs = [
     items: [
       {
         q: "What do I need to run QualiLens?",
-        a: "Python 3.11 or later and an API key from at least one provider (Anthropic, OpenAI, Google, or Mistral). If you download the release ZIP, that is all you need. If you clone the repository, you also need Node 18+ (once, for the first build). ffmpeg is optional — you only need it for video uploads or audio files over about 24 MB."
+        a: "A Mac with Apple silicon (M1 or later) or a Linux computer (on Windows, WSL), Python 3.11 or later, and an API key from at least one provider (Anthropic, OpenAI, Google, or Mistral). If you download the release ZIP, that is all you need. If you clone the repository, you also need Node 18+ (once, for the first build). ffmpeg is optional — you only need it for video uploads or audio files over about 24 MB."
       },
       {
         q: "How do I install it?",
@@ -15,7 +15,11 @@ const faqs = [
       },
       {
         q: "Does it run on Windows?",
-        a: "QualiLens is developed and tested on macOS. The launcher is a shell script (<code>run.sh</code>), so it runs natively on macOS and Linux. On Windows, use WSL (Windows Subsystem for Linux) to run it. The <a href='/getting-started#windows-wsl' class='text-brand-500 hover:underline'>Getting Started</a> page walks through the WSL setup step by step. For more on WSL itself, see Microsoft's <a href='https://learn.microsoft.com/en-us/windows/wsl/install' target='_blank' rel='noopener' class='text-brand-500 hover:underline'>Install WSL</a> documentation."
+        a: "QualiLens is developed and tested on macOS, and it runs natively on Macs with Apple silicon and on Linux, because the launcher is a shell script (<code>run.sh</code>). On Windows, use WSL (Windows Subsystem for Linux) to run it. The <a href='/getting-started#windows-wsl' class='text-brand-500 hover:underline'>Getting Started</a> page walks through the WSL setup step by step. For more on WSL itself, see Microsoft's <a href='https://learn.microsoft.com/en-us/windows/wsl/install' target='_blank' rel='noopener' class='text-brand-500 hover:underline'>Install WSL</a> documentation."
+      },
+      {
+        q: "Does it run on an Intel Mac?",
+        a: "No. A library QualiLens needs for encryption and for checking update signatures is no longer published for Intel Macs, so QualiLens cannot be installed on one. Macs with Apple silicon (M1 or later) are supported."
       },
       {
         q: "How do I update QualiLens?",
@@ -78,7 +82,7 @@ const faqs = [
     items: [
       {
         q: "What file types can I upload?",
-        a: "<code>.txt</code>, <code>.md</code>, <code>.docx</code>, <code>.pdf</code>, <code>.rtf</code>, <code>.mp3</code>, <code>.mp4</code>, <code>.m4a</code>, <code>.wav</code>, <code>.webm</code>. Audio and video are transcribed automatically."
+        a: "<code>.txt</code>, <code>.md</code>, <code>.docx</code>, <code>.pdf</code>, <code>.mp3</code>, <code>.mp4</code>, <code>.m4a</code>, <code>.wav</code>, <code>.webm</code>. Audio and video are transcribed automatically."
       },
       {
         q: "Do I need an OpenAI key for transcription?",
@@ -121,7 +125,11 @@ const faqs = [
     items: [
       {
         q: "\"Port 8765 is already in use\"",
-        a: "Another process holds the port — usually a QualiLens instance you forgot to stop. Either open the address it prints, or start on a different port: <code>QUALILENS_PORT=8790 ./run.sh</code>"
+        a: "Another process holds the port — usually a QualiLens instance you forgot to stop. Either switch to the browser tab it opened, or start on a different port: <code>QUALILENS_PORT=8790 ./run.sh</code>"
+      },
+      {
+        q: "The page says \"Open QualiLens from the tab it opened\"",
+        a: "This browser has not been signed in to the running app. Switch to the tab the launcher opened, or open the launch page its terminal names. If you have neither, stop QualiLens with Ctrl-C and run <code>./run.sh</code> again. The tab signs itself in as soon as another tab of the same browser has been signed in."
       },
       {
         q: "The model returns truncated or malformed JSON",
