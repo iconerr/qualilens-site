@@ -27,7 +27,7 @@ const bibtex = `@software{aggarwal2026qualilens,
           </div>
           <ul class="meta">
             <li>Free and open source, Apache 2.0</li>
-            <li>Mac with Apple silicon, or Linux</li>
+            <li>Mac with Apple silicon, Linux, or Windows via WSL</li>
             <li class="who">Ashita Aggarwal and Suraj Commuri</li>
             <li><a href="https://doi.org/10.5281/zenodo.22191913">doi:10.5281/zenodo.22191913</a> · <a href="#cite">How to cite</a></li>
           </ul>
@@ -86,8 +86,8 @@ const bibtex = `@software{aggarwal2026qualilens,
         <a class="link link-strong" href="/features">Explore all features →</a>
       </div>
       <figure class="method-figure">
-        <div class="shot"><img src="/screenshots/app-grounded-theory-model.png" width="1079" height="792" alt="QualiLens report figure for a grounded-theory run: a paradigm flow model in which five categories on the left lead into the core category, Pursuing emotionally satisfying treat experiences within everyday constraints, with two categories to its right" loading="lazy" /></div>
-        <figcaption class="caption"><b>A report figure.</b> The paradigm flow model from a grounded-theory run on a sample interview. Conditions, context, and dimensions sit to the left of the core category, strategies and consequences to its right, and each category prints its relationship to the core verbatim.</figcaption>
+        <a class="figure-link" href="/screenshots/app-grounded-theory-model.png" title="Open the figure at full size"><div class="shot"><img src="/screenshots/app-grounded-theory-model.png" width="1079" height="792" alt="QualiLens report figure for a grounded-theory run: a paradigm flow model in which five categories on the left lead into the core category, Pursuing emotionally satisfying treat experiences within everyday constraints, with two categories to its right" loading="lazy" /></div></a>
+        <figcaption class="caption"><b>A report figure.</b> The paradigm flow model from a grounded-theory run on a sample interview. Conditions, context, and dimensions sit to the left of the core category, strategies and consequences to its right, and each category prints its relationship to the core verbatim. <a class="link" href="/screenshots/app-grounded-theory-model.png">Open full size</a></figcaption>
       </figure>
     </div>
   </section>
@@ -213,6 +213,9 @@ const bibtex = `@software{aggarwal2026qualilens,
   .methods tbody tr:last-child > * { border-bottom: 0; }
   .methods td { color: var(--color-text-secondary); }
   .method-figure { margin: 40px 0 0; display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 1fr); gap: 16px 48px; align-items: end; }
+  .figure-link { display: block; cursor: zoom-in; }
+  .figure-link .shot { transition: border-color .15s; }
+  .figure-link:hover .shot { border-color: var(--color-rule-strong); }
   .method-figure .caption { margin-top: 0; padding-top: 14px; border-top: 1px solid var(--color-rule); max-width: 30em; }
   @media (max-width: 960px) {
     .method-figure { grid-template-columns: 1fr; }
