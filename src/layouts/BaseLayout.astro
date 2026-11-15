@@ -105,27 +105,33 @@ const isCurrent = (item: { href: string; section?: boolean }) =>
 
   <!-- Nav -->
   <nav class="sticky top-0 z-50 bg-paper border-b border-rule" aria-label="Main">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
-      <a href="/" class="flex items-center gap-2.5 text-ink no-underline">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center">
+      <a href="/" class="flex items-center gap-2.5 text-ink no-underline shrink-0">
         <img src="/favicon.svg" alt="" class="w-[26px] h-[26px]" />
-        <span class="text-lg font-semibold tracking-[-0.005em]">QualiLens</span>
+        <span class="text-lg font-medium tracking-[-0.01em]">QualiLens</span>
       </a>
 
-      <!-- Desktop links -->
-      <div class="hidden md:flex items-center gap-7 text-[15px]">
+      <!-- Masthead: the sections beside the name, behind a hairline -->
+      <div class="hidden md:flex items-center gap-5 lg:gap-[26px] h-[22px] ml-5 pl-5 lg:ml-7 lg:pl-7 border-l border-rule-strong text-[14px]">
         {navItems.map(item => (
           <a href={item.href} aria-current={isCurrent(item) ? 'page' : undefined}
-             class:list={["transition-colors underline-offset-[6px] decoration-1",
-                          isCurrent(item) ? 'text-ink underline decoration-rule-strong' : 'text-text-secondary hover:text-ink hover:underline hover:decoration-rule-strong']}>{item.label}</a>
+             class:list={["whitespace-nowrap transition-colors", isCurrent(item) ? 'text-ink font-medium' : 'text-text-secondary hover:text-ink']}>{item.label}</a>
         ))}
-        <button id="search-btn-desktop" class="p-1.5 -mx-1 text-text-muted hover:text-ink transition-colors" aria-label="Search" title="Search (⌘K)">
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path stroke-linecap="round" d="m20.5 20.5-4-4"/></svg>
+      </div>
+
+      <!-- Utilities, apart at the right -->
+      <div class="hidden md:flex items-center gap-5 lg:gap-[26px] ml-auto pl-6 text-[14px]">
+        <button id="search-btn-desktop" class="inline-flex items-baseline gap-1.5 whitespace-nowrap text-text-muted hover:text-ink transition-colors" title="Search the site and documentation">
+          Search <kbd class="search-key hidden lg:inline font-mono text-[12px] text-text-muted">⌘K</kbd>
         </button>
-        <a href="/download" class="btn btn-line btn-sm">Get QualiLens</a>
+        <a href="/download" class="inline-flex items-center gap-1.5 whitespace-nowrap font-medium text-ink hover:text-brand-500 transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg>
+          Get QualiLens
+        </a>
       </div>
 
       <!-- Mobile buttons -->
-      <div class="flex md:hidden items-center gap-1">
+      <div class="flex md:hidden items-center gap-1 ml-auto">
         <button id="search-btn-mobile" class="p-2 text-text-muted hover:text-ink transition-colors" aria-label="Search">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path stroke-linecap="round" d="m20.5 20.5-4-4"/></svg>
         </button>
@@ -157,7 +163,7 @@ const isCurrent = (item: { href: string; section?: boolean }) =>
       <div class="sm:col-span-2 md:col-span-1">
         <a href="/" class="inline-flex items-center gap-2.5 text-ink">
           <img src="/favicon.svg" alt="" class="w-[26px] h-[26px]" />
-          <span class="text-lg font-semibold tracking-[-0.005em]">QualiLens</span>
+          <span class="text-lg font-medium tracking-[-0.01em]">QualiLens</span>
         </a>
         <p class="mt-2.5 max-w-[30em]">LLM-assisted qualitative data analysis that runs entirely on your computer.</p>
         <p class="mt-3.5 text-[13.5px]">&copy; 2026 <a href="https://in.linkedin.com/in/drashita" target="_blank" rel="noopener" class="text-text-secondary underline decoration-rule-strong underline-offset-2 hover:text-brand-500">Ashita Aggarwal</a> and Suraj Commuri &middot; <span class="font-mono text-[0.92em]">v{appVersion}</span> &middot; Apache 2.0 License</p>
@@ -204,6 +210,11 @@ const isCurrent = (item: { href: string; section?: boolean }) =>
   </div>
 
   <script is:inline>
+    // The search shortcut is ⌘K on a Mac and Ctrl K elsewhere (the handler below accepts both)
+    if (!/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) {
+      document.querySelectorAll('.search-key').forEach(function(k) { k.textContent = 'Ctrl K'; });
+    }
+
     // Mobile menu
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');

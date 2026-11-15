@@ -81,14 +81,14 @@ const bibtex = `@software{aggarwal2026qualilens,
           <tr><th scope="row">Literature synthesis</th><td data-label="Stages">Structured extraction, cross-paper synthesis, concept matrix</td><td data-label="Checkpoints">Extraction table, concept review</td><td data-label="Report figure">Concept-by-paper heatmap</td></tr>
         </tbody>
       </table>
-      <figure class="method-figure">
-        <div class="shot"><img src="/screenshots/app-grounded-theory-model.png" width="1079" height="792" alt="QualiLens report figure for a grounded-theory run: a paradigm flow model in which five categories on the left lead into the core category, Pursuing emotionally satisfying treat experiences within everyday constraints, with two categories to its right" loading="lazy" /></div>
-        <figcaption class="caption"><b>A report figure.</b> The paradigm flow model from a grounded-theory run on a sample interview. Conditions, context, and dimensions sit to the left of the core category, strategies and consequences to its right, and each category prints its relationship to the core verbatim.</figcaption>
-      </figure>
       <div class="note-row">
         <p><strong>Built for researchers.</strong> Each method follows published methodological commitments. The wizard records your choices verbatim, so you have a record for the methods section.</p>
         <a class="link link-strong" href="/features">Explore all features →</a>
       </div>
+      <figure class="method-figure">
+        <div class="shot"><img src="/screenshots/app-grounded-theory-model.png" width="1079" height="792" alt="QualiLens report figure for a grounded-theory run: a paradigm flow model in which five categories on the left lead into the core category, Pursuing emotionally satisfying treat experiences within everyday constraints, with two categories to its right" loading="lazy" /></div>
+        <figcaption class="caption"><b>A report figure.</b> The paradigm flow model from a grounded-theory run on a sample interview. Conditions, context, and dimensions sit to the left of the core category, strategies and consequences to its right, and each category prints its relationship to the core verbatim.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -212,8 +212,8 @@ const bibtex = `@software{aggarwal2026qualilens,
   .methods tbody th { font-family: var(--font-serif); font-weight: 500; font-size: 17px; }
   .methods tbody tr:last-child > * { border-bottom: 0; }
   .methods td { color: var(--color-text-secondary); }
-  .method-figure { margin: 40px 0 0; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 3fr); gap: 16px 40px; align-items: end; }
-  .method-figure .caption { margin-top: 0; padding-top: 14px; border-top: 1px solid var(--color-rule); }
+  .method-figure { margin: 40px 0 0; display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 1fr); gap: 16px 48px; align-items: end; }
+  .method-figure .caption { margin-top: 0; padding-top: 14px; border-top: 1px solid var(--color-rule); max-width: 30em; }
   @media (max-width: 960px) {
     .method-figure { grid-template-columns: 1fr; }
     .method-figure .caption { padding-top: 0; border-top: 0; }
