@@ -1,228 +1,204 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// The page's sections, in order: drives "On this page"
+const sections = [
+  { id: 'checkpoints', title: 'Researcher-led checkpoints' },
+  { id: 'provenance', title: 'Provenance-first evidence' },
+  { id: 'coded-source-reader', title: 'Coded-source reader' },
+  { id: 'reports', title: 'Reports and Word export' },
+  { id: 'branching', title: 'Branching and resumption' },
+  { id: 'literature-synthesis', title: 'Corpus-grounded literature synthesis' },
+  { id: 'providers', title: 'Four providers, editable catalog' },
+];
 ---
 
 <BaseLayout title="Features — QualiLens" description="Researcher-led checkpoints, verbatim provenance, full audit trail, coded-source reader, interactive reports, and Word export.">
 
-  <!-- Header -->
-  <section class="page-head">
-    <div class="max-w-4xl mx-auto px-6">
-      <h1>Features</h1>
-      <p>QualiLens gives an AI model the coding work — and gives you the decisions, the evidence, and the audit trail a reviewer needs to trust the result.</p>
+  <!-- Page top: title and summary, with the page's sections beside them -->
+  <section class="page-top">
+    <div class="max-w-6xl mx-auto px-6 page-top-grid">
+      <div>
+        <h1>Features</h1>
+        <p class="lede">QualiLens gives an AI model the coding work — and gives you the decisions, the evidence, and the audit trail a reviewer needs to trust the result.</p>
+      </div>
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-label">On this page</p>
+        <ol>
+          {sections.map(s => <li><a href={`#${s.id}`}>{s.title}</a></li>)}
+        </ol>
+      </nav>
     </div>
   </section>
 
   <!-- Checkpoints -->
-  <section class="py-16 border-b border-rule" id="checkpoints">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="mb-8">
-        <div>
-          <h2 class="text-[28px] md:text-[32px] leading-tight">Researcher-led checkpoints</h2>
-          <p class="text-text-muted text-[17px] mt-2">The model proposes. You dispose.</p>
+  <section class="sec" id="checkpoints">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="sec-grid">
+        <div class="sec-head">
+          <h2>Researcher-led checkpoints</h2>
+          <p class="sub">The model proposes. You dispose.</p>
+        </div>
+        <div class="sec-body">
+          <p>The analysis pipeline pauses at the analytic decision points — code review, category or theme construction, core category selection, framework charting — and waits for your approval. At each checkpoint you can rename, redefine, merge, delete, or add codes. Your edits are final: no later automated stage overwrites a name or definition you set by hand.</p>
+          <p>The checkpoint panel shows all codes with their evidence. Clicking a code reveals all excerpts assigned to it, with its verbatim quote, the source filename, and a link to view it in context. Multi-select lets you merge duplicates or near-synonyms in one action. Search and sort help you navigate a large code set. A long codebook can also be downloaded as a spreadsheet, revised in Excel, Numbers, or Google Sheets — with a co-coder, with notes — and uploaded again; its decisions load into the checkpoint for you to check before you approve, and the worksheet becomes part of the run's record.</p>
+          <p>Each decision you make at a checkpoint is recorded: the audit trail logs what changed, the report's appendix summarizes what was decided at each checkpoint, and the complete log exports as one JSON file from the run screen.</p>
+          <a class="zoom" href="/screenshots/app-checkpoint-evidence.png" data-figure><div class="shot"><img src="/screenshots/app-checkpoint-evidence.png" width="1400" height="1135" alt="QualiLens checkpoint: reviewing concepts with evidence panel showing verbatim quotes and source links" loading="lazy" /></div></a>
         </div>
       </div>
 
-      <div class="max-w-[46em]">
-        <p class="text-text-secondary leading-relaxed mb-4">The analysis pipeline pauses at the analytic decision points — code review, category or theme construction, core category selection, framework charting — and waits for your approval. At each checkpoint you can rename, redefine, merge, delete, or add codes. Your edits are final: no later automated stage overwrites a name or definition you set by hand.</p>
-        <p class="text-text-secondary leading-relaxed mb-4">The checkpoint panel shows all codes with their evidence. Clicking a code reveals all excerpts assigned to it, with its verbatim quote, the source filename, and a link to view it in context. Multi-select lets you merge duplicates or near-synonyms in one action. Search and sort help you navigate a large code set. A long codebook can also be downloaded as a spreadsheet, revised in Excel, Numbers, or Google Sheets — with a co-coder, with notes — and uploaded again; its decisions load into the checkpoint for you to check before you approve, and the worksheet becomes part of the run's record.</p>
-        <p class="text-text-secondary leading-relaxed">Each decision you make at a checkpoint is recorded: the audit trail logs what changed, the report's appendix summarizes what was decided at each checkpoint, and the complete log exports as one JSON file from the run screen.</p>
-      </div>
-
-      <div class="mt-8 shot">
-        <img src="/screenshots/app-checkpoint-evidence.png" width="1400" height="1135" alt="QualiLens checkpoint: reviewing concepts with evidence panel showing verbatim quotes and source links" class="w-full" loading="lazy" />
-      </div>
-
-      <!-- Audit trail callout -->
-      <div class="mt-10 note">
-        <h3 class="font-semibold mb-3">Full audit trail</h3>
-        <p class="text-text-secondary leading-relaxed mb-4">The pipeline writes a timestamped log entry for all substantive actions: each model call, each checkpoint opened and resolved, each code you renamed or merged, and the exact prompt sent at each stage. The log is stored per-run, viewable alongside the pipeline progress, and reproduced in the Word export's audit appendix. An ethics committee or methods reviewer can trace the entire analytic process from source upload to final report without asking the researcher to reconstruct it from memory.</p>
-      </div>
-
-      <div class="mt-8 shot">
-        <img src="/screenshots/app-run-complete.png" width="1400" height="855" alt="QualiLens completed run: pipeline stages with timestamps and audit log showing all model calls and checkpoint resolution" class="w-full" loading="lazy" />
+      <div class="sec-grid sec-sub">
+        <div class="sec-head"><h3>Full audit trail</h3></div>
+        <div class="sec-body">
+          <p>The pipeline writes a timestamped log entry for all substantive actions: each model call, each checkpoint opened and resolved, each code you renamed or merged, and the exact prompt sent at each stage. The log is stored per-run, viewable alongside the pipeline progress, and reproduced in the Word export's audit appendix. An ethics committee or methods reviewer can trace the entire analytic process from source upload to final report without asking the researcher to reconstruct it from memory.</p>
+          <a class="zoom" href="/screenshots/app-run-complete.png" data-figure><div class="shot"><img src="/screenshots/app-run-complete.png" width="1400" height="855" alt="QualiLens completed run: pipeline stages with timestamps and audit log showing all model calls and checkpoint resolution" loading="lazy" /></div></a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Provenance -->
-  <section class="py-16 border-b border-rule" id="provenance">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="mb-8">
-        <div>
-          <h2 class="text-[28px] md:text-[32px] leading-tight">Provenance-first evidence</h2>
-          <p class="text-text-muted text-[17px] mt-2">Each quote linked to its exact position in the source.</p>
-        </div>
+  <section class="sec" id="provenance">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head">
+        <h2>Provenance-first evidence</h2>
+        <p class="sub">Each quote linked to its exact position in the source.</p>
       </div>
-
-      <div class="max-w-[46em]">
-        <p class="text-text-secondary leading-relaxed mb-4">Each excerpt stores the verbatim quote and its character offsets. When you click "view in coded document," the coded-source reader opens that document with the excerpt highlighted at its exact location, with all other coded passages in the document shaded around it.</p>
-        <p class="text-text-secondary leading-relaxed mb-4">Quotes that the AI model paraphrased rather than copying verbatim are flagged as "not located" and collected in a separate panel. The report marks them <em>not located verbatim</em> instead of quoting them, the Word export lists them outside quotation marks, and the synthesis stage never builds on them — they draw your attention to places where the coder departed from the text without ever passing as quotations.</p>
-        <p class="text-text-secondary leading-relaxed">PDF sources carry page anchors, so quotes in the report name both the source file and the page number.</p>
+      <div class="sec-body">
+        <p>Each excerpt stores the verbatim quote and its character offsets. When you click "view in coded document," the coded-source reader opens that document with the excerpt highlighted at its exact location, with all other coded passages in the document shaded around it.</p>
+        <p>Quotes that the AI model paraphrased rather than copying verbatim are flagged as "not located" and collected in a separate panel. The report marks them <em>not located verbatim</em> instead of quoting them, the Word export lists them outside quotation marks, and the synthesis stage never builds on them — they draw your attention to places where the coder departed from the text without ever passing as quotations.</p>
+        <p>PDF sources carry page anchors, so quotes in the report name both the source file and the page number.</p>
       </div>
     </div>
   </section>
 
   <!-- Coded-source reader -->
-  <section class="py-16 border-b border-rule" id="coded-source-reader">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="mb-8">
-        <div>
-          <h2 class="text-[28px] md:text-[32px] leading-tight">Coded-source reader</h2>
-          <p class="text-text-muted text-[17px] mt-2">See your coding drawn over the original text.</p>
-        </div>
+  <section class="sec" id="coded-source-reader">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head">
+        <h2>Coded-source reader</h2>
+        <p class="sub">See your coding drawn over the original text.</p>
       </div>
-
-      <div class="max-w-[46em]">
-        <p class="text-text-secondary leading-relaxed mb-4">The reader displays each source document with coded passages shaded in place. Where two excerpts overlap, the text is split at the boundary and shaded by the number of codes covering it, so dense coding stands out visually.</p>
-        <p class="text-text-secondary leading-relaxed mb-4">A minimap along the left edge represents the whole document, with marks at each coded span's position — you can see at a glance where coding clusters and where it thins out. Coverage is reported as the share of the document's characters lying inside at least one coded span.</p>
-        <p class="text-text-secondary leading-relaxed">Click any code in the panel to isolate its passages. With a code isolated, step buttons move you from one of its occurrences to the next through the document.</p>
-      </div>
-
-      <div class="mt-8 shot">
-        <img src="/screenshots/app-coded-source-reader.png" width="1400" height="1362" alt="QualiLens coded-source reader: interview transcript with coded passages shaded in gold, minimap along the left edge, and a code panel listing all codes in the document" class="w-full" loading="lazy" />
+      <div class="sec-body">
+        <p>The reader displays each source document with coded passages shaded in place. Where two excerpts overlap, the text is split at the boundary and shaded by the number of codes covering it, so dense coding stands out visually.</p>
+        <p>A minimap along the left edge represents the whole document, with marks at each coded span's position — you can see at a glance where coding clusters and where it thins out. Coverage is reported as the share of the document's characters lying inside at least one coded span.</p>
+        <p>Click any code in the panel to isolate its passages. With a code isolated, step buttons move you from one of its occurrences to the next through the document.</p>
+        <a class="zoom" href="/screenshots/app-coded-source-reader.png" data-figure><div class="shot"><img src="/screenshots/app-coded-source-reader.png" width="1400" height="1362" alt="QualiLens coded-source reader: interview transcript with coded passages shaded in gold, minimap along the left edge, and a code panel listing all codes in the document" loading="lazy" /></div></a>
       </div>
     </div>
   </section>
 
   <!-- Reports -->
-  <section class="py-16 border-b border-rule" id="reports">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="mb-8">
-        <div>
-          <h2 class="text-[28px] md:text-[32px] leading-tight">Reports and Word export</h2>
-          <p class="text-text-muted text-[17px] mt-2">Interactive report, method-specific figure, full evidence, one-click .docx.</p>
+  <section class="sec" id="reports">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="sec-grid">
+        <div class="sec-head">
+          <h2>Reports and Word export</h2>
+          <p class="sub">Interactive report, method-specific figure, full evidence, one-click .docx.</p>
+        </div>
+        <div class="sec-body">
+          <p>A completed run produces an interactive report with narrative sections (overview, findings by theme, integration, limitations), a method-appropriate figure, source buttons that open the coded-source reader, and a collapsible evidence section where all codes show their definitions and all excerpts beneath them.</p>
+          <p>The Word export builds a formatted .docx from the same data: Georgia at eleven points, title block, narrative, figure with caption, evidence listing (twelve excerpts per code), and audit appendix. The file is named after your project.</p>
+          <a class="zoom" href="/screenshots/app-report-synthesis.png" data-figure><div class="shot"><img src="/screenshots/app-report-synthesis.png" width="1400" height="1067" alt="QualiLens literature-synthesis report: the corpus overview and the synthesis by concept, every claim citing the paper in the corpus that supports it" loading="lazy" /></div></a>
         </div>
       </div>
 
-      <div class="max-w-[46em] mb-8">
-        <p class="text-text-secondary leading-relaxed mb-4">A completed run produces an interactive report with narrative sections (overview, findings by theme, integration, limitations), a method-appropriate figure, source buttons that open the coded-source reader, and a collapsible evidence section where all codes show their definitions and all excerpts beneath them.</p>
-        <p class="text-text-secondary leading-relaxed">The Word export builds a formatted .docx from the same data: Georgia at eleven points, title block, narrative, figure with caption, evidence listing (twelve excerpts per code), and audit appendix. The file is named after your project.</p>
-      </div>
-
-      <!-- Figures table -->
-      <div class="bg-white border border-rule rounded-md p-6">
-        <h3 class="font-semibold mb-4">Method-specific figures</h3>
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm">
-            <thead>
-              <tr class="border-b border-border">
-                <th class="text-left py-2 pr-4 font-medium text-text-muted">Method</th>
-                <th class="text-left py-2 pr-4 font-medium text-text-muted">Figure</th>
-                <th class="text-left py-2 font-medium text-text-muted">What it shows</th>
-              </tr>
-            </thead>
-            <tbody class="text-text-secondary">
-              <tr class="border-b border-border/50"><td class="py-3 pr-4 font-medium text-text-primary">Grounded theory</td><td class="py-3 pr-4">Paradigm flow model</td><td class="py-3">Left-to-right flow: antecedent categories → core category → strategies and consequences</td></tr>
-              <tr class="border-b border-border/50"><td class="py-3 pr-4 font-medium text-text-primary">Thematic analysis</td><td class="py-3 pr-4">Thematic map</td><td class="py-3">Each theme with constituent codes, excerpt counts in parentheses</td></tr>
-              <tr class="border-b border-border/50"><td class="py-3 pr-4 font-medium text-text-primary">Content analysis</td><td class="py-3 pr-4">Frequency chart</td><td class="py-3">Horizontal bars per code; stacked by group when group comparison is on</td></tr>
-              <tr class="border-b border-border/50"><td class="py-3 pr-4 font-medium text-text-primary">Framework</td><td class="py-3 pr-4">Matrix heatmap</td><td class="py-3">Sources by codes, each cell carrying its count, shaded by intensity</td></tr>
-              <tr><td class="py-3 pr-4 font-medium text-text-primary">Literature synthesis</td><td class="py-3 pr-4">Concept-by-paper heatmap</td><td class="py-3">Papers by concepts, each cell carrying its count of supporting passages</td></tr>
-            </tbody>
-          </table>
+      <div class="sec-grid sec-sub">
+        <div class="sec-head"><h3>Method-specific figures</h3></div>
+        <div class="sec-body">
+          <div class="table-wrap overflow-x-auto">
+            <table class="table-plain">
+              <thead>
+                <tr><th scope="col">Method</th><th scope="col">Figure</th><th scope="col">What it shows</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="row-head">Grounded theory</td><td>Paradigm flow model</td><td>Left-to-right flow: antecedent categories → core category → strategies and consequences</td></tr>
+                <tr><td class="row-head">Thematic analysis</td><td>Thematic map</td><td>Each theme with constituent codes, excerpt counts in parentheses</td></tr>
+                <tr><td class="row-head">Content analysis</td><td>Frequency chart</td><td>Horizontal bars per code; stacked by group when group comparison is on</td></tr>
+                <tr><td class="row-head">Framework</td><td>Matrix heatmap</td><td>Sources by codes, each cell carrying its count, shaded by intensity</td></tr>
+                <tr><td class="row-head">Literature synthesis</td><td>Concept-by-paper heatmap</td><td>Papers by concepts, each cell carrying its count of supporting passages</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fine">Figures disclose truncation on their face. The evidence section and tables beneath are complete.</p>
         </div>
-        <p class="text-xs text-text-muted mt-4">Figures disclose truncation on their face. The evidence section and tables beneath are complete.</p>
-      </div>
-
-      <div class="mt-8 shot">
-        <img src="/screenshots/app-report-synthesis.png" width="1400" height="1067" alt="QualiLens literature-synthesis report: the corpus overview and the synthesis by concept, every claim citing the paper in the corpus that supports it" class="w-full" loading="lazy" />
       </div>
     </div>
   </section>
 
   <!-- Branching -->
-  <section class="py-16 border-b border-rule" id="branching">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="mb-8">
-        <div>
-          <h2 class="text-[28px] md:text-[32px] leading-tight">Branching and resumption</h2>
-          <p class="text-text-muted text-[17px] mt-2">Revisit a checkpoint without losing the original run.</p>
-        </div>
+  <section class="sec" id="branching">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head">
+        <h2>Branching and resumption</h2>
+        <p class="sub">Revisit a checkpoint without losing the original run.</p>
       </div>
-
-      <div class="max-w-[46em]">
-        <p class="text-text-secondary leading-relaxed mb-4">Any review a completed run has passed can be revisited. A branch carries everything up to that review — codes, evidence, earlier resolved reviews, and the decisions already recorded — into a new run and reopens the checkpoint. Stages after the review run again on the branch; the original run and its report are untouched.</p>
-        <p class="text-text-secondary leading-relaxed">Failed runs resume where they stopped. Resuming skips work already completed, so you are not re-billed for finished stages. Cancellation is honored immediately — the current model call finishes and nothing further is started.</p>
+      <div class="sec-body">
+        <p>Any review a completed run has passed can be revisited. A branch carries everything up to that review — codes, evidence, earlier resolved reviews, and the decisions already recorded — into a new run and reopens the checkpoint. Stages after the review run again on the branch; the original run and its report are untouched.</p>
+        <p>Failed runs resume where they stopped. Resuming skips work already completed, so you are not re-billed for finished stages. Cancellation is honored immediately — the current model call finishes and nothing further is started.</p>
       </div>
     </div>
   </section>
 
   <!-- Literature synthesis -->
-  <section class="py-16 border-b border-rule" id="literature-synthesis">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="mb-8">
-        <div>
-          <h2 class="text-[28px] md:text-[32px] leading-tight">Corpus-grounded literature synthesis</h2>
-          <p class="text-text-muted text-[17px] mt-2">Every concept is grounded in quotes located in your uploaded papers; the narrative is guarded against citations and quotations that match none of them.</p>
-        </div>
+  <section class="sec" id="literature-synthesis">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head">
+        <h2>Corpus-grounded literature synthesis</h2>
+        <p class="sub">Every concept is grounded in quotes located in your uploaded papers; the narrative is guarded against citations and quotations that match none of them.</p>
       </div>
-
-      <div class="max-w-[46em]">
-        <p class="text-text-secondary leading-relaxed mb-4">Literature synthesis extracts aims, method, sample, findings, and limitations from each paper, then builds a concept-by-paper matrix grounded strictly in the extraction quotes. Synthesis support must reference located extraction quotes by ID; ungrounded support is dropped and logged.</p>
-        <p class="text-text-secondary leading-relaxed mb-4">The extraction table presents each paper's five-field summary — aims, method, sample, findings, limitations — in a structured row with verbatim quote counts per field. Expanding a row shows the full extraction with the exact passages the model used. This table is both an intermediate checkpoint (you review and edit it before synthesis proceeds) and a standalone deliverable: the kind of structured evidence table a systematic review demands, built in minutes instead of weeks.</p>
-        <p class="text-text-secondary leading-relaxed">A citation guard scans the generated narrative for citation-shaped strings that match no uploaded paper. Any it finds are listed in the report's limitations section. This is a tripwire against fabricated references, not a validation of real ones.</p>
-      </div>
-
-      <div class="mt-8 shot">
-        <img src="/screenshots/app-extraction-detail.png" width="1400" height="1816" alt="QualiLens extraction table: a paper expanded to show its five-field structured extraction with verbatim quotes per field" class="w-full" loading="lazy" />
-      </div>
-
-      <div class="mt-8 shot">
-        <img src="/screenshots/app-concept-matrix.png" width="1400" height="1400" alt="QualiLens concept-by-paper heatmap: papers listed down the left, concepts across the top, cells shaded by the number of supporting passages" class="w-full" loading="lazy" />
+      <div class="sec-body">
+        <p>Literature synthesis extracts aims, method, sample, findings, and limitations from each paper, then builds a concept-by-paper matrix grounded strictly in the extraction quotes. Synthesis support must reference located extraction quotes by ID; ungrounded support is dropped and logged.</p>
+        <p>The extraction table presents each paper's five-field summary — aims, method, sample, findings, limitations — in a structured row with verbatim quote counts per field. Expanding a row shows the full extraction with the exact passages the model used. This table is both an intermediate checkpoint (you review and edit it before synthesis proceeds) and a standalone deliverable: the kind of structured evidence table a systematic review demands, built in minutes instead of weeks.</p>
+        <p>A citation guard scans the generated narrative for citation-shaped strings that match no uploaded paper. Any it finds are listed in the report's limitations section. This is a tripwire against fabricated references, not a validation of real ones.</p>
+        <a class="zoom" href="/screenshots/app-extraction-detail.png" data-figure><div class="shot"><img src="/screenshots/app-extraction-detail.png" width="1400" height="1816" alt="QualiLens extraction table: a paper expanded to show its five-field structured extraction with verbatim quotes per field" loading="lazy" /></div></a>
+        <a class="zoom" href="/screenshots/app-concept-matrix.png" data-figure><div class="shot"><img src="/screenshots/app-concept-matrix.png" width="1400" height="1400" alt="QualiLens concept-by-paper heatmap: papers listed down the left, concepts across the top, cells shaded by the number of supporting passages" loading="lazy" /></div></a>
       </div>
     </div>
   </section>
 
   <!-- Providers -->
-  <section class="py-16 border-b border-rule" id="providers">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="mb-8">
-        <div>
-          <h2 class="text-[28px] md:text-[32px] leading-tight">Four providers, editable catalog</h2>
-          <p class="text-text-muted text-[17px] mt-2">Your key, your account, direct connection.</p>
-        </div>
+  <section class="sec" id="providers">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head">
+        <h2>Four providers, editable catalog</h2>
+        <p class="sub">Your key, your account, direct connection.</p>
       </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <div class="border-t border-ink pt-3">
-          <p class="font-semibold text-lg mb-1">Anthropic</p>
-          <p class="text-sm text-text-muted">Claude</p>
+      <div class="sec-body">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="border-t border-ink pt-3">
+            <p class="font-semibold text-lg mb-1">Anthropic</p>
+            <p class="text-sm text-text-muted">Claude</p>
+          </div>
+          <div class="border-t border-ink pt-3">
+            <p class="font-semibold text-lg mb-1">OpenAI</p>
+            <p class="text-sm text-text-muted">GPT</p>
+          </div>
+          <div class="border-t border-ink pt-3">
+            <p class="font-semibold text-lg mb-1">Google</p>
+            <p class="text-sm text-text-muted">Gemini</p>
+          </div>
+          <div class="border-t border-ink pt-3">
+            <p class="font-semibold text-lg mb-1">Mistral</p>
+            <p class="text-sm text-text-muted">Mistral</p>
+          </div>
         </div>
-        <div class="border-t border-ink pt-3">
-          <p class="font-semibold text-lg mb-1">OpenAI</p>
-          <p class="text-sm text-text-muted">GPT</p>
-        </div>
-        <div class="border-t border-ink pt-3">
-          <p class="font-semibold text-lg mb-1">Google</p>
-          <p class="text-sm text-text-muted">Gemini</p>
-        </div>
-        <div class="border-t border-ink pt-3">
-          <p class="font-semibold text-lg mb-1">Mistral</p>
-          <p class="text-sm text-text-muted">Mistral</p>
-        </div>
-      </div>
-
-      <div class="max-w-[46em]">
-        <p class="text-text-secondary leading-relaxed mb-4">The model catalog is editable. A live model check compares the catalog against each provider's own listing endpoint — no tokens spent, nothing sent beyond your key — and, for Google, which keeps listing models it refuses to new projects, asks about each catalog model through a free endpoint too. A model marked ✗ is retired, or refused to your key; either way it is a prompt to pick a different one. You can also type any current model ID under "Custom model id" in the wizard.</p>
-        <p class="text-text-secondary leading-relaxed mb-4">Transcription of audio and video runs through OpenAI's transcription service, regardless of which provider performs the analysis. If you upload recordings and use Anthropic, Google, or Mistral for coding, you still need an OpenAI key saved in Settings.</p>
-        <p class="text-text-secondary leading-relaxed">Before each run, the wizard estimates the cost based on your corpus size, chosen method, and model. The estimate covers the full pipeline — all stages, all documents — so you know what you are committing before the first model call.</p>
+        <p>The model catalog is editable. A live model check compares the catalog against each provider's own listing endpoint — no tokens spent, nothing sent beyond your key — and, for Google, which keeps listing models it refuses to new projects, asks about each catalog model through a free endpoint too. A model marked ✗ is retired, or refused to your key; either way it is a prompt to pick a different one. You can also type any current model ID under "Custom model id" in the wizard.</p>
+        <p>Transcription of audio and video runs through OpenAI's transcription service, regardless of which provider performs the analysis. If you upload recordings and use Anthropic, Google, or Mistral for coding, you still need an OpenAI key saved in Settings.</p>
+        <p>Before each run, the wizard estimates the cost based on your corpus size, chosen method, and model. The estimate covers the full pipeline — all stages, all documents — so you know what you are committing before the first model call.</p>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-14 md:py-16 bg-panel">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="text-[28px] md:text-[32px] leading-tight mb-3">Try it on one document</h2>
-          <p class="text-text-secondary text-lg">A single-transcript run typically costs a few cents and exposes all checkpoints before you commit a full corpus.</p>
-        </div>
-        <div class="md:text-right">
-          <a href="/getting-started" class="btn btn-ink">
-            Getting started guide
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+  <!-- Closing: same two columns -->
+  <section class="sec bg-panel">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head">
+        <h2>Try it on one document</h2>
+      </div>
+      <div class="sec-body">
+        <p>A single-transcript run typically costs a few cents and exposes all checkpoints before you commit a full corpus.</p>
+        <a href="/getting-started" class="btn btn-ink mt-6">Getting started guide</a>
       </div>
     </div>
   </section>

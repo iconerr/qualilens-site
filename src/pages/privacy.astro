@@ -1,21 +1,39 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Numbered, so an ethics application can cite a section ("see section 4")
+const parts = [
+  { id: 'what-leaves', title: 'What leaves your computer' },
+  { id: 'what-stays', title: 'What stays on your computer' },
+  { id: 'provider', title: 'What the provider does with your data' },
+  { id: 'ethics', title: 'Notes for an ethics application' },
+  { id: 'before-upload', title: 'Before you upload human subjects data' },
+];
 ---
 
 <BaseLayout title="Privacy & Data — QualiLens" description="QualiLens runs locally. No server, no telemetry, no analytics. Your data go only to the AI provider you chose.">
 
   <!-- Header -->
-  <section class="page-head">
-    <div class="max-w-4xl mx-auto px-6">
-      <h1>Privacy &amp; Data</h1>
-      <p>QualiLens runs entirely on your computer. It sends your data to exactly one place: the AI model provider you selected. Below is what leaves your computer, what stays, and what your ethics committee needs to know.</p>
+  <section class="page-top">
+    <div class="max-w-6xl mx-auto px-6 page-top-grid">
+      <div>
+        <h1>Privacy &amp; Data</h1>
+        <p class="lede">QualiLens runs entirely on your computer. It sends your data to exactly one place: the AI model provider you selected. Below is what leaves your computer, what stays, and what your ethics committee needs to know.</p>
+      </div>
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-label">On this page</p>
+        <ol>
+          {parts.map((x, i) => <li><a href={`#${x.id}`}><span class="toc-n">{i + 1}</span>{x.title}</a></li>)}
+        </ol>
+      </nav>
     </div>
   </section>
 
   <!-- What leaves -->
-  <section class="py-16 border-b border-rule">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-[26px] md:text-[28px] leading-tight mb-6">What leaves your computer</h2>
+  <section class="sec" id="what-leaves">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head"><h2><span class="sec-n">1</span>What leaves your computer</h2></div>
+      <div class="sec-body">
       <p class="text-text-secondary mb-6">Analysis calls carry your data to the provider whose key you supplied, over a direct connection to that provider's API. There is no QualiLens server, no intermediary, no queue, and no relay.</p>
 
       <div class="overflow-x-auto">
@@ -41,13 +59,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <p class="text-sm text-text-muted mt-4">Your research question and setup answers travel with most calls. Your API key is sent to its own provider as an authorization header, and to nobody else.</p>
+      </div>
     </div>
   </section>
 
   <!-- What stays -->
-  <section class="py-16 border-b border-rule">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-[26px] md:text-[28px] leading-tight mb-6">What stays on your computer</h2>
+  <section class="sec" id="what-stays">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head"><h2><span class="sec-n">2</span>What stays on your computer</h2></div>
+      <div class="sec-body">
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
         <div class="border-t border-ink pt-4">
@@ -67,23 +87,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="text-[15px] text-text-secondary">The database, uploaded files, and your analysis stay on disk, readable by your account only. API keys in the database are encrypted with a secret held outside that folder; the participant data are not encrypted. Back up <code class="code-inline">backend/data/</code>.</p>
         </div>
       </div>
+      </div>
     </div>
   </section>
 
   <!-- Provider responsibility -->
-  <section class="py-16 border-b border-rule">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-[26px] md:text-[28px] leading-tight mb-6">What the provider does with your data</h2>
+  <section class="sec" id="provider">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head"><h2><span class="sec-n">3</span>What the provider does with your data</h2></div>
+      <div class="sec-body">
       <p class="text-text-secondary mb-4">Your agreement with the provider governs that — not this software. Three questions matter: How long does the provider retain your inputs? May it use them to train models? Is a zero-retention arrangement available?</p>
       <p class="text-text-secondary mb-4">Settle all three with the provider before you upload human subjects data. QualiLens sends your data to that provider and to no one else.</p>
       <p class="text-text-secondary">One tier difference is stark. On Google's free tier — any key whose project AI Studio does not show on the paid tier, which means linking a billing account and prepaying at least $5 — Google's Gemini API terms let Google use what you send to improve its products and let human reviewers read it, outside the European Economic Area, Switzerland, and the United Kingdom. There, a free Gemini key is unsuitable for interview transcripts or other identifiable data. The <a href="/docs/data-and-privacy" class="link">manual's privacy chapter</a> has the details.</p>
+      </div>
     </div>
   </section>
 
   <!-- Ethics -->
-  <section class="py-16 border-b border-rule">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-[26px] md:text-[28px] leading-tight mb-6">Notes for an ethics application</h2>
+  <section class="sec" id="ethics">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head"><h2><span class="sec-n">4</span>Notes for an ethics application</h2></div>
+      <div class="sec-body">
       <p class="text-text-secondary mb-6">These are the facts a committee will ask for, stated in the terms committees use.</p>
 
       <div class="border-b border-rule">
@@ -112,13 +136,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="text-[15px] text-text-secondary">AI model coding is not deterministic — a second run will differ. The audit trail records the provider, the model requested and the model the provider reports answered each call, the settings frozen at the run's start, the sampling settings of every call, and all researcher decisions, and exports as one JSON file. This supports auditability rather than exact reproducibility.</p>
         </div>
       </div>
+      </div>
     </div>
   </section>
 
   <!-- Pre-upload checklist -->
-  <section class="py-16">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-[26px] md:text-[28px] leading-tight mb-6">Before you upload human subjects data</h2>
+  <section class="sec" id="before-upload">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head"><h2><span class="sec-n">5</span>Before you upload human subjects data</h2></div>
+      <div class="sec-body">
       <div class="bg-white border border-rule rounded-md p-6 space-y-3">
         <div class="flex items-start gap-3">
           <span class="shrink-0 mt-[5px] w-3.5 h-3.5 border border-ink/50 rounded-[3px] bg-white" aria-hidden="true"></span>
@@ -140,6 +166,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="shrink-0 mt-[5px] w-3.5 h-3.5 border border-ink/50 rounded-[3px] bg-white" aria-hidden="true"></span>
           <p class="text-[15px] text-text-secondary">Run one short source end to end first, so that you see what is sent and what comes back before you commit the corpus.</p>
         </div>
+      </div>
       </div>
     </div>
   </section>

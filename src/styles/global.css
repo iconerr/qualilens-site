@@ -43,6 +43,8 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
   }
+  /* keep the page still while the screenshot overlay is open */
+  html:has(.figure-dialog[open]) { overflow: hidden; }
 
   body {
     font-family: var(--font-sans);
@@ -90,10 +92,80 @@
   .link:hover { color: var(--color-brand-600); text-decoration-color: currentColor; }
   .link-strong { font-weight: 500; }
 
-  /* Page title block for inner pages */
+  /* Page title block for inner pages (older pattern; pages move to .page-top) */
   .page-head { padding: 64px 0 40px; border-bottom: 1px solid var(--color-rule); }
   .page-head h1 { font-size: clamp(34px, 4vw, 46px); line-height: 1.12; }
   .page-head p { font-size: 18px; line-height: 1.6; color: var(--color-text-secondary); max-width: 40em; margin-top: 14px; }
+
+  /* ---------- Page frame for inner pages, built from the homepage's patterns ----------
+     Container: max-w-6xl px-6 (the header's), so every page shares the logo's left edge.
+     .page-top    title and summary at left, "On this page" at right (like the homepage hero)
+     .sec         a section, hairline above
+     .sec-grid    heading column (4fr, kept in view) beside the content column (7fr)
+     .sec-sub     a sub-topic inside a section, same two columns, smaller heading */
+  .page-top { padding: 64px 0 52px; }
+  .page-top-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 28px 64px; align-items: start; }
+  .page-top h1 { font-size: clamp(38px, 4.4vw, 52px); line-height: 1.08; letter-spacing: -0.012em; }
+  .page-top .lede { font-size: 19px; line-height: 1.6; color: var(--color-text-secondary); max-width: 40em; margin-top: 16px; }
+  .toc { padding-top: 14px; border-top: 1px solid var(--color-rule); font-size: 14px; }
+  .toc-label { color: var(--color-text-muted); margin-bottom: 6px; }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  .toc ol a { color: var(--color-text-secondary); text-decoration: none; }
+  .toc ol a:hover { color: var(--color-brand-500); text-decoration: underline; text-underline-offset: 3px; }
+
+  .sec { padding: 80px 0; border-top: 1px solid var(--color-rule); scroll-margin-top: 64px; }
+  .sec-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 24px 56px; align-items: start; }
+  .sec-body > p, .sec-body > ul, .sec-body > ol, .sec-body > .measure { max-width: 40em; }
+  .sec-head { position: sticky; top: 96px; }
+  .sec-head h2 { font-size: clamp(26px, 2.6vw, 32px); line-height: 1.2; }
+  .sec-head .sub { color: var(--color-text-muted); font-size: 16px; line-height: 1.55; margin-top: 10px; max-width: 26em; }
+  .sec-body > p { color: var(--color-text-secondary); font-size: 17px; line-height: 1.7; }
+  .sec-body > p + p { margin-top: 16px; }
+  .sec-body > .zoom, .sec-body > .table-plain, .sec-body > .table-wrap { margin-top: 36px; }
+  .sec-body .fine { font-size: 13.5px; color: var(--color-text-muted); margin-top: 10px; }
+  .sec-sub { margin-top: 56px; }
+  .sec-sub .sec-head h3 { font-size: 17px; font-weight: 600; color: var(--color-ink); }
+  .sec-sub .sec-head { top: 96px; }
+  .toc-n { display: inline-block; min-width: 1.4em; font-family: var(--font-serif); color: var(--color-text-muted); }
+  .sec-n { font-family: var(--font-serif); color: var(--color-text-muted); font-weight: 400; margin-right: .35em; }
+
+  /* Procedure (Getting started): numbered steps joined by a rule, done in order */
+  .proc-sec { padding: 72px 0 80px; border-top: 1px solid var(--color-rule); }
+  .proc { list-style: none; margin: 0; padding: 0; }
+  .proc-step { position: relative; display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 20px 56px; padding-bottom: 72px; scroll-margin-top: 80px; }
+  .proc-step:last-child { padding-bottom: 0; }
+  .proc-step::before { content: ""; position: absolute; left: 20px; top: 46px; bottom: 6px; width: 1px; background: var(--color-rule-strong); }
+  .proc-step:last-child::before { display: none; }
+  .proc-head { display: flex; gap: 16px; align-items: flex-start; }
+  .proc-num { flex: none; position: relative; z-index: 1; width: 41px; height: 41px; border-radius: 50%; border: 1px solid var(--color-ink); background: var(--color-paper); display: grid; place-items: center; font: 500 18px/1 var(--font-serif); color: var(--color-ink); }
+  .proc-head h2 { font-size: clamp(22px, 2.2vw, 26px); line-height: 1.25; padding-top: 6px; }
+  .proc-body { min-width: 0; font-size: 17px; line-height: 1.7; color: var(--color-text-secondary); }
+  .proc-body > p { max-width: 40em; }
+
+  /* FAQ: a fixed index of topics beside the questions */
+  .faq-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 24px 56px; align-items: start; }
+  .faq-index { position: sticky; top: 96px; font-size: 15px; }
+  .faq-index ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-ink); }
+  .faq-index li a { display: block; padding: 9px 0; border-bottom: 1px solid var(--color-rule); color: var(--color-text-secondary); text-decoration: none; }
+  .faq-index li a:hover { color: var(--color-ink); }
+  .faq-cat { scroll-margin-top: 80px; }
+  .faq-cat + .faq-cat { margin-top: 56px; }
+
+  @media (max-width: 960px) {
+    .page-top-grid, .sec-grid, .proc-step, .faq-grid { grid-template-columns: 1fr; }
+    .sec-head, .faq-index { position: static; }
+    .proc-body { padding-left: 57px; }
+  }
+  @media (max-width: 760px) {
+    .proc-step::before { display: none; }
+    .proc-body { padding-left: 0; }
+    .faq-index { display: none; }
+  }
+  @media (max-width: 760px) {
+    .page-top { padding: 44px 0 36px; }
+    .sec { padding: 56px 0; }
+    .sec-body > p { font-size: 16.5px; }
+  }
 
   /* Screenshot frame */
   .shot {
@@ -101,6 +173,28 @@
     box-shadow: 0 1px 2px rgba(28,25,23,.04), 0 8px 24px -12px rgba(28,25,23,.12);
   }
   .shot img { display: block; width: 100%; height: auto; }
+
+  /* A screenshot that opens in the overlay (BaseLayout's #figure-dialog) */
+  .zoom { display: block; cursor: zoom-in; }
+  .zoom .shot { transition: border-color .15s; }
+  .zoom:hover .shot { border-color: var(--color-rule-strong); }
+
+  /* The overlay: the image at its own width (up to the window's), centred when it fits,
+     scrolling when it is taller or wider than the window */
+  .figure-dialog { border: 0; padding: 0; margin: 0; width: 100vw; height: 100vh; max-width: none; max-height: none; background: transparent; }
+  .figure-dialog::backdrop { background: rgba(28, 25, 23, .78); }
+  .fd-inner { position: fixed; inset: 0; display: flex; overflow: auto; padding: 64px 24px 24px; cursor: zoom-out; }
+  .fd-inner img { display: block; margin: auto; width: min(100%, var(--fd-w, 1400px)); max-width: none; height: auto; background: #fff; border-radius: 8px; box-shadow: 0 16px 48px -12px rgba(0, 0, 0, .5); cursor: default; }
+  .fd-close { position: fixed; top: 16px; right: 20px; z-index: 1; display: inline-flex; align-items: baseline; gap: 8px; font: 500 14px/1 var(--font-sans); color: #fff; background: #1c1917; border: 1px solid rgba(255, 255, 255, .32); border-radius: 6px; padding: 9px 12px; cursor: pointer; }
+  .fd-close:hover { background: #3a3532; }
+  .fd-close kbd { font: 400 12px var(--font-mono); color: rgba(255, 255, 255, .7); }
+  @media (max-width: 760px) {
+    /* on a phone, open at a readable width and let the reader scroll around it */
+    .fd-inner { padding: 64px 16px 16px; }
+    .fd-inner img { width: 900px; }
+    .fd-close kbd { display: none; }
+  }
+
   .caption { font-size: 14px; line-height: 1.55; color: var(--color-text-muted); margin-top: 12px; }
   .caption b { color: var(--color-text-secondary); font-weight: 500; }
 

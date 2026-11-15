@@ -209,6 +209,15 @@ const isCurrent = (item: { href: string; section?: boolean }) =>
     </div>
   </div>
 
+  <!-- Screenshot overlay: any link marked data-figure opens its image here, over the page.
+       Closes with Esc, a click outside the image, or Close. Without JavaScript the link opens the image file. -->
+  <dialog class="figure-dialog" id="figure-dialog" aria-label="Screenshot at full size">
+    <div class="fd-inner">
+      <button type="button" class="fd-close" data-close>Close <kbd>Esc</kbd></button>
+      <img alt="" />
+    </div>
+  </dialog>
+
   <script is:inline>
     // The search shortcut is ⌘K on a Mac and Ctrl K elsewhere (the handler below accepts both)
     if (!/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) {
@@ -324,6 +333,35 @@ const isCurrent = (item: { href: string; section?: boolean }) =>
     // Show initial state when modal opens
     if (searchResults) {
       searchResults.innerHTML = '<p class="px-4 py-8 text-center text-sm text-text-muted">Type at least 2 characters to search</p>';
+    }
+
+    // Screenshot overlay. data-w / data-h give the full image's size in CSS pixels
+    // (a double-resolution file is shown at half its pixel width); otherwise the
+    // inline image's width and height are used.
+    var figureDialog = document.getElementById('figure-dialog');
+    if (figureDialog && typeof figureDialog.showModal === 'function') {
+      var fdInner = figureDialog.querySelector('.fd-inner');
+      var fdImg = figureDialog.querySelector('img');
+      document.querySelectorAll('a[data-figure]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          e.preventDefault();
+          var inline = a.querySelector('img');
+          var w = +(a.getAttribute('data-w') || (inline && inline.getAttribute('width')) || 1400);
+          var h = +(a.getAttribute('data-h') || (inline && inline.getAttribute('height')) || 900);
+          fdImg.width = w; fdImg.height = h;
+          fdImg.style.setProperty('--fd-w', w + 'px');
+          fdImg.alt = inline ? inline.alt : '';
+          fdImg.src = a.getAttribute('href');
+          figureDialog.setAttribute('aria-label', (inline && inline.alt) || 'Screenshot at full size');
+          figureDialog.showModal();
+          fdInner.scrollTo(0, 0);
+        });
+      });
+      figureDialog.addEventListener('click', function(e) {
+        var t = e.target;
+        if (t === figureDialog || t === fdInner || (t.closest && t.closest('[data-close]'))) figureDialog.close();
+      });
     }
   </script>
 </body>

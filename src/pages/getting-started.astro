@@ -1,30 +1,52 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const parts = [
+  { id: 'macos-linux', title: 'Mac (Apple silicon) and Linux' },
+  { id: 'windows-wsl', title: 'Setting up WSL on Windows' },
+  { id: 'step-1', n: 1, title: 'Check the requirements' },
+  { id: 'step-2', n: 2, title: 'Download QualiLens' },
+  { id: 'step-3', n: 3, title: 'Launch QualiLens' },
+  { id: 'step-4', n: 4, title: 'Add an API key' },
+  { id: 'step-5', n: 5, title: 'Run your first analysis' },
+  { id: 'updating', title: 'Updating QualiLens' },
+];
 ---
 
 <BaseLayout title="Getting Started — QualiLens" description="Download QualiLens from GitHub, install the requirements, and run your first analysis in minutes.">
 
   <!-- Header -->
-  <section class="page-head">
-    <div class="max-w-4xl mx-auto px-6">
-      <h1>Getting Started</h1>
-      <p>QualiLens runs entirely on your computer. Download the release, confirm the prerequisites below, and launch.</p>
+  <section class="page-top">
+    <div class="max-w-6xl mx-auto px-6 page-top-grid">
+      <div>
+        <h1>Getting Started</h1>
+        <p class="lede">QualiLens runs entirely on your computer. Download the release, confirm the prerequisites below, and launch.</p>
+      </div>
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-label">On this page</p>
+        <ol>
+          {parts.map(x => <li><a href={`#${x.id}`}>{x.n ? <span class="toc-n">{x.n}</span> : <span class="toc-n"></span>}{x.title}</a></li>)}
+        </ol>
+      </nav>
     </div>
   </section>
 
   <!-- macOS and Linux -->
-  <section id="macos-linux" class="py-12">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-[26px] md:text-[28px] leading-tight mb-4">Mac (Apple silicon) and Linux</h2>
+  <section id="macos-linux" class="sec">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head"><h2>Mac (Apple silicon) and Linux</h2></div>
+      <div class="sec-body">
       <p class="text-text-secondary mb-4">QualiLens is developed and tested on macOS, and it runs natively on Macs with Apple silicon (M1 or later) and on Linux with no extra setup, because the launcher is a shell script (<code class="code-inline">run.sh</code>). Intel Macs are not supported, because a library the app needs for encryption and for checking update signatures is no longer published for them. Start with <a href="#step-1" class="link">Step 1</a> below.</p>
       <p class="text-sm text-text-muted">Running Windows? See <a href="#windows-wsl" class="link">Setting up WSL</a> below.</p>
+      </div>
     </div>
   </section>
 
   <!-- Windows: Setting up WSL -->
-  <section id="windows-wsl" class="py-12 border-t border-rule">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-[26px] md:text-[28px] leading-tight mb-4">Setting up WSL on Windows</h2>
+  <section id="windows-wsl" class="sec">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head"><h2>Setting up WSL on Windows</h2></div>
+      <div class="sec-body">
       <p class="text-text-secondary mb-6">QualiLens needs a Unix shell. On Windows, <strong>WSL</strong> (Windows Subsystem for Linux) provides one inside a lightweight Linux environment that runs alongside Windows. If WSL is already installed on your machine, skip to <a href="#step-1" class="link">Step 1</a>.</p>
 
       <div class="space-y-5 text-text-secondary">
@@ -61,16 +83,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <p class="text-sm text-text-muted mt-6">WSL is ready. Continue with <a href="#step-1" class="link">Step 1</a> below — the remaining steps apply to all platforms. For troubleshooting or alternative distributions, see Microsoft's <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank" rel="noopener" class="link">Install WSL</a> documentation.</p>
+      </div>
     </div>
   </section>
 
+  <section class="proc-sec" aria-label="Steps">
+  <div class="max-w-6xl mx-auto px-6">
+  <ol class="proc">
+
   <!-- Step 1: Requirements -->
-  <section id="step-1" class="py-12">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-baseline gap-3 mb-6">
-        <span class="shrink-0 w-8 font-serif text-[28px] leading-none text-text-muted">1</span>
-        <h2 class="text-[26px] md:text-[28px] leading-tight">Check the requirements</h2>
-      </div>
+  <li class="proc-step" id="step-1">
+      <div class="proc-head"><span class="proc-num" aria-hidden="true">1</span><h2>Check the requirements</h2></div>
+      <div class="proc-body">
 
       <p class="text-text-secondary mb-6">QualiLens builds its own Python environment on first launch. The following must already be present.</p>
 
@@ -123,18 +147,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="text-xs text-text-muted">If your distribution ships an older version, add the deadsnakes PPA: <code class="code-inline">sudo add-apt-repository ppa:deadsnakes/ppa</code> and install <code class="code-inline">python3.12</code>.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <hr class="border-rule max-w-4xl mx-auto" />
+      </div>
+    </li>
 
   <!-- Step 2: Download -->
-  <section id="step-2" class="py-12">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-baseline gap-3 mb-6">
-        <span class="shrink-0 w-8 font-serif text-[28px] leading-none text-text-muted">2</span>
-        <h2 class="text-[26px] md:text-[28px] leading-tight">Download QualiLens</h2>
-      </div>
+  <li class="proc-step" id="step-2">
+      <div class="proc-head"><span class="proc-num" aria-hidden="true">2</span><h2>Download QualiLens</h2></div>
+      <div class="proc-body">
 
       <p class="text-text-secondary mb-6">Download the latest release, unzip it, and place the folder wherever you like. The release includes the pre-built interface — you need only Python, no Node or npm.</p>
 
@@ -157,18 +176,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <svg class="w-5 h-5 text-[#b45309] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
         <p class="text-sm text-text-secondary"><strong>Cloud sync warning.</strong> If the folder sits inside a Dropbox, iCloud, or OneDrive directory, do not run QualiLens on two computers against the same synced database simultaneously. Let the sync finish completely before opening the app on a second machine.</p>
       </div>
-    </div>
-  </section>
-
-  <hr class="border-rule max-w-4xl mx-auto" />
+      </div>
+    </li>
 
   <!-- Step 3: Launch -->
-  <section id="step-3" class="py-12">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-baseline gap-3 mb-6">
-        <span class="shrink-0 w-8 font-serif text-[28px] leading-none text-text-muted">3</span>
-        <h2 class="text-[26px] md:text-[28px] leading-tight">Launch QualiLens</h2>
-      </div>
+  <li class="proc-step" id="step-3">
+      <div class="proc-head"><span class="proc-num" aria-hidden="true">3</span><h2>Launch QualiLens</h2></div>
+      <div class="proc-body">
 
       <p class="text-text-secondary mb-4">Open a terminal in the QualiLens folder and run the launcher.</p>
 
@@ -204,18 +218,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="text-xs text-text-muted">Replace <em>YourName</em> with your Windows username. You can find it by running <code class="code-inline">cmd.exe /c "echo %USERNAME%"</code> inside WSL.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <hr class="border-rule max-w-4xl mx-auto" />
+      </div>
+    </li>
 
   <!-- Step 4: API keys -->
-  <section class="py-12">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-baseline gap-3 mb-6">
-        <span class="shrink-0 w-8 font-serif text-[28px] leading-none text-text-muted">4</span>
-        <h2 class="text-[26px] md:text-[28px] leading-tight">Add an API key</h2>
-      </div>
+  <li class="proc-step" id="step-4">
+      <div class="proc-head"><span class="proc-num" aria-hidden="true">4</span><h2>Add an API key</h2></div>
+      <div class="proc-body">
 
       <p class="text-text-secondary mb-4">Open <strong>Settings</strong> from the top bar. Each provider gets its own card with Save, Test, and Remove controls. Paste your key, press Save, then Test to confirm it works.</p>
 
@@ -224,18 +233,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="bg-white border border-rule rounded-md p-5">
         <p class="text-sm text-text-secondary"><strong>Where keys are stored.</strong> Keys live in the local SQLite database, encrypted. The secret that unlocks them is a small file outside the data folder (<code>~/Library/Application Support/QualiLens/secret.key</code> on macOS, <code>~/.config/qualilens/secret.key</code> on Linux and WSL), readable by your account only, so a synced or copied database carries no usable key. Someone using your own account on your own computer can still read both files: use <strong>Remove</strong> before handing the computer to someone, and prefer a key scoped to this work, with its own spending limit.</p>
       </div>
-    </div>
-  </section>
-
-  <hr class="border-rule max-w-4xl mx-auto" />
+      </div>
+    </li>
 
   <!-- Step 5: First analysis -->
-  <section class="py-12">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-baseline gap-3 mb-6">
-        <span class="shrink-0 w-8 font-serif text-[28px] leading-none text-text-muted">5</span>
-        <h2 class="text-[26px] md:text-[28px] leading-tight">Run your first analysis</h2>
-      </div>
+  <li class="proc-step" id="step-5">
+      <div class="proc-head"><span class="proc-num" aria-hidden="true">5</span><h2>Run your first analysis</h2></div>
+      <div class="proc-body">
 
       <p class="text-text-secondary mb-4">Click <strong>New analysis</strong>. The wizard covers method selection, configuration, model choice, data upload, and cost estimation.</p>
 
@@ -256,15 +260,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <p class="text-xs text-text-muted mt-3">Audio and video require an OpenAI key for transcription. Video also requires ffmpeg.</p>
       </div>
-    </div>
+      </div>
+    </li>
+
+  </ol>
+  </div>
   </section>
 
   <!-- Updating -->
-  <section class="py-12 bg-panel border-t border-rule">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-[26px] md:text-[28px] leading-tight mb-4">Updating QualiLens</h2>
+  <section id="updating" class="sec bg-panel">
+    <div class="max-w-6xl mx-auto px-6 sec-grid">
+      <div class="sec-head"><h2>Updating QualiLens</h2></div>
+      <div class="sec-body">
       <p class="text-text-secondary mb-4">Open <strong>Settings</strong> and find the Application card. <strong>Check for updates</strong> queries GitHub for the latest release (one request; nothing of yours is transmitted). When a newer release exists, <strong>Download and install</strong> applies it through a validated updater that replaces only application files — projects, keys, and uploads are structurally excluded.</p>
       <p class="text-text-secondary">After the update the app stops itself. Start it again with <code class="code-inline">./run.sh</code>.</p>
+      </div>
     </div>
   </section>
 
