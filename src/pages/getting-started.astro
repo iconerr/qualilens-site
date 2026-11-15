@@ -5,31 +5,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="Getting Started — QualiLens" description="Download QualiLens from GitHub, install the requirements, and run your first analysis in minutes.">
 
   <!-- Header -->
-  <section class="bg-gradient-to-b from-brand-50 to-white pt-14 pb-10">
+  <section class="page-head">
     <div class="max-w-4xl mx-auto px-6">
-      <h1 class="text-3xl md:text-4xl font-bold mb-3">Getting Started</h1>
-      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">QualiLens runs entirely on your computer. Download the release, confirm the prerequisites below, and launch.</p>
+      <h1>Getting Started</h1>
+      <p>QualiLens runs entirely on your computer. Download the release, confirm the prerequisites below, and launch.</p>
     </div>
   </section>
 
   <!-- macOS and Linux -->
-  <section id="macos-linux" class="py-8 bg-white">
+  <section id="macos-linux" class="py-12">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-4">Mac (Apple silicon) and Linux</h2>
-      <p class="text-text-secondary mb-4">QualiLens is developed and tested on macOS, and it runs natively on Macs with Apple silicon (M1 or later) and on Linux with no extra setup, because the launcher is a shell script (<code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">run.sh</code>). Intel Macs are not supported, because a library the app needs for encryption and for checking update signatures is no longer published for them. Start with <a href="#step-1" class="text-brand-500 hover:underline">Step 1</a> below.</p>
-      <p class="text-sm text-text-muted">Running Windows? See <a href="#windows-wsl" class="text-brand-500 hover:underline">Setting up WSL</a> below.</p>
+      <h2 class="text-[26px] md:text-[28px] leading-tight mb-4">Mac (Apple silicon) and Linux</h2>
+      <p class="text-text-secondary mb-4">QualiLens is developed and tested on macOS, and it runs natively on Macs with Apple silicon (M1 or later) and on Linux with no extra setup, because the launcher is a shell script (<code class="code-inline">run.sh</code>). Intel Macs are not supported, because a library the app needs for encryption and for checking update signatures is no longer published for them. Start with <a href="#step-1" class="link">Step 1</a> below.</p>
+      <p class="text-sm text-text-muted">Running Windows? See <a href="#windows-wsl" class="link">Setting up WSL</a> below.</p>
     </div>
   </section>
 
   <!-- Windows: Setting up WSL -->
-  <section id="windows-wsl" class="py-8 bg-white border-t border-border/40">
+  <section id="windows-wsl" class="py-12 border-t border-rule">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-4">Setting up WSL on Windows</h2>
-      <p class="text-text-secondary mb-6">QualiLens needs a Unix shell. On Windows, <strong>WSL</strong> (Windows Subsystem for Linux) provides one inside a lightweight Linux environment that runs alongside Windows. If WSL is already installed on your machine, skip to <a href="#step-1" class="text-brand-500 hover:underline">Step 1</a>.</p>
+      <h2 class="text-[26px] md:text-[28px] leading-tight mb-4">Setting up WSL on Windows</h2>
+      <p class="text-text-secondary mb-6">QualiLens needs a Unix shell. On Windows, <strong>WSL</strong> (Windows Subsystem for Linux) provides one inside a lightweight Linux environment that runs alongside Windows. If WSL is already installed on your machine, skip to <a href="#step-1" class="link">Step 1</a>.</p>
 
       <div class="space-y-5 text-text-secondary">
         <div class="flex gap-3">
-          <span class="shrink-0 w-6 h-6 bg-brand-100 text-brand-600 text-xs font-bold flex items-center justify-center mt-0.5">1</span>
+          <span class="shrink-0 w-6 font-serif text-lg leading-6 text-text-muted text-center">1</span>
           <div>
             <p class="font-medium text-text-primary mb-1">Open PowerShell as Administrator</p>
             <p class="text-sm">Right-click the Start button and choose <strong>Terminal (Admin)</strong> or <strong>Windows PowerShell (Admin)</strong>.</p>
@@ -37,12 +37,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="flex gap-3">
-          <span class="shrink-0 w-6 h-6 bg-brand-100 text-brand-600 text-xs font-bold flex items-center justify-center mt-0.5">2</span>
+          <span class="shrink-0 w-6 font-serif text-lg leading-6 text-text-muted text-center">2</span>
           <div>
             <p class="font-medium text-text-primary mb-1">Install WSL</p>
-            <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-4 my-2 overflow-x-auto relative group/code">
-              <code class="text-sm text-brand-700 font-mono tracking-tight">wsl --install</code>
-              <button class="copy-btn absolute top-2.5 right-2.5 p-1.5 text-text-muted hover:text-brand-600 hover:bg-brand-50 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard">
+            <div class="cmd my-2 group/code">
+              <code class="font-mono">wsl --install</code>
+              <button class="copy-btn absolute top-2 right-2 p-1.5 rounded text-text-muted hover:text-ink hover:bg-panel opacity-0 group-hover/code:opacity-100 focus:opacity-100 transition-all" aria-label="Copy to clipboard">
                 <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                 <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
               </button>
@@ -52,7 +52,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="flex gap-3">
-          <span class="shrink-0 w-6 h-6 bg-brand-100 text-brand-600 text-xs font-bold flex items-center justify-center mt-0.5">3</span>
+          <span class="shrink-0 w-6 font-serif text-lg leading-6 text-text-muted text-center">3</span>
           <div>
             <p class="font-medium text-text-primary mb-1">Create your Linux user</p>
             <p class="text-sm">After restarting, Ubuntu opens automatically and asks for a username and password. These are local to the Linux environment — choose whatever you like.</p>
@@ -60,22 +60,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <p class="text-sm text-text-muted mt-6">WSL is ready. Continue with <a href="#step-1" class="text-brand-500 hover:underline">Step 1</a> below — the remaining steps apply to all platforms. For troubleshooting or alternative distributions, see Microsoft's <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank" rel="noopener" class="text-brand-500 hover:underline">Install WSL</a> documentation.</p>
+      <p class="text-sm text-text-muted mt-6">WSL is ready. Continue with <a href="#step-1" class="link">Step 1</a> below — the remaining steps apply to all platforms. For troubleshooting or alternative distributions, see Microsoft's <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank" rel="noopener" class="link">Install WSL</a> documentation.</p>
     </div>
   </section>
 
   <!-- Step 1: Requirements -->
-  <section id="step-1" class="py-10 bg-white">
+  <section id="step-1" class="py-12">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">1</span>
-        <h2 class="text-2xl font-bold">Check the requirements</h2>
+      <div class="flex items-baseline gap-3 mb-6">
+        <span class="shrink-0 w-8 font-serif text-[28px] leading-none text-text-muted">1</span>
+        <h2 class="text-[26px] md:text-[28px] leading-tight">Check the requirements</h2>
       </div>
 
       <p class="text-text-secondary mb-6">QualiLens builds its own Python environment on first launch. The following must already be present.</p>
 
       <div class="overflow-x-auto mb-6">
-        <table class="w-full text-sm border border-border/60 shadow-md overflow-hidden">
+        <table class="w-full text-sm border border-rule bg-white">
           <thead class="bg-surface">
             <tr>
               <th class="text-left py-3 px-4 font-medium text-text-muted">Requirement</th>
@@ -88,20 +88,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <tr class="border-t border-border">
               <td class="py-3 px-4 font-medium text-text-primary">Python 3.11+</td>
               <td class="py-3 px-4">Runs the backend and analysis pipelines</td>
-              <td class="py-3 px-4"><span class="inline-flex items-center gap-1.5 group/code"><code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">python3 --version</code><button class="copy-btn p-0.5 text-text-muted hover:text-brand-600 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard"><svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></button></span></td>
-              <td class="py-3 px-4"><span class="inline-flex items-center gap-1.5 group/code"><code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">brew install python@3.12</code><button class="copy-btn p-0.5 text-text-muted hover:text-brand-600 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard"><svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></button></span> or <a href="https://python.org" target="_blank" rel="noopener" class="text-brand-500 hover:underline">python.org</a></td>
+              <td class="py-3 px-4"><span class="inline-flex items-center gap-1.5 group/code"><code class="code-inline">python3 --version</code><button class="copy-btn p-0.5 text-text-muted hover:text-ink opacity-0 group-hover/code:opacity-100 focus:opacity-100 transition-all" aria-label="Copy to clipboard"><svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></button></span></td>
+              <td class="py-3 px-4"><span class="inline-flex items-center gap-1.5 group/code"><code class="code-inline">brew install python@3.12</code><button class="copy-btn p-0.5 text-text-muted hover:text-ink opacity-0 group-hover/code:opacity-100 focus:opacity-100 transition-all" aria-label="Copy to clipboard"><svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></button></span> or <a href="https://python.org" target="_blank" rel="noopener" class="link">python.org</a></td>
             </tr>
             <tr class="border-t border-border">
               <td class="py-3 px-4 font-medium text-text-primary">Node 18+ &amp; npm <span class="text-text-muted font-normal">(clone only)</span></td>
               <td class="py-3 px-4">Builds the interface once, on first launch. Not needed if you downloaded the release ZIP</td>
-              <td class="py-3 px-4"><span class="inline-flex items-center gap-1.5 group/code"><code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">node -v</code><button class="copy-btn p-0.5 text-text-muted hover:text-brand-600 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard"><svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></button></span></td>
-              <td class="py-3 px-4"><a href="https://nodejs.org" target="_blank" rel="noopener" class="text-brand-500 hover:underline">nodejs.org</a></td>
+              <td class="py-3 px-4"><span class="inline-flex items-center gap-1.5 group/code"><code class="code-inline">node -v</code><button class="copy-btn p-0.5 text-text-muted hover:text-ink opacity-0 group-hover/code:opacity-100 focus:opacity-100 transition-all" aria-label="Copy to clipboard"><svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></button></span></td>
+              <td class="py-3 px-4"><a href="https://nodejs.org" target="_blank" rel="noopener" class="link">nodejs.org</a></td>
             </tr>
             <tr class="border-t border-border">
               <td class="py-3 px-4 font-medium text-text-primary">ffmpeg <span class="text-text-muted font-normal">(optional)</span></td>
               <td class="py-3 px-4">Extracts audio from video; splits large recordings</td>
-              <td class="py-3 px-4"><span class="inline-flex items-center gap-1.5 group/code"><code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">ffmpeg -version</code><button class="copy-btn p-0.5 text-text-muted hover:text-brand-600 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard"><svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></button></span></td>
-              <td class="py-3 px-4"><span class="inline-flex items-center gap-1.5 group/code"><code class="text-xs bg-surface px-1.5 py-0.5 rounded font-mono">brew install ffmpeg</code><button class="copy-btn p-0.5 text-text-muted hover:text-brand-600 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard"><svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></button></span></td>
+              <td class="py-3 px-4"><span class="inline-flex items-center gap-1.5 group/code"><code class="code-inline">ffmpeg -version</code><button class="copy-btn p-0.5 text-text-muted hover:text-ink opacity-0 group-hover/code:opacity-100 focus:opacity-100 transition-all" aria-label="Copy to clipboard"><svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></button></span></td>
+              <td class="py-3 px-4"><span class="inline-flex items-center gap-1.5 group/code"><code class="code-inline">brew install ffmpeg</code><button class="copy-btn p-0.5 text-text-muted hover:text-ink opacity-0 group-hover/code:opacity-100 focus:opacity-100 transition-all" aria-label="Copy to clipboard"><svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></button></span></td>
             </tr>
           </tbody>
         </table>
@@ -109,72 +109,72 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <p class="text-sm text-text-muted mb-6">You can skip ffmpeg if you only upload documents and audio files under about 24 MB. You will need it for video or large audio files.</p>
 
-      <div class="bg-blue-50 border border-blue-200 shadow-md p-4 flex gap-3">
-        <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+      <div class="note flex gap-3">
+        <svg class="w-5 h-5 text-text-muted shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
         <div>
-          <p class="text-sm text-blue-800 mb-2"><strong>WSL users:</strong> If Python is missing, open your Ubuntu terminal and run:</p>
-          <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-4 my-2 overflow-x-auto relative group/code">
-            <code class="text-sm text-brand-700 font-mono tracking-tight">sudo apt update && sudo apt install python3 python3-pip python3-venv -y</code>
-            <button class="copy-btn absolute top-2.5 right-2.5 p-1.5 text-text-muted hover:text-brand-600 hover:bg-brand-50 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard">
+          <p class="text-sm text-text-secondary mb-2"><strong>WSL users:</strong> If Python is missing, open your Ubuntu terminal and run:</p>
+          <div class="cmd my-2 group/code">
+            <code class="font-mono">sudo apt update && sudo apt install python3 python3-pip python3-venv -y</code>
+            <button class="copy-btn absolute top-2 right-2 p-1.5 rounded text-text-muted hover:text-ink hover:bg-panel opacity-0 group-hover/code:opacity-100 focus:opacity-100 transition-all" aria-label="Copy to clipboard">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             </button>
           </div>
-          <p class="text-xs text-blue-700">If your distribution ships an older version, add the deadsnakes PPA: <code class="text-xs bg-blue-100 px-1.5 py-0.5 rounded font-mono">sudo add-apt-repository ppa:deadsnakes/ppa</code> and install <code class="text-xs bg-blue-100 px-1.5 py-0.5 rounded font-mono">python3.12</code>.</p>
+          <p class="text-xs text-text-muted">If your distribution ships an older version, add the deadsnakes PPA: <code class="code-inline">sudo add-apt-repository ppa:deadsnakes/ppa</code> and install <code class="code-inline">python3.12</code>.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="border-border max-w-4xl mx-auto" />
+  <hr class="border-rule max-w-4xl mx-auto" />
 
   <!-- Step 2: Download -->
-  <section id="step-2" class="py-10 bg-white">
+  <section id="step-2" class="py-12">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">2</span>
-        <h2 class="text-2xl font-bold">Download QualiLens</h2>
+      <div class="flex items-baseline gap-3 mb-6">
+        <span class="shrink-0 w-8 font-serif text-[28px] leading-none text-text-muted">2</span>
+        <h2 class="text-[26px] md:text-[28px] leading-tight">Download QualiLens</h2>
       </div>
 
       <p class="text-text-secondary mb-6">Download the latest release, unzip it, and place the folder wherever you like. The release includes the pre-built interface — you need only Python, no Node or npm.</p>
 
-      <a href="/download" class="inline-flex items-center gap-2.5 px-5 py-3 bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors mb-4">
+      <a href="/download" class="btn btn-ink mb-4">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" /></svg>
         Download QualiLens.zip
       </a>
 
       <p class="text-sm text-text-muted mb-4">Developers who want to modify the code can clone the repository instead — this path requires Node 18+ to build the interface on first launch.</p>
 
-      <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-5 mb-4 overflow-x-auto relative group/code">
-        <code class="text-base text-brand-700 font-mono tracking-tight">git clone https://github.com/iconerr/qualilens.git</code>
-        <button class="copy-btn absolute top-3 right-3 p-1.5 text-text-muted hover:text-brand-600 hover:bg-brand-50 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard">
+      <div class="cmd mb-4 group/code">
+        <code class="font-mono text-[15px]">git clone https://github.com/iconerr/qualilens.git</code>
+        <button class="copy-btn absolute top-2 right-2 p-1.5 rounded text-text-muted hover:text-ink hover:bg-panel opacity-0 group-hover/code:opacity-100 focus:opacity-100 transition-all" aria-label="Copy to clipboard">
           <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
           <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
         </button>
       </div>
 
-      <div class="bg-amber-50 border border-amber-200 shadow-md p-4 flex gap-3">
-        <svg class="w-5 h-5 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
-        <p class="text-sm text-amber-800"><strong>Cloud sync warning.</strong> If the folder sits inside a Dropbox, iCloud, or OneDrive directory, do not run QualiLens on two computers against the same synced database simultaneously. Let the sync finish completely before opening the app on a second machine.</p>
+      <div class="note note-warn flex gap-3">
+        <svg class="w-5 h-5 text-[#b45309] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+        <p class="text-sm text-text-secondary"><strong>Cloud sync warning.</strong> If the folder sits inside a Dropbox, iCloud, or OneDrive directory, do not run QualiLens on two computers against the same synced database simultaneously. Let the sync finish completely before opening the app on a second machine.</p>
       </div>
     </div>
   </section>
 
-  <hr class="border-border max-w-4xl mx-auto" />
+  <hr class="border-rule max-w-4xl mx-auto" />
 
   <!-- Step 3: Launch -->
-  <section id="step-3" class="py-10 bg-white">
+  <section id="step-3" class="py-12">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">3</span>
-        <h2 class="text-2xl font-bold">Launch QualiLens</h2>
+      <div class="flex items-baseline gap-3 mb-6">
+        <span class="shrink-0 w-8 font-serif text-[28px] leading-none text-text-muted">3</span>
+        <h2 class="text-[26px] md:text-[28px] leading-tight">Launch QualiLens</h2>
       </div>
 
       <p class="text-text-secondary mb-4">Open a terminal in the QualiLens folder and run the launcher.</p>
 
-      <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-5 mb-4 overflow-x-auto relative group/code">
-        <code class="text-base text-brand-700 font-mono tracking-tight">./run.sh</code>
-        <button class="copy-btn absolute top-3 right-3 p-1.5 text-text-muted hover:text-brand-600 hover:bg-brand-50 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard">
+      <div class="cmd mb-4 group/code">
+        <code class="font-mono text-[15px]">./run.sh</code>
+        <button class="copy-btn absolute top-2 right-2 p-1.5 rounded text-text-muted hover:text-ink hover:bg-panel opacity-0 group-hover/code:opacity-100 focus:opacity-100 transition-all" aria-label="Copy to clipboard">
           <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
           <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
         </button>
@@ -182,77 +182,77 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <p class="text-text-secondary mb-4">The first run creates a Python environment, installs dependencies, and builds the interface — expect a minute or two. Every launch after the first is much faster. Once the server is up, it prints the address and opens QualiLens in your browser, signed in.</p>
 
-      <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-5 mb-6 overflow-x-auto">
-        <code class="text-base text-text-muted font-mono tracking-tight">QualiLens running at http://127.0.0.1:8765  (Ctrl-C to stop)<br />The launch page that signs a browser in is /var/folders/…/qualilens.Ab12Cd/open.html</code>
+      <div class="cmd mb-6">
+        <code class="font-mono text-text-muted">QualiLens running at http://127.0.0.1:8765  (Ctrl-C to stop)<br />The launch page that signs a browser in is /var/folders/…/qualilens.Ab12Cd/open.html</code>
       </div>
 
       <p class="text-sm text-text-muted mb-4">The launcher signs in the browser it opens. To use QualiLens in another browser, open the launch page the terminal names. The address on its own shows how to open QualiLens instead of your projects, so another account on the same computer cannot reach your data through it.</p>
 
-      <p class="text-sm text-text-muted mb-6">Stop the app with <kbd class="px-1.5 py-0.5 bg-surface text-text-primary rounded text-xs font-mono border border-border">Ctrl-C</kbd> in the terminal. Closing the browser tab does not stop it — runs continue in the background.</p>
+      <p class="text-sm text-text-muted mb-6">Stop the app with <kbd class="code-inline">Ctrl-C</kbd> in the terminal. Closing the browser tab does not stop it — runs continue in the background.</p>
 
-      <div class="bg-blue-50 border border-blue-200 shadow-md p-4 flex gap-3">
-        <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+      <div class="note flex gap-3">
+        <svg class="w-5 h-5 text-text-muted shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
         <div>
-          <p class="text-sm text-blue-800 mb-2"><strong>WSL users:</strong> Your Windows drives are mounted under <code class="text-xs bg-blue-100 px-1.5 py-0.5 rounded font-mono">/mnt/</code>. Open the Ubuntu terminal and navigate to the QualiLens folder:</p>
-          <div class="bg-surface border border-border/60 border-l-4 border-l-brand-400 p-4 my-2 overflow-x-auto relative group/code">
-            <code class="text-sm text-brand-700 font-mono tracking-tight">cd /mnt/c/Users/<em class="text-brand-400 not-italic">YourName</em>/Downloads/QualiLens</code>
-            <button class="copy-btn absolute top-2.5 right-2.5 p-1.5 text-text-muted hover:text-brand-600 hover:bg-brand-50 opacity-0 group-hover/code:opacity-100 transition-all" aria-label="Copy to clipboard">
+          <p class="text-sm text-text-secondary mb-2"><strong>WSL users:</strong> Your Windows drives are mounted under <code class="code-inline">/mnt/</code>. Open the Ubuntu terminal and navigate to the QualiLens folder:</p>
+          <div class="cmd my-2 group/code">
+            <code class="font-mono">cd /mnt/c/Users/<em class="text-text-muted underline decoration-dotted underline-offset-2 not-italic">YourName</em>/Downloads/QualiLens</code>
+            <button class="copy-btn absolute top-2 right-2 p-1.5 rounded text-text-muted hover:text-ink hover:bg-panel opacity-0 group-hover/code:opacity-100 focus:opacity-100 transition-all" aria-label="Copy to clipboard">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             </button>
           </div>
-          <p class="text-xs text-blue-700">Replace <em>YourName</em> with your Windows username. You can find it by running <code class="text-xs bg-blue-100 px-1.5 py-0.5 rounded font-mono">cmd.exe /c "echo %USERNAME%"</code> inside WSL.</p>
+          <p class="text-xs text-text-muted">Replace <em>YourName</em> with your Windows username. You can find it by running <code class="code-inline">cmd.exe /c "echo %USERNAME%"</code> inside WSL.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="border-border max-w-4xl mx-auto" />
+  <hr class="border-rule max-w-4xl mx-auto" />
 
   <!-- Step 4: API keys -->
-  <section class="py-10 bg-white">
+  <section class="py-12">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">4</span>
-        <h2 class="text-2xl font-bold">Add an API key</h2>
+      <div class="flex items-baseline gap-3 mb-6">
+        <span class="shrink-0 w-8 font-serif text-[28px] leading-none text-text-muted">4</span>
+        <h2 class="text-[26px] md:text-[28px] leading-tight">Add an API key</h2>
       </div>
 
       <p class="text-text-secondary mb-4">Open <strong>Settings</strong> from the top bar. Each provider gets its own card with Save, Test, and Remove controls. Paste your key, press Save, then Test to confirm it works.</p>
 
       <p class="text-text-secondary mb-4">You need a key from at least one of the four providers: Anthropic, OpenAI, Google, or Mistral. If you plan to upload audio or video, you also need an OpenAI key — transcription runs through OpenAI's transcription service regardless of which provider performs the analysis.</p>
 
-      <div class="bg-white border border-border/60 shadow-md p-5">
+      <div class="bg-white border border-rule rounded-md p-5">
         <p class="text-sm text-text-secondary"><strong>Where keys are stored.</strong> Keys live in the local SQLite database, encrypted. The secret that unlocks them is a small file outside the data folder (<code>~/Library/Application Support/QualiLens/secret.key</code> on macOS, <code>~/.config/qualilens/secret.key</code> on Linux and WSL), readable by your account only, so a synced or copied database carries no usable key. Someone using your own account on your own computer can still read both files: use <strong>Remove</strong> before handing the computer to someone, and prefer a key scoped to this work, with its own spending limit.</p>
       </div>
     </div>
   </section>
 
-  <hr class="border-border max-w-4xl mx-auto" />
+  <hr class="border-rule max-w-4xl mx-auto" />
 
   <!-- Step 5: First analysis -->
-  <section class="py-10 bg-white">
+  <section class="py-12">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">5</span>
-        <h2 class="text-2xl font-bold">Run your first analysis</h2>
+      <div class="flex items-baseline gap-3 mb-6">
+        <span class="shrink-0 w-8 font-serif text-[28px] leading-none text-text-muted">5</span>
+        <h2 class="text-[26px] md:text-[28px] leading-tight">Run your first analysis</h2>
       </div>
 
       <p class="text-text-secondary mb-4">Click <strong>New analysis</strong>. The wizard covers method selection, configuration, model choice, data upload, and cost estimation.</p>
 
       <p class="text-text-secondary mb-4">Start with a single short document — a typical first run costs a few cents and exposes all checkpoints before you commit a full corpus.</p>
 
-      <div class="bg-white border border-border/60 shadow-md p-5">
+      <div class="bg-white border border-rule rounded-md p-5">
         <h3 class="font-semibold mb-3">Accepted file types</h3>
         <div class="flex flex-wrap gap-2 text-xs font-mono">
-          <span class="px-2.5 py-1 bg-white border border-border">.txt</span>
-          <span class="px-2.5 py-1 bg-white border border-border">.md</span>
-          <span class="px-2.5 py-1 bg-white border border-border">.docx</span>
-          <span class="px-2.5 py-1 bg-white border border-border">.pdf</span>
-          <span class="px-2.5 py-1 bg-white border border-border">.mp3</span>
-          <span class="px-2.5 py-1 bg-white border border-border">.mp4</span>
-          <span class="px-2.5 py-1 bg-white border border-border">.m4a</span>
-          <span class="px-2.5 py-1 bg-white border border-border">.wav</span>
-          <span class="px-2.5 py-1 bg-white border border-border">.webm</span>
+          <span class="px-2.5 py-1 bg-panel border border-rule rounded-sm">.txt</span>
+          <span class="px-2.5 py-1 bg-panel border border-rule rounded-sm">.md</span>
+          <span class="px-2.5 py-1 bg-panel border border-rule rounded-sm">.docx</span>
+          <span class="px-2.5 py-1 bg-panel border border-rule rounded-sm">.pdf</span>
+          <span class="px-2.5 py-1 bg-panel border border-rule rounded-sm">.mp3</span>
+          <span class="px-2.5 py-1 bg-panel border border-rule rounded-sm">.mp4</span>
+          <span class="px-2.5 py-1 bg-panel border border-rule rounded-sm">.m4a</span>
+          <span class="px-2.5 py-1 bg-panel border border-rule rounded-sm">.wav</span>
+          <span class="px-2.5 py-1 bg-panel border border-rule rounded-sm">.webm</span>
         </div>
         <p class="text-xs text-text-muted mt-3">Audio and video require an OpenAI key for transcription. Video also requires ffmpeg.</p>
       </div>
@@ -260,11 +260,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- Updating -->
-  <section class="py-10 bg-surface">
+  <section class="py-12 bg-panel border-t border-rule">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-4">Updating QualiLens</h2>
+      <h2 class="text-[26px] md:text-[28px] leading-tight mb-4">Updating QualiLens</h2>
       <p class="text-text-secondary mb-4">Open <strong>Settings</strong> and find the Application card. <strong>Check for updates</strong> queries GitHub for the latest release (one request; nothing of yours is transmitted). When a newer release exists, <strong>Download and install</strong> applies it through a validated updater that replaces only application files — projects, keys, and uploads are structurally excluded.</p>
-      <p class="text-text-secondary">After the update the app stops itself. Start it again with <code class="text-xs bg-white px-1.5 py-0.5 rounded font-mono border border-border">./run.sh</code>.</p>
+      <p class="text-text-secondary">After the update the app stops itself. Start it again with <code class="code-inline">./run.sh</code>.</p>
     </div>
   </section>
 

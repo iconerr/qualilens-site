@@ -5,21 +5,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="Privacy & Data — QualiLens" description="QualiLens runs locally. No server, no telemetry, no analytics. Your data go only to the AI provider you chose.">
 
   <!-- Header -->
-  <section class="bg-gradient-to-b from-brand-50 to-white pt-20 pb-16">
+  <section class="page-head">
     <div class="max-w-4xl mx-auto px-6">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Privacy &amp; Data</h1>
-      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">QualiLens runs entirely on your computer. It sends your data to exactly one place: the AI model provider you selected. Below is what leaves your computer, what stays, and what your ethics committee needs to know.</p>
+      <h1>Privacy &amp; Data</h1>
+      <p>QualiLens runs entirely on your computer. It sends your data to exactly one place: the AI model provider you selected. Below is what leaves your computer, what stays, and what your ethics committee needs to know.</p>
     </div>
   </section>
 
   <!-- What leaves -->
-  <section class="py-16 bg-white">
+  <section class="py-16 border-b border-rule">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-6">What leaves your computer</h2>
+      <h2 class="text-[26px] md:text-[28px] leading-tight mb-6">What leaves your computer</h2>
       <p class="text-text-secondary mb-6">Analysis calls carry your data to the provider whose key you supplied, over a direct connection to that provider's API. There is no QualiLens server, no intermediary, no queue, and no relay.</p>
 
       <div class="overflow-x-auto">
-        <table class="w-full text-sm border border-border  overflow-hidden">
+        <table class="w-full text-sm border border-rule bg-white">
           <thead class="bg-surface">
             <tr>
               <th class="text-left py-3 px-4 font-medium text-text-muted">Stage</th>
@@ -45,112 +45,100 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- What stays -->
-  <section class="py-16 bg-surface">
+  <section class="py-16 border-b border-rule">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-6">What stays on your computer</h2>
+      <h2 class="text-[26px] md:text-[28px] leading-tight mb-6">What stays on your computer</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white  border border-border p-5">
-          <div class="flex items-center gap-2 mb-3">
-            <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <h3 class="font-semibold">No telemetry</h3>
-          </div>
-          <p class="text-sm text-text-secondary">No usage data, no analytics are collected. Nothing runs in the background.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+        <div class="border-t border-ink pt-4">
+          <h3 class="font-semibold mb-1.5">No telemetry</h3>
+          <p class="text-[15px] text-text-secondary">No usage data, no analytics are collected. Nothing runs in the background.</p>
         </div>
-        <div class="bg-white  border border-border p-5">
-          <div class="flex items-center gap-2 mb-3">
-            <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <h3 class="font-semibold">No background connections</h3>
-          </div>
-          <p class="text-sm text-text-secondary">Each row in the transmission table is a call you initiated. Updates are pull-only.</p>
+        <div class="border-t border-ink pt-4">
+          <h3 class="font-semibold mb-1.5">No background connections</h3>
+          <p class="text-[15px] text-text-secondary">Each row in the transmission table is a call you initiated. Updates are pull-only.</p>
         </div>
-        <div class="bg-white  border border-border p-5">
-          <div class="flex items-center gap-2 mb-3">
-            <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <h3 class="font-semibold">Local only</h3>
-          </div>
-          <p class="text-sm text-text-secondary">The server binds to 127.0.0.1, answers only to requests that name this machine, refuses cross-site requests, and requires a per-launch session token on every API call. The token reaches your browser only through a launch page readable by your account, so neither your network, another web page in your browser, nor another account on the same computer can reach your data through the app.</p>
+        <div class="border-t border-ink pt-4">
+          <h3 class="font-semibold mb-1.5">Local only</h3>
+          <p class="text-[15px] text-text-secondary">The server binds to 127.0.0.1, answers only to requests that name this machine, refuses cross-site requests, and requires a per-launch session token on every API call. The token reaches your browser only through a launch page readable by your account, so neither your network, another web page in your browser, nor another account on the same computer can reach your data through the app.</p>
         </div>
-        <div class="bg-white  border border-border p-5">
-          <div class="flex items-center gap-2 mb-3">
-            <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <h3 class="font-semibold">Database on disk</h3>
-          </div>
-          <p class="text-sm text-text-secondary">The database, uploaded files, and your analysis stay on disk, readable by your account only. API keys in the database are encrypted with a secret held outside that folder; the participant data are not encrypted. Back up <code class="text-xs font-mono">backend/data/</code>.</p>
+        <div class="border-t border-ink pt-4">
+          <h3 class="font-semibold mb-1.5">Database on disk</h3>
+          <p class="text-[15px] text-text-secondary">The database, uploaded files, and your analysis stay on disk, readable by your account only. API keys in the database are encrypted with a secret held outside that folder; the participant data are not encrypted. Back up <code class="code-inline">backend/data/</code>.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Provider responsibility -->
-  <section class="py-16 bg-white">
+  <section class="py-16 border-b border-rule">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-6">What the provider does with your data</h2>
+      <h2 class="text-[26px] md:text-[28px] leading-tight mb-6">What the provider does with your data</h2>
       <p class="text-text-secondary mb-4">Your agreement with the provider governs that — not this software. Three questions matter: How long does the provider retain your inputs? May it use them to train models? Is a zero-retention arrangement available?</p>
       <p class="text-text-secondary mb-4">Settle all three with the provider before you upload human subjects data. QualiLens sends your data to that provider and to no one else.</p>
-      <p class="text-text-secondary">One tier difference is stark. On Google's free tier — any key whose project AI Studio does not show on the paid tier, which means linking a billing account and prepaying at least $5 — Google's Gemini API terms let Google use what you send to improve its products and let human reviewers read it, outside the European Economic Area, Switzerland, and the United Kingdom. There, a free Gemini key is unsuitable for interview transcripts or other identifiable data. The <a href="/docs/data-and-privacy" class="text-brand-500 hover:underline">manual's privacy chapter</a> has the details.</p>
+      <p class="text-text-secondary">One tier difference is stark. On Google's free tier — any key whose project AI Studio does not show on the paid tier, which means linking a billing account and prepaying at least $5 — Google's Gemini API terms let Google use what you send to improve its products and let human reviewers read it, outside the European Economic Area, Switzerland, and the United Kingdom. There, a free Gemini key is unsuitable for interview transcripts or other identifiable data. The <a href="/docs/data-and-privacy" class="link">manual's privacy chapter</a> has the details.</p>
     </div>
   </section>
 
   <!-- Ethics -->
-  <section class="py-16 bg-surface">
+  <section class="py-16 border-b border-rule">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-6">Notes for an ethics application</h2>
+      <h2 class="text-[26px] md:text-[28px] leading-tight mb-6">Notes for an ethics application</h2>
       <p class="text-text-secondary mb-6">These are the facts a committee will ask for, stated in the terms committees use.</p>
 
-      <div class="space-y-4">
-        <div class="bg-white  border border-border p-5">
-          <h3 class="font-semibold mb-2">Processing location</h3>
-          <p class="text-sm text-text-secondary">Analysis runs locally on the researcher's own computer. No study data are stored on any QualiLens server, because there is none.</p>
+      <div class="border-b border-rule">
+        <div class="grid grid-cols-1 md:grid-cols-[13rem_1fr] gap-1 md:gap-8 py-4 border-t border-rule">
+          <h3 class="font-semibold">Processing location</h3>
+          <p class="text-[15px] text-text-secondary">Analysis runs locally on the researcher's own computer. No study data are stored on any QualiLens server, because there is none.</p>
         </div>
-        <div class="bg-white  border border-border p-5">
-          <h3 class="font-semibold mb-2">Third-party transfer</h3>
-          <p class="text-sm text-text-secondary">Source text is transmitted to a named commercial AI model provider for analysis, over an encrypted connection, using the researcher's own account. Name the provider. Recordings are transmitted to OpenAI for transcription — disclose this as a separate transfer.</p>
+        <div class="grid grid-cols-1 md:grid-cols-[13rem_1fr] gap-1 md:gap-8 py-4 border-t border-rule">
+          <h3 class="font-semibold">Third-party transfer</h3>
+          <p class="text-[15px] text-text-secondary">Source text is transmitted to a named commercial AI model provider for analysis, over an encrypted connection, using the researcher's own account. Name the provider. Recordings are transmitted to OpenAI for transcription — disclose this as a separate transfer.</p>
         </div>
-        <div class="bg-white  border border-border p-5">
-          <h3 class="font-semibold mb-2">De-identification</h3>
-          <p class="text-sm text-text-secondary">The software performs none. Whatever is in the transcript is transmitted. De-identify before upload — upload is the only point at which de-identification can happen.</p>
+        <div class="grid grid-cols-1 md:grid-cols-[13rem_1fr] gap-1 md:gap-8 py-4 border-t border-rule">
+          <h3 class="font-semibold">De-identification</h3>
+          <p class="text-[15px] text-text-secondary">The software performs none. Whatever is in the transcript is transmitted. De-identify before upload — upload is the only point at which de-identification can happen.</p>
         </div>
-        <div class="bg-white  border border-border p-5">
-          <h3 class="font-semibold mb-2">Storage and access</h3>
-          <p class="text-sm text-text-secondary">Study data are held in a single database file and an uploads folder on the researcher's computer, unencrypted, protected by the operating system's file permissions: the folder and the database are readable by the researcher's account only. The researcher's API keys in that database are encrypted with a secret held outside the folder. State whether the folder is synced to a cloud service; the study data are held by that service as well if it is.</p>
+        <div class="grid grid-cols-1 md:grid-cols-[13rem_1fr] gap-1 md:gap-8 py-4 border-t border-rule">
+          <h3 class="font-semibold">Storage and access</h3>
+          <p class="text-[15px] text-text-secondary">Study data are held in a single database file and an uploads folder on the researcher's computer, unencrypted, protected by the operating system's file permissions: the folder and the database are readable by the researcher's account only. The researcher's API keys in that database are encrypted with a secret held outside the folder. State whether the folder is synced to a cloud service; the study data are held by that service as well if it is.</p>
         </div>
-        <div class="bg-white  border border-border p-5">
-          <h3 class="font-semibold mb-2">Automated decision-making</h3>
-          <p class="text-sm text-text-secondary">An AI model produces coding proposals. The researcher reviews and approves all analytic structures at explicit checkpoints, and each checkpoint is logged.</p>
+        <div class="grid grid-cols-1 md:grid-cols-[13rem_1fr] gap-1 md:gap-8 py-4 border-t border-rule">
+          <h3 class="font-semibold">Automated decision-making</h3>
+          <p class="text-[15px] text-text-secondary">An AI model produces coding proposals. The researcher reviews and approves all analytic structures at explicit checkpoints, and each checkpoint is logged.</p>
         </div>
-        <div class="bg-white  border border-border p-5">
-          <h3 class="font-semibold mb-2">Reproducibility</h3>
-          <p class="text-sm text-text-secondary">AI model coding is not deterministic — a second run will differ. The audit trail records the provider, the model requested and the model the provider reports answered each call, the settings frozen at the run's start, the sampling settings of every call, and all researcher decisions, and exports as one JSON file. This supports auditability rather than exact reproducibility.</p>
+        <div class="grid grid-cols-1 md:grid-cols-[13rem_1fr] gap-1 md:gap-8 py-4 border-t border-rule">
+          <h3 class="font-semibold">Reproducibility</h3>
+          <p class="text-[15px] text-text-secondary">AI model coding is not deterministic — a second run will differ. The audit trail records the provider, the model requested and the model the provider reports answered each call, the settings frozen at the run's start, the sampling settings of every call, and all researcher decisions, and exports as one JSON file. This supports auditability rather than exact reproducibility.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Pre-upload checklist -->
-  <section class="py-16 bg-white">
+  <section class="py-16">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-6">Before you upload human subjects data</h2>
-      <div class="bg-brand-50 border border-brand-100  p-6 space-y-3">
+      <h2 class="text-[26px] md:text-[28px] leading-tight mb-6">Before you upload human subjects data</h2>
+      <div class="bg-white border border-rule rounded-md p-6 space-y-3">
         <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
-          <p class="text-sm text-text-secondary">Confirm that the provider's data handling terms cover what your protocol promised your participants.</p>
+          <span class="shrink-0 mt-[5px] w-3.5 h-3.5 border border-ink/50 rounded-[3px] bg-white" aria-hidden="true"></span>
+          <p class="text-[15px] text-text-secondary">Confirm that the provider's data handling terms cover what your protocol promised your participants.</p>
         </div>
         <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
-          <p class="text-sm text-text-secondary">De-identify the transcripts. Upload is the last moment at which you can.</p>
+          <span class="shrink-0 mt-[5px] w-3.5 h-3.5 border border-ink/50 rounded-[3px] bg-white" aria-hidden="true"></span>
+          <p class="text-[15px] text-text-secondary">De-identify the transcripts. Upload is the last moment at which you can.</p>
         </div>
         <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
-          <p class="text-sm text-text-secondary">Decide whether your project folder should be excluded from cloud sync, and exclude it before the first upload.</p>
+          <span class="shrink-0 mt-[5px] w-3.5 h-3.5 border border-ink/50 rounded-[3px] bg-white" aria-hidden="true"></span>
+          <p class="text-[15px] text-text-secondary">Decide whether your project folder should be excluded from cloud sync, and exclude it before the first upload.</p>
         </div>
         <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
-          <p class="text-sm text-text-secondary">Use a dedicated API key with a spending limit.</p>
+          <span class="shrink-0 mt-[5px] w-3.5 h-3.5 border border-ink/50 rounded-[3px] bg-white" aria-hidden="true"></span>
+          <p class="text-[15px] text-text-secondary">Use a dedicated API key with a spending limit.</p>
         </div>
         <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
-          <p class="text-sm text-text-secondary">Run one short source end to end first, so that you see what is sent and what comes back before you commit the corpus.</p>
+          <span class="shrink-0 mt-[5px] w-3.5 h-3.5 border border-ink/50 rounded-[3px] bg-white" aria-hidden="true"></span>
+          <p class="text-[15px] text-text-secondary">Run one short source end to end first, so that you see what is sent and what comes back before you commit the corpus.</p>
         </div>
       </div>
     </div>

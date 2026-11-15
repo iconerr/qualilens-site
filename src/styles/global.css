@@ -1,20 +1,38 @@
 @import "tailwindcss";
 
+/*
+  Register (2026-11-15): warm stone greys, IBM Plex Serif headings over
+  IBM Plex Sans, ink-filled main buttons. Violet is the mark's colour and is
+  used only for links, focus, and the logo — never for fills. The gold is the
+  coded-source reader's highlight, used sparingly as the site's one accent.
+  Mock and before/after captures: 00 Quali Analysis/devnotes/design/2026-11-15-site/
+*/
+
 @theme {
-  --color-brand-600: #7e14ff;
-  --color-brand-500: #863bff;
-  --color-brand-400: #a366ff;
-  --color-brand-100: #ede6ff;
-  --color-brand-50: #f7f3ff;
-  --color-accent: #47bfff;
-  --color-accent-light: #d4efff;
-  --color-surface: #f5f4f7;
-  --color-text-primary: #1a1625;
-  --color-text-secondary: #4a4458;
-  --color-text-muted: #706a86;
-  --color-border: #e8e4ef;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  /* Paper and ink */
+  --color-paper: #fbfaf7;
+  --color-panel: #f4f2ee;
+  --color-ink: #1c1917;
+  --color-ink-hover: #3a3532;
+  --color-rule: #e4e0da;
+  --color-rule-strong: #cfc9c1;
+  --color-highlight: #f9e7a3;
+
+  /* Older token names, remapped to the register so any untouched use stays coherent */
+  --color-brand-600: #5b23c9;   /* link hover, active */
+  --color-brand-500: #6d2ee6;   /* links: the app's violet */
+  --color-brand-400: #8f6af0;
+  --color-brand-100: #ece6fb;
+  --color-brand-50: #f6f3fd;
+  --color-surface: #f4f2ee;
+  --color-text-primary: #1c1917;
+  --color-text-secondary: #44403c;
+  --color-text-muted: #6f6a64;
+  --color-border: #e4e0da;
+
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 }
 
 @layer base {
@@ -25,12 +43,89 @@
 
   body {
     font-family: var(--font-sans);
-    color: var(--color-text-primary);
-    background: #fff;
+    color: var(--color-ink);
+    background: var(--color-paper);
+    line-height: 1.6;
+  }
+
+  h1, h2 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
 
   ::selection {
-    background: var(--color-brand-100);
-    color: var(--color-brand-600);
+    background: var(--color-highlight);
+    color: var(--color-ink);
   }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    font: 500 15px/1 var(--font-sans); padding: 12px 18px; border-radius: 6px;
+    border: 1px solid transparent; text-decoration: none; white-space: nowrap;
+    transition: background-color .15s, border-color .15s, color .15s;
+  }
+  .btn-ink { background: var(--color-ink); border-color: var(--color-ink); color: #fff; }
+  .btn-ink:hover { background: var(--color-ink-hover); border-color: var(--color-ink-hover); color: #fff; }
+  .btn-line { background: transparent; border-color: var(--color-rule-strong); color: var(--color-ink); }
+  .btn-line:hover { border-color: var(--color-ink); }
+  .btn-sm { padding: 8px 14px; font-size: 14px; }
+
+  .link {
+    color: var(--color-brand-500);
+    text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;
+    text-decoration-color: color-mix(in srgb, var(--color-brand-500) 40%, transparent);
+  }
+  .link:hover { color: var(--color-brand-600); text-decoration-color: currentColor; }
+  .link-strong { font-weight: 500; }
+
+  /* Page title block for inner pages */
+  .page-head { padding: 64px 0 40px; border-bottom: 1px solid var(--color-rule); }
+  .page-head h1 { font-size: clamp(34px, 4vw, 46px); line-height: 1.12; }
+  .page-head p { font-size: 18px; line-height: 1.6; color: var(--color-text-secondary); max-width: 40em; margin-top: 14px; }
+
+  /* Screenshot frame */
+  .shot {
+    background: #fff; border: 1px solid var(--color-rule); border-radius: 8px; overflow: hidden;
+    box-shadow: 0 1px 2px rgba(28,25,23,.04), 0 8px 24px -12px rgba(28,25,23,.12);
+  }
+  .shot img { display: block; width: 100%; height: auto; }
+  .caption { font-size: 14px; line-height: 1.55; color: var(--color-text-muted); margin-top: 12px; }
+  .caption b { color: var(--color-text-secondary); font-weight: 500; }
+
+  /* Notes and warnings */
+  .note { background: var(--color-panel); border-left: 2px solid var(--color-rule-strong); border-radius: 0 6px 6px 0; padding: 14px 18px; }
+  .note-warn { border-left-color: #b45309; }
+  .note > * { min-width: 0; }
+
+  /* Command blocks */
+  .cmd {
+    position: relative; background: #fff; border: 1px solid var(--color-rule); border-radius: 6px;
+    padding: 12px 44px 12px 16px; overflow-x: auto;
+    font-family: var(--font-mono); font-size: 14px; line-height: 1.6; color: var(--color-ink);
+  }
+  .cmd code { font-family: inherit; }
+  .code-inline {
+    font-family: var(--font-mono); font-size: 0.85em; background: var(--color-panel);
+    border: 1px solid var(--color-rule); border-radius: 3px; padding: 1px 5px; color: var(--color-ink);
+    overflow-wrap: anywhere;
+  }
+
+  td .code-inline { white-space: nowrap; overflow-wrap: normal; }
+
+  /* Plain bordered table */
+  .table-plain { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.5; background: #fff; border: 1px solid var(--color-rule); }
+  .table-plain th, .table-plain td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--color-rule); }
+  .table-plain thead th { font-size: 13px; font-weight: 500; color: var(--color-text-muted); background: var(--color-panel); border-bottom-color: var(--color-rule-strong); }
+  .table-plain tbody tr:last-child > * { border-bottom: 0; }
+  .table-plain td { color: var(--color-text-secondary); }
+  .table-plain .row-head { color: var(--color-ink); font-weight: 500; }
 }

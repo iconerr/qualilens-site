@@ -1,267 +1,266 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Title follows CITATION.cff and the Zenodo record (the concept DOI resolves to the latest version)
+const bibtex = `@software{aggarwal2026qualilens,
+  author    = {Aggarwal, Ashita and Commuri, Suraj},
+  title     = {{QualiLens: A local application for LLM-assisted qualitative data analysis}},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.22191913},
+  url       = {https://doi.org/10.5281/zenodo.22191913}
+}`;
 ---
 
 <BaseLayout title="QualiLens — LLM-Assisted Qualitative Data Analysis">
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-accent-light/30"></div>
-    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-100/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-    <div class="relative max-w-6xl mx-auto px-6 pt-16 pb-14 md:pt-24 md:pb-20">
-      <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-100/60 text-brand-600 text-xs font-semibold mb-4">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
-          Free &amp; open source &middot; Apache 2.0
+  <!-- Hero: the claim, then the evidence for it -->
+  <section class="hero">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="hero-grid">
+        <h1>Qualitative analysis with <span class="l2"><span class="mark-hl">AI you can audit.</span></span></h1>
+        <p class="lede">QualiLens runs five established qualitative methods — from grounded theory to literature synthesis — with LLM coding that pauses for your review, keeps verbatim provenance on all excerpts, and stays entirely on your machine.</p>
+        <div class="hero-aside">
+          <div class="actions">
+            <a class="btn btn-ink" href="/download">Get QualiLens</a>
+            <a class="link link-strong" href="/features">See how it works →</a>
+          </div>
+          <ul class="meta">
+            <li>Free and open source, Apache 2.0</li>
+            <li>Mac with Apple silicon, or Linux</li>
+            <li class="who">Ashita Aggarwal and Suraj Commuri</li>
+            <li><a href="https://doi.org/10.5281/zenodo.22191913">doi:10.5281/zenodo.22191913</a> · <a href="#cite">How to cite</a></li>
+          </ul>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-5">
-          Qualitative analysis<br />
-          <span class="text-brand-500">with AI you can audit.</span>
-        </h1>
-        <p class="text-lg md:text-xl text-text-secondary leading-relaxed mb-6 max-w-2xl">
-          QualiLens runs five established qualitative methods — from grounded theory to literature synthesis — with LLM coding that pauses for your review, keeps verbatim provenance on all excerpts, and stays entirely on your machine.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="/download" class="inline-flex items-center gap-2.5 px-6 py-3.5 bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors shadow-lg shadow-brand-500/20">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" /></svg>
-            Get QualiLens
-          </a>
-          <a href="/features" class="inline-flex items-center gap-2 px-6 py-3.5 border border-border text-text-primary font-semibold hover:border-brand-400 hover:text-brand-600 transition-colors">
-            See how it works
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </a>
+      </div>
+
+      <figure class="hero-figure">
+        <div class="shot">
+          <picture>
+            <source media="(max-width: 600px)" srcset="/screenshots/app-coded-source-reader-crop-phone.png" width="896" height="475" />
+            <img src="/screenshots/app-coded-source-reader-crop.png" width="1400" height="724" alt="QualiLens coded-source reader: interview transcript with coded passages shaded in gold, minimap along the left edge, and a code panel listing all codes in the document" />
+          </picture>
+        </div>
+        <figcaption class="caption"><b>The coded-source reader.</b> Each coded passage is shaded where it occurs in the transcript<span class="wide-only">, with every code in the document listed beside it</span>. Quotes in the report link back to these exact positions.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Workflow -->
+  <section class="block" id="workflow">
+    <div class="max-w-6xl mx-auto px-6 split">
+      <div>
+        <h2>Five steps to a complete analysis</h2>
+        <p class="intro">A five-step wizard handles method selection, configuration, model choice, data upload, and cost estimation. The pipeline then runs, pausing at each checkpoint for your review.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Choose a method</h3><p>Grounded theory, thematic analysis, content analysis, framework coding, or literature synthesis.</p></li>
+        <li><h3>Configure</h3><p>Set your research question, method-specific options, and any codebook or framework.</p></li>
+        <li><h3>Pick a model</h3><p>Anthropic, OpenAI, Google, or Mistral — your key, your account, direct connection.</p></li>
+        <li><h3>Upload data</h3><p>Drag in documents, PDFs, or recordings. Transcription runs automatically.</p></li>
+        <li><h3>Review &amp; run</h3><p>See a cost estimate, start the pipeline, and approve each checkpoint.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Methods -->
+  <section class="block" id="methods">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2>Five established methods</h2>
+      <p class="intro">Each method follows its own epistemology. QualiLens implements distinct pipelines with method-appropriate stages, checkpoints, and figures.</p>
+      <table class="methods">
+        <colgroup><col style="width:19%" /><col style="width:32%" /><col style="width:29%" /><col style="width:20%" /></colgroup>
+        <thead>
+          <tr><th scope="col">Method</th><th scope="col">Stages</th><th scope="col">Checkpoints</th><th scope="col">Report figure</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Grounded theory</th><td data-label="Stages">Familiarization, open coding, axial coding, selective coding</td><td data-label="Checkpoints">Code review, core category, theoretical model</td><td data-label="Report figure">Paradigm flow model</td></tr>
+          <tr><th scope="row">Thematic analysis</th><td data-label="Stages">Familiarization, initial coding, theme construction, theme review</td><td data-label="Checkpoints">Code review, theme refinement</td><td data-label="Report figure">Thematic map</td></tr>
+          <tr><th scope="row">Content analysis</th><td data-label="Stages">Codebook derivation or import, systematic coding</td><td data-label="Checkpoints">Codebook approval, frequency review</td><td data-label="Report figure">Frequency bar chart</td></tr>
+          <tr><th scope="row">Framework coding</th><td data-label="Stages">Apply framework, chart by source, build matrix</td><td data-label="Checkpoints">Low-confidence review, emergent codes, matrix</td><td data-label="Report figure">Framework heatmap</td></tr>
+          <tr><th scope="row">Literature synthesis</th><td data-label="Stages">Structured extraction, cross-paper synthesis, concept matrix</td><td data-label="Checkpoints">Extraction table, concept review</td><td data-label="Report figure">Concept-by-paper heatmap</td></tr>
+        </tbody>
+      </table>
+      <div class="note-row">
+        <p><strong>Built for researchers.</strong> Each method follows published methodological commitments. The wizard records your choices verbatim, so you have a record for the methods section.</p>
+        <a class="link link-strong" href="/features">Explore all features →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Differences: claims beside evidence -->
+  <section class="block" id="why">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2>What makes QualiLens different</h2>
+      <p class="intro">Established CAQDAS platforms host your data on their servers or require per-seat licenses. QualiLens is open source, runs locally, and replaces manual coding with auditable LLM-assisted coding behind researcher-controlled checkpoints.</p>
+
+      <div class="diff-grid">
+        <figure class="diff-figure">
+          <div class="shot"><img src="/screenshots/app-checkpoint-evidence-crop.png" width="1060" height="872" alt="QualiLens checkpoint: reviewing concepts with evidence panel showing verbatim quotes and source links" loading="lazy" /></div>
+          <figcaption class="caption"><b>A checkpoint.</b> The pipeline waits while you rename, merge, or delete concepts; each one shows the papers and verbatim quotes behind it.</figcaption>
+        </figure>
+        <div class="claims">
+          <div><h3>Researcher-led checkpoints</h3><p>The pipeline pauses at each analytic decision point. Your edits are final and are not overwritten by later automated stages.</p></div>
+          <div><h3>Provenance on all excerpts</h3><p>Each coded passage stores the verbatim quote and its character position. The coded-source reader draws coding over each document in place.</p></div>
+          <div><h3>Full audit trail</h3><p>All stage boundaries, model calls, and researcher decisions are logged. The report appendix reproduces this trail for reviewers.</p></div>
+          <div><h3>Runs locally</h3><p>No QualiLens server. Your data go only to the AI provider you chose, over a direct API connection. Nothing is collected.</p></div>
+          <div><h3>Four providers, your key</h3><p>Anthropic, OpenAI, Google, and Mistral. Cost estimation before each run, and resumable runs that don't re-bill finished work.</p></div>
+          <div><h3>Reports and Word export</h3><p>Interactive report with narrative sections, method-appropriate figures, full evidence chains, and one-click Word export.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How it works: 5-step wizard -->
-  <section class="py-14 md:py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-10">
-        <p class="text-xs font-semibold uppercase tracking-widest text-brand-500 mb-2">The workflow</p>
-        <h2 class="text-2xl md:text-3xl font-bold mb-3">Five steps to a complete analysis</h2>
-        <p class="text-text-secondary text-lg max-w-2xl mx-auto">A five-step wizard handles method selection, configuration, model choice, data upload, and cost estimation. The pipeline then runs, pausing at each checkpoint for your review.</p>
+  <!-- Privacy + start -->
+  <section class="block" id="start">
+    <div class="max-w-6xl mx-auto px-6 pair">
+      <div>
+        <h2>Your data stay on your computer.</h2>
+        <p>No QualiLens server, no telemetry, no analytics, no background connections. Analysis calls go directly to the provider whose key you supplied — and nowhere else.</p>
+        <a class="link link-strong" href="/privacy">Read the full privacy statement →</a>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-        <div class="relative p-6 bg-white border border-border/60 shadow-md hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-100/60 transition-all group">
-          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-          </div>
-          <div class="text-xs font-bold text-brand-500 mb-1">Step 1</div>
-          <h3 class="font-semibold text-text-primary mb-2">Choose a method</h3>
-          <p class="text-sm text-text-secondary leading-relaxed">Grounded theory, thematic analysis, content analysis, framework coding, or literature synthesis.</p>
-        </div>
-
-        <div class="relative p-6 bg-white border border-border/60 shadow-md hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-100/60 transition-all group">
-          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </div>
-          <div class="text-xs font-bold text-brand-500 mb-1">Step 2</div>
-          <h3 class="font-semibold text-text-primary mb-2">Configure</h3>
-          <p class="text-sm text-text-secondary leading-relaxed">Set your research question, method-specific options, and any codebook or framework.</p>
-        </div>
-
-        <div class="relative p-6 bg-white border border-border/60 shadow-md hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-100/60 transition-all group">
-          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <div class="text-xs font-bold text-brand-500 mb-1">Step 3</div>
-          <h3 class="font-semibold text-text-primary mb-2">Pick a model</h3>
-          <p class="text-sm text-text-secondary leading-relaxed">Anthropic, OpenAI, Google, or Mistral — your key, your account, direct connection.</p>
-        </div>
-
-        <div class="relative p-6 bg-white border border-border/60 shadow-md hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-100/60 transition-all group">
-          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
-          </div>
-          <div class="text-xs font-bold text-brand-500 mb-1">Step 4</div>
-          <h3 class="font-semibold text-text-primary mb-2">Upload data</h3>
-          <p class="text-sm text-text-secondary leading-relaxed">Drag in documents, PDFs, or recordings. Transcription runs automatically.</p>
-        </div>
-
-        <div class="relative p-6 bg-white border border-border/60 shadow-md hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-100/60 transition-all group">
-          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <div class="text-xs font-bold text-brand-500 mb-1">Step 5</div>
-          <h3 class="font-semibold text-text-primary mb-2">Review &amp; run</h3>
-          <p class="text-sm text-text-secondary leading-relaxed">See a cost estimate, start the pipeline, and approve each checkpoint.</p>
+      <div>
+        <h2>Ready to start?</h2>
+        <p>QualiLens requires a Mac with Apple silicon or a Linux computer (on Windows, WSL), Python 3.11+, and an API key from any supported provider. A single-document analysis typically costs a few cents.</p>
+        <div class="actions">
+          <a class="btn btn-ink" href="/getting-started">Getting started guide</a>
+          <a class="btn btn-line" href="https://github.com/iconerr/qualilens" target="_blank" rel="noopener">View on GitHub</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Five methods -->
-  <section class="py-14 md:py-20 bg-surface">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-10">
-        <p class="text-xs font-semibold uppercase tracking-widest text-brand-500 mb-2">Methods</p>
-        <h2 class="text-2xl md:text-3xl font-bold mb-3">Five established methods</h2>
-        <p class="text-text-secondary text-lg max-w-2xl mx-auto">Each method follows its own epistemology. QualiLens implements distinct pipelines with method-appropriate stages, checkpoints, and figures.</p>
+  <!-- Cite (moved up from the footer; title follows CITATION.cff and the Zenodo record) -->
+  <section class="cite" id="cite">
+    <div class="max-w-6xl mx-auto px-6 cite-grid">
+      <div>
+        <h2>Cite QualiLens</h2>
+        <p class="cite-sub">If QualiLens contributed to your analysis, please cite the software.</p>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="p-6 bg-gradient-to-br from-purple-500/10 to-brand-100/40 border border-border/60 shadow-md">
-          <h3 class="text-lg font-bold mb-3">Grounded Theory</h3>
-          <dl class="space-y-3 text-sm">
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Stages</dt><dd class="text-text-secondary leading-relaxed">Familiarization, open coding, axial coding, selective coding</dd></div>
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Checkpoints</dt><dd class="text-text-secondary leading-relaxed">Code review, core category, theoretical model</dd></div>
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Report figure</dt><dd class="text-text-secondary leading-relaxed">Paradigm flow model</dd></div>
-          </dl>
+      <div>
+        <p class="ref" id="ref-apa">Aggarwal, A., &amp; Commuri, S. (2026). <em>QualiLens: A local application for LLM-assisted qualitative data analysis</em> [Computer software]. Zenodo. <a class="link" href="https://doi.org/10.5281/zenodo.22191913">https://doi.org/10.5281/zenodo.22191913</a></p>
+        <div class="ref-actions">
+          <button class="copy-cite" type="button" data-copy="ref-apa">Copy APA</button>
+          <button class="copy-cite" type="button" data-copy="ref-bibtex">Copy BibTeX</button>
+          <span id="cite-status" aria-live="polite"></span>
         </div>
-
-        <div class="p-6 bg-gradient-to-br from-blue-500/10 to-accent-light/40 border border-border/60 shadow-md">
-          <h3 class="text-lg font-bold mb-3">Thematic Analysis</h3>
-          <dl class="space-y-3 text-sm">
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Stages</dt><dd class="text-text-secondary leading-relaxed">Familiarization, initial coding, theme construction, theme review</dd></div>
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Checkpoints</dt><dd class="text-text-secondary leading-relaxed">Code review, theme refinement</dd></div>
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Report figure</dt><dd class="text-text-secondary leading-relaxed">Thematic map</dd></div>
-          </dl>
-        </div>
-
-        <div class="p-6 bg-gradient-to-br from-emerald-500/10 to-emerald-50 border border-border/60 shadow-md">
-          <h3 class="text-lg font-bold mb-3">Content Analysis</h3>
-          <dl class="space-y-3 text-sm">
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Stages</dt><dd class="text-text-secondary leading-relaxed">Codebook derivation or import, systematic coding</dd></div>
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Checkpoints</dt><dd class="text-text-secondary leading-relaxed">Codebook approval, frequency review</dd></div>
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Report figure</dt><dd class="text-text-secondary leading-relaxed">Frequency bar chart</dd></div>
-          </dl>
-        </div>
-
-        <div class="p-6 bg-gradient-to-br from-amber-500/10 to-amber-50 border border-border/60 shadow-md">
-          <h3 class="text-lg font-bold mb-3">Framework Coding</h3>
-          <dl class="space-y-3 text-sm">
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Stages</dt><dd class="text-text-secondary leading-relaxed">Apply framework, chart by source, build matrix</dd></div>
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Checkpoints</dt><dd class="text-text-secondary leading-relaxed">Low-confidence review, emergent codes, matrix</dd></div>
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Report figure</dt><dd class="text-text-secondary leading-relaxed">Framework heatmap</dd></div>
-          </dl>
-        </div>
-
-        <div class="p-6 bg-gradient-to-br from-rose-500/10 to-rose-50 border border-border/60 shadow-md">
-          <h3 class="text-lg font-bold mb-3">Literature Synthesis</h3>
-          <dl class="space-y-3 text-sm">
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Stages</dt><dd class="text-text-secondary leading-relaxed">Structured extraction, cross-paper synthesis, concept matrix</dd></div>
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Checkpoints</dt><dd class="text-text-secondary leading-relaxed">Extraction table, concept review</dd></div>
-            <div><dt class="font-medium text-text-muted text-xs uppercase tracking-wide mb-1">Report figure</dt><dd class="text-text-secondary leading-relaxed">Concept-by-paper heatmap</dd></div>
-          </dl>
-        </div>
-
-        <div class="p-6 bg-brand-600 text-white flex flex-col justify-center">
-          <h3 class="text-lg font-bold mb-3">Built for researchers</h3>
-          <p class="text-white/80 text-sm leading-relaxed mb-5">Each method follows published methodological commitments. The wizard records your choices verbatim, so you have a record for the methods section.</p>
-          <a href="/features" class="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-brand-100 transition-colors">
-            Explore all features
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Key differentiators -->
-  <section class="py-14 md:py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-10">
-        <p class="text-xs font-semibold uppercase tracking-widest text-brand-500 mb-2">Why QualiLens</p>
-        <h2 class="text-2xl md:text-3xl font-bold mb-3">What makes QualiLens different</h2>
-        <p class="text-text-secondary text-lg max-w-2xl mx-auto">Established CAQDAS platforms host your data on their servers or require per-seat licenses. QualiLens is open source, runs locally, and replaces manual coding with auditable LLM-assisted coding behind researcher-controlled checkpoints.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="flex gap-4 p-5 bg-white border border-border/60 shadow-md">
-          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-1.5">Researcher-led checkpoints</h3>
-            <p class="text-sm text-text-secondary leading-relaxed">The pipeline pauses at each analytic decision point. Your edits are final and are not overwritten by later automated stages.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4 p-5 bg-white border border-border/60 shadow-md">
-          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-1.5">Provenance on all excerpts</h3>
-            <p class="text-sm text-text-secondary leading-relaxed">Each coded passage stores the verbatim quote and its character position. The coded-source reader draws coding over each document in place.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4 p-5 bg-white border border-border/60 shadow-md">
-          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-1.5">Full audit trail</h3>
-            <p class="text-sm text-text-secondary leading-relaxed">All stage boundaries, model calls, and researcher decisions are logged. The report appendix reproduces this trail for reviewers.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4 p-5 bg-white border border-border/60 shadow-md">
-          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-1.5">Runs locally</h3>
-            <p class="text-sm text-text-secondary leading-relaxed">No QualiLens server. Your data go only to the AI provider you chose, over a direct API connection. Nothing is collected.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4 p-5 bg-white border border-border/60 shadow-md">
-          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-1.5">Four providers, your key</h3>
-            <p class="text-sm text-text-secondary leading-relaxed">Anthropic, OpenAI, Google, and Mistral. Cost estimation before each run, and resumable runs that don't re-bill finished work.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4 p-5 bg-white border border-border/60 shadow-md">
-          <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-1.5">Reports and Word export</h3>
-            <p class="text-sm text-text-secondary leading-relaxed">Interactive report with narrative sections, method-appropriate figures, full evidence chains, and one-click Word export.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Privacy + Getting started -->
-  <section class="py-14 md:py-20 bg-brand-50 border-y border-brand-100">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
-        <!-- Privacy -->
-        <div>
-          <h2 class="text-2xl md:text-3xl font-bold mb-3 text-text-primary">Your data stay on your computer.</h2>
-          <p class="text-text-secondary text-lg leading-relaxed mb-5">No QualiLens server, no telemetry, no analytics, no background connections. Analysis calls go directly to the provider whose key you supplied — and nowhere else.</p>
-          <a href="/privacy" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors">
-            Read the full privacy statement
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <!-- Getting started -->
-        <div>
-          <h2 class="text-2xl md:text-3xl font-bold mb-3">Ready to start?</h2>
-          <p class="text-text-secondary text-lg mb-6">QualiLens requires a Mac with Apple silicon or a Linux computer (on Windows, WSL), Python 3.11+, and an API key from any supported provider. A single-document analysis typically costs a few cents.</p>
-          <div class="flex flex-wrap gap-4">
-            <a href="/getting-started" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-colors shadow-lg shadow-brand-500/20">
-              Getting started guide
-            </a>
-            <a href="https://github.com/iconerr/qualilens" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3.5 border border-border text-text-primary font-semibold hover:border-brand-400 hover:text-brand-600 transition-colors bg-white">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              View on GitHub
-            </a>
-          </div>
-        </div>
+        <details class="bib">
+          <summary>Show BibTeX</summary>
+          <pre id="ref-bibtex">{bibtex}</pre>
+        </details>
       </div>
     </div>
   </section>
 
 </BaseLayout>
+
+<script>
+  const status = document.getElementById('cite-status');
+  document.querySelectorAll<HTMLButtonElement>('.copy-cite').forEach(btn => btn.addEventListener('click', async () => {
+    const source = document.getElementById(btn.dataset.copy || '');
+    if (!source || !status) return;
+    const text = (source.textContent || '').replace(/\s+\n/g, '\n').trim();
+    try { await navigator.clipboard.writeText(text); status.textContent = btn.textContent?.replace('Copy ', '') + ' copied.'; }
+    catch { status.textContent = 'Select the text to copy it.'; }
+    setTimeout(() => { status.textContent = ''; }, 2400);
+  }));
+</script>
+
+<style>
+  /* hero */
+  .hero { padding-top: 72px; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 28px 64px; align-items: start; }
+  .hero h1 { font-size: clamp(36px, 4.6vw, 56px); line-height: 1.1; letter-spacing: -0.012em; grid-column: 1 / -1; text-wrap: balance; }
+  @media (min-width: 360px) { .hero h1 .mark-hl { white-space: nowrap; } }
+  @media (min-width: 761px) { .hero h1 .l2 { display: block; } }
+  .mark-hl {
+    background: linear-gradient(to bottom, transparent 14%, var(--color-highlight) 14%, var(--color-highlight) 94%, transparent 94%);
+    -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 .06em;
+  }
+  .lede { font-size: 19px; line-height: 1.6; color: var(--color-text-secondary); max-width: 40em; }
+  .hero-aside { display: grid; gap: 20px; padding-top: 4px; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+  .meta { list-style: none; margin: 0; padding: 14px 0 0; border-top: 1px solid var(--color-rule); display: grid; gap: 3px; font-size: 14px; line-height: 1.5; color: var(--color-text-muted); }
+  .meta a { color: var(--color-text-secondary); text-decoration: underline; text-decoration-color: var(--color-rule-strong); text-underline-offset: 3px; }
+  .meta a:hover { color: var(--color-brand-500); }
+  .meta .who { color: var(--color-text-secondary); }
+  .hero-figure { margin: 56px 0 0; }
+  @media (max-width: 600px) { .wide-only { display: none; } }
+
+  /* sections */
+  .block { padding: 88px 0; border-top: 1px solid var(--color-rule); }
+  .hero + .block { margin-top: 88px; }
+  .block h2 { font-size: clamp(28px, 3vw, 34px); line-height: 1.2; }
+  .intro { font-size: 17px; line-height: 1.65; color: var(--color-text-secondary); max-width: 38em; margin-top: 14px; }
+  .split { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 32px 72px; align-items: start; }
+
+  /* workflow */
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; border-top: 1px solid var(--color-ink); }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 40px minmax(0, 11rem) minmax(0, 1fr); gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--color-rule); align-items: baseline; }
+  .steps li::before { content: counter(step); font-family: var(--font-serif); font-size: 22px; color: var(--color-text-muted); line-height: 1; }
+  .steps h3 { font-size: 16px; font-weight: 600; }
+  .steps p { color: var(--color-text-secondary); }
+
+  /* methods table */
+  table.methods { width: 100%; margin-top: 36px; border-collapse: collapse; font-size: 15px; line-height: 1.5; background: #fff; border: 1px solid var(--color-rule); }
+  .methods th, .methods td { text-align: left; vertical-align: top; padding: 16px 20px; border-bottom: 1px solid var(--color-rule); }
+  .methods thead th { font-size: 13px; font-weight: 500; color: var(--color-text-muted); background: var(--color-panel); border-bottom: 1px solid var(--color-rule-strong); padding-top: 12px; padding-bottom: 12px; }
+  .methods tbody th { font-family: var(--font-serif); font-weight: 500; font-size: 17px; }
+  .methods tbody tr:last-child > * { border-bottom: 0; }
+  .methods td { color: var(--color-text-secondary); }
+  .note-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 40px; align-items: baseline; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-rule); }
+  .note-row p { color: var(--color-text-secondary); max-width: 46em; }
+  .note-row strong { color: var(--color-ink); font-weight: 600; }
+
+  /* differences */
+  .diff-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 40px 64px; margin-top: 44px; align-items: start; }
+  .diff-figure { margin: 0; position: sticky; top: 88px; }
+  .claims { border-top: 1px solid var(--color-ink); }
+  .claims div { padding: 18px 0; border-bottom: 1px solid var(--color-rule); }
+  .claims h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .claims p { color: var(--color-text-secondary); font-size: 15.5px; }
+
+  /* privacy + start */
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 72px; }
+  .pair p { color: var(--color-text-secondary); font-size: 17px; line-height: 1.65; margin: 14px 0 22px; max-width: 34em; }
+  .pair .actions { gap: 12px; }
+
+  /* cite */
+  .cite { background: var(--color-panel); border-top: 1px solid var(--color-rule); padding: 56px 0; scroll-margin-top: 64px; }
+  .cite-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 20px 72px; align-items: start; }
+  .cite h2 { font-size: 24px; }
+  .cite-sub { color: var(--color-text-muted); font-size: 15px; margin-top: 8px; }
+  .ref { font-family: var(--font-serif); font-size: 18px; line-height: 1.6; padding-left: 20px; border-left: 2px solid var(--color-rule-strong); overflow-wrap: anywhere; }
+  .ref-actions { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: center; margin-top: 16px; padding-left: 22px; font-size: 14px; color: var(--color-text-muted); }
+  .copy-cite { font: 500 14px/1 var(--font-sans); background: #fff; color: var(--color-ink); border: 1px solid var(--color-rule-strong); border-radius: 6px; padding: 8px 12px; cursor: pointer; }
+  .copy-cite:hover { border-color: var(--color-ink); }
+  .bib { margin: 14px 0 0 22px; font-size: 14px; color: var(--color-text-muted); }
+  .bib summary { cursor: pointer; width: max-content; }
+  .bib summary:hover { color: var(--color-ink); }
+  .bib pre { margin: 10px 0 0; padding: 14px 16px; background: #fff; border: 1px solid var(--color-rule); border-radius: 6px; font: 400 13px/1.55 var(--font-mono); color: var(--color-text-secondary); overflow-x: auto; }
+
+  /* responsive */
+  @media (max-width: 960px) {
+    .hero-grid, .split, .diff-grid, .pair, .cite-grid { grid-template-columns: 1fr; }
+    .diff-figure { position: static; }
+  }
+  @media (max-width: 760px) {
+    .hero { padding-top: 44px; }
+    .lede { font-size: 17.5px; }
+    .hero-figure { margin-top: 40px; }
+    .block { padding: 60px 0; }
+    .hero + .block { margin-top: 60px; }
+    .steps li { grid-template-columns: 28px minmax(0, 1fr); }
+    .steps li p { grid-column: 2; }
+    .note-row { grid-template-columns: 1fr; }
+    .methods, .methods tbody, .methods tr, .methods th, .methods td { display: block; width: 100%; }
+    .methods colgroup { display: none; }
+    .methods thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .methods tbody tr { border-bottom: 1px solid var(--color-rule); padding: 6px 0 10px; }
+    .methods tbody tr:last-child { border-bottom: 0; }
+    .methods tbody th { padding: 12px 16px 4px; border: 0; }
+    .methods td { border: 0; padding: 4px 16px; }
+    .methods td::before { content: attr(data-label); display: block; font-size: 13px; color: var(--color-text-muted); }
+    .ref { font-size: 16.5px; }
+  }
+</style>
