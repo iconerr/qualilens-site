@@ -138,7 +138,7 @@ const bibtex = `@software{aggarwal2026qualilens,
   <section class="cite" id="cite">
     <div class="max-w-6xl mx-auto px-6 cite-grid">
       <div>
-        <h2>Cite QualiLens</h2>
+        <h2 id="cite-heading" tabindex="-1">Cite QualiLens</h2>
         <p class="cite-sub">If QualiLens contributed to your analysis, please cite the software.</p>
       </div>
       <div>
@@ -168,6 +168,32 @@ const bibtex = `@software{aggarwal2026qualilens,
     catch { status.textContent = 'Select the text to copy it.'; }
     setTimeout(() => { status.textContent = ''; }, 2400);
   }));
+
+  // "How to cite" (in the hero and the footer) and arrivals at /#cite: bring the
+  // Cite section to the bottom of the window and mark the reference briefly in
+  // the reader's gold, so the link visibly does something even when the section
+  // is already in view (at the foot of the page the browser cannot scroll further).
+  const cite = document.getElementById('cite');
+  const ref = document.getElementById('ref-apa');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function showCite(animate: boolean) {
+    if (!cite || !ref) return;
+    // move focus to the heading (for screen readers) without scrolling, then scroll
+    document.getElementById('cite-heading')?.focus({ preventScroll: true });
+    cite.scrollIntoView({ block: 'end', behavior: animate && !reduceMotion ? 'smooth' : 'instant' });
+    ref.classList.remove('flash'); void ref.offsetWidth; ref.classList.add('flash');
+  }
+  document.addEventListener('click', e => {
+    const a = (e.target as Element | null)?.closest?.('a[href="#cite"], a[href="/#cite"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    if (location.hash !== '#cite') history.pushState(null, '', '#cite');
+    showCite(true);
+  });
+  if (location.hash === '#cite') {
+    if (document.readyState === 'complete') showCite(false);
+    else addEventListener('load', () => showCite(false), { once: true });
+  }
 </script>
 
 <style>
@@ -243,7 +269,13 @@ const bibtex = `@software{aggarwal2026qualilens,
   .cite-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 20px 72px; align-items: start; }
   .cite h2 { font-size: 24px; }
   .cite-sub { color: var(--color-text-muted); font-size: 15px; margin-top: 8px; }
-  .ref { font-family: var(--font-serif); font-size: 18px; line-height: 1.6; padding-left: 20px; border-left: 2px solid var(--color-rule-strong); overflow-wrap: anywhere; }
+  .ref { font-family: var(--font-serif); font-size: 18px; line-height: 1.6; padding-left: 20px; border-left: 2px solid var(--color-rule-strong); overflow-wrap: anywhere; border-radius: 0 4px 4px 0; }
+  .ref.flash { animation: cite-flash 1.8s ease-out; }
+  @keyframes cite-flash {
+    0%, 30% { background-color: var(--color-highlight); box-shadow: 0 0 0 6px var(--color-highlight); }
+    100% { background-color: transparent; box-shadow: 0 0 0 6px transparent; }
+  }
+  #cite-heading:focus { outline: none; }
   .ref-actions { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: center; margin-top: 16px; padding-left: 22px; font-size: 14px; color: var(--color-text-muted); }
   .copy-cite { font: 500 14px/1 var(--font-sans); background: #fff; color: var(--color-ink); border: 1px solid var(--color-rule-strong); border-radius: 6px; padding: 8px 12px; cursor: pointer; }
   .copy-cite:hover { border-color: var(--color-ink); }
