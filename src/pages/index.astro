@@ -86,8 +86,8 @@ const bibtex = `@software{aggarwal2026qualilens,
         <a class="link link-strong" href="/features">Explore all features →</a>
       </div>
       <figure class="method-figure">
-        <a class="figure-link" href="/screenshots/app-grounded-theory-model.png" title="Open the figure at full size"><div class="shot"><img src="/screenshots/app-grounded-theory-model.png" width="1079" height="792" alt="QualiLens report figure for a grounded-theory run: a paradigm flow model in which five categories on the left lead into the core category, Pursuing emotionally satisfying treat experiences within everyday constraints, with two categories to its right" loading="lazy" /></div></a>
-        <figcaption class="caption"><b>A report figure.</b> The paradigm flow model from a grounded-theory run on a sample interview. Conditions, context, and dimensions sit to the left of the core category, strategies and consequences to its right, and each category prints its relationship to the core verbatim. <a class="link" href="/screenshots/app-grounded-theory-model.png">Open full size</a></figcaption>
+        <a class="figure-link" href="/screenshots/app-grounded-theory-model.png" data-figure title="Open the figure at full size"><div class="shot"><img src="/screenshots/app-grounded-theory-model.png" width="1079" height="792" alt="QualiLens report figure for a grounded-theory run: a paradigm flow model in which five categories on the left lead into the core category, Pursuing emotionally satisfying treat experiences within everyday constraints, with two categories to its right" loading="lazy" /></div></a>
+        <figcaption class="caption"><b>A report figure.</b> The paradigm flow model from a grounded-theory run on a sample interview. Conditions, context, and dimensions sit to the left of the core category, strategies and consequences to its right, and each category prints its relationship to the core verbatim.</figcaption>
       </figure>
     </div>
   </section>
@@ -156,9 +156,32 @@ const bibtex = `@software{aggarwal2026qualilens,
     </div>
   </section>
 
+  <!-- The report figure at full size, over the page. Closes with Esc, a click outside the image, or Close.
+       Without JavaScript the links above open the image file instead. -->
+  <dialog class="figure-dialog" id="figure-dialog" aria-label="The paradigm flow model at full size">
+    <div class="fd-inner">
+      <button type="button" class="fd-close" data-close>Close <kbd>Esc</kbd></button>
+      <img src="/screenshots/app-grounded-theory-model.png" width="1079" height="792" alt="QualiLens report figure for a grounded-theory run: a paradigm flow model in which five categories on the left lead into the core category, Pursuing emotionally satisfying treat experiences within everyday constraints, with two categories to its right" loading="lazy" />
+    </div>
+  </dialog>
+
 </BaseLayout>
 
 <script>
+  // Report figure: open in the overlay instead of leaving the page for the bare image
+  const figureDialog = document.getElementById('figure-dialog') as HTMLDialogElement | null;
+  if (figureDialog && typeof figureDialog.showModal === 'function') {
+    document.querySelectorAll<HTMLAnchorElement>('a[data-figure]').forEach(a => a.addEventListener('click', e => {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      figureDialog.showModal();
+    }));
+    figureDialog.addEventListener('click', e => {
+      const t = e.target as Element;
+      if (t === figureDialog || t.classList.contains('fd-inner') || t.closest('[data-close]')) figureDialog.close();
+    });
+  }
+
   const status = document.getElementById('cite-status');
   document.querySelectorAll<HTMLButtonElement>('.copy-cite').forEach(btn => btn.addEventListener('click', async () => {
     const source = document.getElementById(btn.dataset.copy || '');
@@ -242,6 +265,22 @@ const bibtex = `@software{aggarwal2026qualilens,
   .figure-link { display: block; cursor: zoom-in; }
   .figure-link .shot { transition: border-color .15s; }
   .figure-link:hover .shot { border-color: var(--color-rule-strong); }
+
+  /* figure overlay */
+  .figure-dialog { border: 0; padding: 0; margin: 0; width: 100vw; height: 100vh; max-width: none; max-height: none; background: transparent; }
+  .figure-dialog::backdrop { background: rgba(28, 25, 23, .78); }
+  :global(html:has(.figure-dialog[open])) { overflow: hidden; }
+  .fd-inner { position: fixed; inset: 0; display: grid; place-items: center; padding: 64px 24px 24px; overflow: auto; cursor: zoom-out; }
+  .fd-inner img { display: block; max-width: 100%; max-height: calc(100vh - 88px); width: auto; height: auto; background: #fff; border-radius: 8px; box-shadow: 0 16px 48px -12px rgba(0, 0, 0, .5); cursor: default; }
+  .fd-close { position: fixed; top: 16px; right: 20px; display: inline-flex; align-items: baseline; gap: 8px; font: 500 14px/1 var(--font-sans); color: #fff; background: #1c1917; border: 1px solid rgba(255, 255, 255, .32); border-radius: 6px; padding: 9px 12px; cursor: pointer; z-index: 1; }
+  .fd-close:hover { background: #3a3532; }
+  .fd-close kbd { font: 400 12px var(--font-mono); color: rgba(255, 255, 255, .7); }
+  @media (max-width: 760px) {
+    /* on a phone, show it at a readable width and let the reader scroll around it */
+    .fd-inner { place-items: start; padding: 64px 16px 16px; }
+    .fd-inner img { max-width: none; max-height: none; width: 900px; }
+    .fd-close kbd { display: none; }
+  }
   .method-figure .caption { margin-top: 0; padding-top: 14px; border-top: 1px solid var(--color-rule); max-width: 30em; }
   @media (max-width: 960px) {
     .method-figure { grid-template-columns: 1fr; }
